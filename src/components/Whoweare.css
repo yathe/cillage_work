@@ -1,0 +1,104 @@
+.about-us {
+  font-family: 'Arial', sans-serif;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: slideUp 0.5s forwards;
+  animation-delay: 0.6s;
+  padding: 0 2%;
+  margin: 0 auto;
+  /* width: 100%; */
+  /* max-width: 1200px; */
+          background-color: #e1b470;
+}
+
+/* Smaller, classic font size for the main heading (h1) */
+.about-us h1 {
+  font-size: 2.5rem; /* Reduced from 4.5rem */
+  font-weight: bold;
+  color: #000;
+  margin: 0 0 20px 0;
+  text-align: center;
+  background-color: rgb(198, 153, 84);
+  padding: 10px 40px;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUps 0.5s forwards;
+  animation-delay: 1.5s;
+}
+
+/* Smaller font size for subheading (h2) */
+.about-us h2 {
+  text-align: center;
+  font-size: 1.5rem; /* Reduced from 2em */
+  margin-bottom: 15px;
+}
+
+/* Classic font sizing for founder sections */
+.founder {
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+}
+
+/* Reduced font size for founder names (h5) */
+.founder h5 {
+  font-size: 1.3rem; /* Reduced from 1.75em */
+  margin-bottom: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Smaller, standard font size for founder description (p) */
+.founder p {
+  font-size: 1.2rem; /* Reduced from 1.5em */
+  line-height: 1.6;
+  color: black;
+}
+
+/* Responsive adjustments for even smaller font sizes on mobile devices */
+@media (max-width: 768px) {
+  .about-us h1 {
+      font-size: 2rem; /* Slightly smaller for mobile */
+  }
+  .about-us h2 {
+      font-size: 1.25rem; /* Adjusted subheading size for mobile */
+  }
+  .founder h5 {
+      font-size: 1.15rem; /* Reduced font for founder names on mobile */
+  }
+  .founder p {
+      font-size: 0.9rem; /* Reduced paragraph font size on mobile */
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .about-us h1 {
+      font-size: 2.25rem;
+  }
+  .about-us h2 {
+      font-size: 1.4rem;
+  }
+  .founder h5 {
+      font-size: 1.2rem;
+  }
+  .founder p {
+      font-size: 1rem;
+  }
+}
+
+@keyframes slideUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes slideUps {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

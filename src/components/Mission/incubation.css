@@ -1,0 +1,114 @@
+.container {
+   width:100%;
+    padding: 20px;
+    background-color: #e1b470; /* Soft cream background */
+    border: 1px solid #d3b82f; /* Classic golden border */
+    border-radius: 10px;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.header {
+    text-align: center;
+
+}
+
+.header h1 {
+    font-size: 36px;
+    color: #6a4f4b;
+    border-bottom: 3px solid #d3b82f;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Focus Section */
+.focus-section {
+    margin-top: 30px;
+}
+
+.focus-section h2 {
+    font-size: 28px;
+    color: #6a4f4b;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.focus-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.focus-section li {
+    font-size: 18px;
+    color: #4a3c2f;
+    margin-bottom: 10px;
+}
+
+.focus-section p {
+    font-size: 18px;
+    color: #4a3c2f;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Image Section */
+.image-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image {
+    width: 90%; /* Slightly reduced width for balance */
+    max-width: 800px; /* Limit image width on large screens */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .focus-section h2 {
+        font-size: 24px;
+    }
+
+    .image {
+        max-width: 100%; /* Ensure the image is responsive */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .focus-section h2 {
+        font-size: 20px;
+    }
+
+    .focus-section ul {
+        padding-left: 15px;
+    }
+
+    .image {
+        max-width: 100%; /* Ensure the image scales on smaller screens */
+    }
+}

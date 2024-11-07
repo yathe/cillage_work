@@ -1,0 +1,104 @@
+
+/* Whatwedo.css */
+
+.container0 {
+    /* Light brown background */
+   padding: 10px 50px;
+   text-align: center;
+ }
+ .container-1{
+   width: 100%;/* Adjust this value based on the max-width of your content */
+   background-color: rgb(198, 153, 84); /* Semi-transparent background */
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for better contrast */
+   opacity: 0;
+   transform: translateY(-50px);
+   animation: slideUp 0.5s forwards;
+   animation-delay: 0.6s; /* Slight delay before animation starts */
+ }
+ .heade{
+   font-size: 3em;
+   font-weight: bold;
+  text-align: center;
+   color: #000;
+   transform: translateY(50px);
+    opacity: 0;
+    animation: slideUps 0.5s forwards;
+    animation-delay: 1.5s; /* Delay after the container animation */
+ }
+ @keyframes slideUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+@keyframes slideUps {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+ .grid {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 20px;
+ }
+ 
+ .section {
+   width: 300px; /* Default width for larger screens */
+   text-align: center;
+  
+ margin: 20px;
+   border-radius: 8px;
+   position: relative;
+   transition: all 0.3s ease;
+ }
+ 
+ .label {
+   font-size: 1em;
+   font-weight: 500;
+   background-color: #f3c67b;
+   padding: 5px 10px;
+   border-radius: 10px;
+   color: #000;
+  
+   
+ }
+ 
+ .image {
+   width: 100%;
+   height: auto;
+   border-radius: 8px;
+   margin-top: 10px;
+ }
+ 
+ /* Responsive Styles */
+ @media (max-width: 768px) {
+   .heade {
+     font-size: 2em; /* Slightly smaller header on tablets */
+   }
+ 
+   .section {
+     width: 100%; /* Full width for each section on tablets */
+     max-width: 600px; /* Limit max width on larger tablets */
+     margin: 10px auto;
+   }
+ }
+ 
+ @media (max-width: 480px) {
+   .heade{
+     font-size: 1.5em; /* Smaller header on mobile */
+   }
+ 
+   .section {
+     width: 100%; /* Full width on mobile */
+     padding: 10px;
+   }
+ 
+   .label {
+     font-size: 0.9em; /* Slightly smaller label text on mobile */
+     padding: 4px 8px;
+   }
+ }

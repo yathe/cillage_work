@@ -1,0 +1,247 @@
+
+/* General Styles */
+.get-involved {
+    font-family: Arial, sans-serif;
+    color: #000;
+  }
+  
+  /* Top Banner Section */
+  .top-banner {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUps 2.5s forwards;
+    animation-delay: 3.5s; /* Delay after the container animation */
+  }
+  @keyframes slideUps {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  /* Contact Section */
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 30px 20px;
+  }
+  
+  /* Logo and Get in Touch Positioning */
+  .logo-and-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+  }
+  
+  .logo-and-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .cillage-logo {
+    width: 90px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .logo-and-name h5 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-left: 99px;
+    margin-top: -70px;
+    line-height: 1.2;
+  }
+  
+  /* Position "Get in touch" */
+  .overlay-text {
+    
+    display: flex;
+    align-items: center;
+  }
+  
+  .overlay-text h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #0056b3;
+    margin: 0;
+  }
+  
+  .highlight {
+    color: #0056b3;
+    
+    padding: 0 5px;
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  /* Contact Info */
+  .contact-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 800px;
+    margin-top: 70px;
+    text-align: left;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info p {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  
+  .address, .social-links, .email, .phone {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .social-links {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+  }
+  
+  .social-icon {
+    font-size: 1.8rem;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .social-icon:hover {
+    color: #0056b3;
+  }
+  
+  .email p, .phone p {
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive Adjustments */
+  
+  /* Tablet */
+  @media (max-width:1010px){
+    .overlay-text h2 {
+        font-size: 2.5rem;
+      }
+      .highlight {
+        
+        font-size: 2.5rem;
+      }
+  }
+  @media (max-width: 768px) {
+    .logo-and-text {
+      flex-direction: column;
+      justify-content: center;
+      width: 90%;
+    }
+  
+    .cillage-logo {
+      width: 100px;
+      margin-left: 55px;
+    }
+  
+    .logo-and-name h5 {
+      font-size: 1.2rem;
+      margin-left: 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+  
+    .overlay-text {
+      position: relative;
+      margin-top: 20px;
+      text-align: center;
+    }
+  
+    .overlay-text h2 {
+      font-size: 3rem;
+    }
+  
+    .highlight {
+      font-size: 3.5rem;
+    }
+  
+    .contact-info {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .contact-info h3 {
+      font-size: 1.1rem;
+    }
+  
+    .contact-info p, .email p, .phone p {
+      font-size: 1rem;
+    }
+  
+    .icons {
+      justify-content: center;
+    }
+  }
+  
+  /* Mobile */
+  @media (max-width: 480px) {
+    .top-banner {
+      height: 200px;
+    }
+  
+    .logo-and-text {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .cillage-logo {
+      width: 60px;
+    }
+  
+    .logo-and-name h5 {
+      font-size: 1rem;
+    }
+  
+    .overlay-text h2 {
+      font-size: 2.5rem;
+    }
+  
+    .highlight {
+      font-size: 3rem;
+    }
+  
+    .contact-info {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .contact-info h3 {
+      font-size: 1rem;
+    }
+  
+    .contact-info p, .email p, .phone p {
+      font-size: 0.9rem;
+    }
+  
+    .social-icon {
+      font-size: 1.5rem;
+    }
+  }
