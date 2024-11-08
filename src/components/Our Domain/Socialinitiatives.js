@@ -3,7 +3,7 @@ import './Socialinitiatives.css';
 import ag from "../../photos/wa.png";
 import ag1 from "../../photos/wa1.png";
 
-function SocialInit() {
+function Socialinitiatives() {
     return (
         <div className="container">
             <header className="header">
@@ -36,4 +36,4 @@ function SocialInit() {
     );
 }
 
-export default SocialInit;
+export default Socialinitiatives;
