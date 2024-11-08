@@ -1,12 +1,6 @@
 import React from 'react';
-import ag from '../../photos/ag.png';
 import Promote from '../../photos/Promote.png';
 import Sustainable from '../../photos/Sustainable.png';
-// import ag5 from '../../photos/ag5.png';
-import ag6 from '../../photos/ag6.png';
-// import ag7 from '../../photos/ag8.png';
-import ag8 from '../../photos/ag9.png';
-import ag9 from '../../photos/ag10.png';
 import drone from '../../photos/drone.jpg';
 import drip from '../../photos/drip-irrigation.jpg';
 import rainwater from '../../photos/rainwater.jpg';
