@@ -7,7 +7,7 @@ import Supply from '../../photos/Supply.jpg';
 import ag5 from '../../photos/f5.png';
 import './Foodprocessing.css'; // Import the CSS file
 
-function FoodProcessing() {
+function Foodprocessing() {
     return (
         <div className="container">
             <header className="header">
@@ -77,4 +77,4 @@ function FoodProcessing() {
     );
 }
 
-export default FoodProcessing;
+export default Foodprocessing;
