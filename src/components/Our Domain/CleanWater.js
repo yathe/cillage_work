@@ -1,82 +1,116 @@
 import React from "react"
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import About_us from "../About_us";
-import ag from "../../photos/saf.png"
-import ag1 from "../../photos/saf1.png"
-const CleanWater = ()=>{
-    const images = [ag, ag1];
-    const texts = [
-      "UF , nano and  RO membrane filtration Arsenic/Chromium  removal filters",
-      "Solar/Diesel  based mobile water treatment  system Water treatment systems and Water ATMs at community level"
-    ];
-  
-    const settings = {
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      autoplay: true,
-      autoplaySpeed: 2000,
-    };
-  
+import ag from "../../photos/sol.png"
+import ag1 from "../../photos/sol2.png"
+
+
+function SolarEnergy() {
     return (
-    
-      <div style={{ backgroundColor: "#e1b470", padding: "40px",
-        textAlign: "center",
-        fontFamily: "'Times New Roman', Times, serif",
-        color: "#333", }}>
-        <h1 style={{ textAlign: "center", fontSize: "4rem", fontWeight: "bold", color: "blue" }}>Safe Drinking Water</h1>
-        <div style={{ width: "60%", margin: "0 auto 40px auto" }}>
-          <Slider {...settings}>
-            {images.map((src, index) => (
-              <div key={index} style={{ textAlign: "center", color: "#333" }}>
-                <img 
-  src={src} 
-  alt={`Slide ${index}`} 
-  style={{ 
-    width: "100%",
-    height: "400px",
-    borderRadius: "8px",
-    objectFit: "contain",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  }} 
-/>
-                <h3 style={{ marginTop: "10px", fontSize: "18px", textAlign: "center" }}>{texts[index]}</h3>
-              </div>
-            ))}
-          </Slider>
+        <div style={{
+            width: '100%',
+            padding: '20px',
+            backgroundColor: '#e1b470', /* Soft cream background */
+            border: '1px solid #d3b82f', /* Classic golden border */
+            borderRadius: '10px',
+            fontFamily: 'Georgia, serif',
+            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+        }}>
+            <header style={{ textAlign: 'center' }}>
+                <h1 style={{
+                    fontSize: '36px',
+                    color: '#6a4f4b',
+                    borderBottom: '3px solid #d3b82f',
+                    paddingBottom: '10px',
+                    textTransform: 'uppercase'
+                }}>
+                    Solar Energy
+                </h1>
+            </header>
+
+            <section style={{ marginTop: '30px' }}>
+                <p style={{
+                    fontSize: '18px',
+                    color: '#4a3c2f',
+                    lineHeight: '1.6',
+                    textAlign: 'justify'
+                }}>
+                    As the Photo Voltaic Solar Panels technology   is 
+becoming more affordable,  solar electric panels 
+are becoming an energy source of choice for far 
+flung off grid locations.  Solar panels are also being 
+seen as a backup power source to ensure a reliable 
+power supply in the regions where load shedding is 
+very frequent.
+                </p>
+            </section>
+
+            <section style={{ textAlign: 'center', margin: '20px 0' }}>
+                <img src={ag} alt="Technology Centre" style={{
+                    width: '90%',
+                    maxWidth: '800px',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                }} />
+            </section>
+
+            <section style={{ marginTop: '30px' }}>
+                <h2 style={{
+                    fontSize: '28px',
+                    color: '#6a4f4b',
+                    textAlign: 'center',
+                    marginBottom: '15px'
+                }}>
+                    The Foundation’s Mission
+                </h2>
+                <p style={{
+                    fontSize: '18px',
+                    color: '#4a3c2f',
+                    lineHeight: '1.6',
+                    textAlign: 'justify'
+                }}>
+                    1. Promoting Solar Power for Remote and Off-Grid Areas:-In many rural and underserved regions, the lack of reliable electricity hinders development. 
+                    The foundation will support the installation of solar electric panels to provide a clean. <br/>
+                    2. Supporting Solar Water Pump Systems for Agriculture:-Solar water pumps have immense potential to improve water access for irrigation in Indian villages, where agriculture forms the backbone of the economy.  <br/>
+                    3. Providing Knowledge and Building a Solar Ecosystem:- The foundation will offer technical guidance and training for the installation, operation, and maintenance of solar systems, 
+                    making the technology accessible and manageable for local communities. <br/>
+                    4. Fostering Local Employment and Skill Development:-By training youth in solar technology, from system installation to maintenance, we are creating job opportunities in an emerging, high-demand sector. <br/>
+                    5. Encouraging Community and Household Solar Installations:-With government subsidies available for household and community-based solar programs, we are dedicated to guiding communities through the process of acquiring and installing solar systems. 
+                </p>
+            </section>
+
+            <section style={{ textAlign: 'center', margin: '20px 0' }}>
+                <img src={ag1} alt="Technology Centre" style={{
+                    width: '90%',
+                    maxWidth: '800px',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                }} />
+            </section>
+
+            <section style={{ marginTop: '30px' }}>
+               
+                <p style={{
+                    fontSize: '18px',
+                    color: '#4a3c2f',
+                    lineHeight: '1.6',
+                    textAlign: 'justify'
+                }}>
+                     Government is  supporting household solar energy 
+programme by offering sizeable subsidy for 
+individual and community based solar 
+installations.<br/>
+Foundation will provide knowhow and will help 
+developing an eco system to make solar 
+installations, their operations and maintenance 
+sustainable. This will generate local employment 
+and train youths  in this emerging technology area.
+                </p>
+            </section>
+
+          
         </div>
-  
-        <p style={{ fontSize: "1rem", fontWeight: "400", color: "black", textAlign: "left",margin:'20px 10px' }}>
-        Safe drinking water is essential  for life. Non availability of  safe drinking 
-water is a reason for many health issues in India. Due to 
-Industrialization, agriculture and geogenic reasons, water is getting 
-polluted and scarce. Unpredictable  flash floods,  large dry areas add 
-to the woes. Foundation will promote technologies which can help 
-provide clean and safe water 
-        </p>
-  
-        <ul style={{ textAlign: "left", margin: "20px auto", padding: "0", width: "60%" }}>
-          <li style={{ fontSize: "16px", color: "black", fontWeight: "400", margin: "10px 0" }}>
-          UF , nano and  RO membrane filtration
-          </li>
-          <li style={{ fontSize: "16px", color: "black", fontWeight: "400", margin: "10px 0" }}>
-          Arsenic/Chromium  removal filters
-          </li>
-          <li style={{ fontSize: "16px", color: "black", fontWeight: "400", margin: "10px 0" }}>
-          Solar/Diesel  based mobile water treatment  system
-          </li>
-          <li style={{ fontSize: "16px", color: "black", fontWeight: "400", margin: "10px 0" }}>
-          Water treatment systems and Water ATMs at community level
-          </li>
-        
-        </ul>
-      </div>
-     
-     
-    )
+    );
 }
-export default CleanWater;
+
+export default SolarEnergy;
