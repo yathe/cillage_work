@@ -1,9 +1,11 @@
 import React from "react"
-import ag from "../../photos/sol.png"
-import ag1 from "../../photos/sol2.png"
+import ag from "../../photos/saf.png"
+import ag1 from "../../photos/saf1.png"
 
 
-function SolarEnergy() {
+
+
+function CleanWater() {
     return (
         <div style={{
             width: '100%',
@@ -22,7 +24,7 @@ function SolarEnergy() {
                     paddingBottom: '10px',
                     textTransform: 'uppercase'
                 }}>
-                    Solar Energy
+                    Clean Water
                 </h1>
             </header>
 
@@ -33,13 +35,8 @@ function SolarEnergy() {
                     lineHeight: '1.6',
                     textAlign: 'justify'
                 }}>
-                    As the Photo Voltaic Solar Panels technology   is 
-becoming more affordable,  solar electric panels 
-are becoming an energy source of choice for far 
-flung off grid locations.  Solar panels are also being 
-seen as a backup power source to ensure a reliable 
-power supply in the regions where load shedding is 
-very frequent.
+                    Access to clean, safe drinking water is essential for life, yet it remains out of reach for millions in India. The scarcity and contamination of water have become major contributors to widespread health
+                     issues, with industrialization, agricultural runoff, and natural contaminants, like arsenic and chromium, further aggravating the crisis.
                 </p>
             </section>
 
@@ -68,13 +65,12 @@ very frequent.
                     lineHeight: '1.6',
                     textAlign: 'justify'
                 }}>
-                    1. Promoting Solar Power for Remote and Off-Grid Areas:-In many rural and underserved regions, the lack of reliable electricity hinders development. 
-                    The foundation will support the installation of solar electric panels to provide a clean. <br/>
-                    2. Supporting Solar Water Pump Systems for Agriculture:-Solar water pumps have immense potential to improve water access for irrigation in Indian villages, where agriculture forms the backbone of the economy.  <br/>
-                    3. Providing Knowledge and Building a Solar Ecosystem:- The foundation will offer technical guidance and training for the installation, operation, and maintenance of solar systems, 
-                    making the technology accessible and manageable for local communities. <br/>
-                    4. Fostering Local Employment and Skill Development:-By training youth in solar technology, from system installation to maintenance, we are creating job opportunities in an emerging, high-demand sector. <br/>
-                    5. Encouraging Community and Household Solar Installations:-With government subsidies available for household and community-based solar programs, we are dedicated to guiding communities through the process of acquiring and installing solar systems. 
+                    1. Ultrafiltration (UF), Nanofiltration, and Reverse Osmosis (RO) Membrane Filtration Systems:-
+                    These filtration technologies effectively remove contaminants, including bacteria, viruses, 
+                    and dissolved impurities, ensuring that water is purified to safe, potable standards.<br/>
+                    2. Arsenic and Chromium Removal Filters:-Many regions in India suffer from geogenic contamination of arsenic and chromium in groundwater, leading to severe health risks.  <br/>
+                    3. Mobile Water Treatment Systems (Solar/Diesel-Based):-For remote or disaster-affected areas, mobile water treatment units offer a flexible solution to ensure immediate access to clean water. <br/>
+                    4. Community-Level Water Treatment Systems and Water ATMs:-Community-scale water treatment systems, including Water ATMs, are an effective way to make purified water accessible to large populations. 
                 </p>
             </section>
 
@@ -89,28 +85,26 @@ very frequent.
             </section>
 
             <section style={{ marginTop: '30px' }}>
-               
+              
                 <p style={{
                     fontSize: '18px',
                     color: '#4a3c2f',
                     lineHeight: '1.6',
                     textAlign: 'justify'
                 }}>
-                     Government is  supporting household solar energy 
-programme by offering sizeable subsidy for 
-individual and community based solar 
-installations.<br/>
-Foundation will provide knowhow and will help 
-developing an eco system to make solar 
-installations, their operations and maintenance 
-sustainable. This will generate local employment 
-and train youths  in this emerging technology area.
+                    Safe drinking water is essential  for life. Non availability of  safe drinking 
+water is a reason for many health issues in India. Due to 
+Industrialization, agriculture and geogenic reasons, water is getting 
+polluted and scarce. Unpredictable  flash floods,  large dry areas add 
+to the woes. Foundation will promote technologies which can help 
+provide clean and safe water 
                 </p>
             </section>
 
-          
+           
+            
         </div>
     );
 }
 
-export default SolarEnergy;
+export default CleanWater;
