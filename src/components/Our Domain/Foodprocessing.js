@@ -1,120 +1,80 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import ag from "../../photos/f.png";
-import ag1 from "../../photos/f1.png";
-import ag2 from "../../photos/f2.png";
-import ag3 from "../../photos/f3.png";
-import ag4 from "../../photos/f4.png";
-import ag5 from "../../photos/f5.png";
+import React from 'react';
+import ag from '../../photos/f.png';
+import ag1 from '../../photos/f1.png';
+import ag2 from '../../photos/f2.png';
+import Effective from '../../photos/Effective.jpg';
+import Supply from '../../photos/Supply.jpg';
+import ag5 from '../../photos/f5.png';
+import './Foodprocessing.css'; // Import the CSS file
 
-const FoodProcessing = () => {
-  const images = [ag, ag1, ag2, ag3, ag4, ag5];
-  const texts = [
-    "Enhancing Safety of food items",
-    "Extension of shelf life of perishable food items",
-    "Delay in ripening of fruits and vegetables",
-    "Cost effective transportation under refrigeration",
-    "Supply of Food/ water in emergency situations like flood/landslides",
-    "Promotion of self-help groups (SHG) for value addition to domestic products/services by providing support related to packaging, digital market linkages, and quality certification."
-  ];
+function FoodProcessing() {
+    return (
+        <div className="container">
+            <header className="header">
+                <h1>Food Preservation and Food Irradiation</h1>
+            </header>
 
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    arrows: false,
-    autoplaySpeed: 3000,
-  };
+            <section className="focus-section">
+                <h2>Enhancing Safety of Food Items</h2>
+                <p>
+                    Enhancing the safety of food items involves using irradiation techniques to eliminate pathogens and pests, ensuring that the food remains safe for consumption. This process helps in reducing foodborne illnesses and extending the shelf life of various food products.
+                </p>
+            </section>
+            <section className="image-section">
+                <img src={ag} alt="Enhancing Safety of Food Items" className="image" />
+            </section>
 
-  // Helper function for responsive font size
-  const getResponsiveFontSize = (desktopSize, tabletSize, mobileSize) => {
-    if (window.innerWidth > 1024) return desktopSize;
-    if (window.innerWidth > 768) return tabletSize;
-    return mobileSize;
-  };
+            <section className="focus-section">
+                <h2>Extension of Shelf Life of Perishable Food Items</h2>
+                <p>
+                    Extending the shelf life of perishable food items involves processes such as refrigeration, freezing, and vacuum packing. These methods slow down the spoilage of food, allowing for longer storage and reduced food waste.
+                </p>
+            </section>
+            <section className="image-section">
+                <img src={ag1} alt="Extension of Shelf Life" className="image" />
+            </section>
 
-  return (
-    <div
-      style={{
-        backgroundColor: "#e1b470",
-        padding: "40px",
-        textAlign: "center",
-        fontFamily: "'Times New Roman', Times, serif",
-        color: "#333",
-      }}
-    >
-      <header style={{ marginBottom: "30px" }}>
-        {/* Responsive Heading */}
-        <h1
-          style={{
-            fontSize: getResponsiveFontSize("3.5rem", "2.8rem", "2rem"), // Adjust font size based on device
-            fontWeight: "bold",
-            color: "#2c3e50",
-          }}
-        >
-          Food Preservation and Food Irradiation
-        </h1>
-      </header>
+            <section className="focus-section">
+                <h2>Delay in Ripening of Fruits and Vegetables</h2>
+                <p>
+                    Delaying the ripening of fruits and vegetables can be achieved through controlled atmosphere storage and the use of ethylene blockers. These techniques help in maintaining the freshness of produce during transportation and storage, reducing losses due to over-ripening.
+                </p>
+            </section>
+            <section className="image-section">
+                <img src={ag2} alt="Delay in Ripening of Fruits and Vegetables" className="image" />
+            </section>
 
-      <div style={{ width: "80%", maxWidth: "800px", margin: "0 auto 40px auto" }}>
-        <Slider {...settings}>
-          {images.map((src, index) => (
-            <div key={index} style={{ textAlign: "center" }}>
-              <img 
-  src={src} 
-  alt={`Slide ${index}`} 
-  style={{ 
-    width: "100%",
-    height: "400px",
-    borderRadius: "8px",
-    objectFit: "contain",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-  }} 
-/>
-              <h3
-                style={{
-                  marginTop: "10px",
-                  fontSize: getResponsiveFontSize("1.2rem", "1rem", "0.9rem"),
-                  color: "#333",
-                }}
-              >
-                {texts[index]}
-              </h3>
-            </div>
-          ))}
-        </Slider>
-      </div>
+            <section className="focus-section">
+                <h2>Cost-Effective Transportation Under Refrigeration</h2>
+                <p>
+                    Cost-effective transportation under refrigeration ensures that perishable food items are kept at optimal temperatures during transit. This helps in maintaining the quality and safety of the food, while also reducing spoilage and extending shelf life.
+                </p>
+            </section>
+            <section className="image-section">
+                <img src={Effective} alt="Cost-Effective Transportation Under Refrigeration" className="image" />
+            </section>
 
-      <section
-        style={{
-          margin: "20px auto",
-          width: "80%",
-          maxWidth: "800px",
-          textAlign: "left",
-        }}
-      >
-        <ul style={{ padding: 0, listStyleType: "none" }}>
-          {texts.map((text, index) => (
-            <li
-              key={index}
-              style={{
-                fontSize: "1rem",
-                color: "black",
-                fontWeight: "400",
-                margin: "10px 0",
-              }}
-            >
-              {text}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
-  );
-};
+            <section className="focus-section">
+                <h2>Supply of Food/Water in Emergency Situations</h2>
+                <p>
+                    In emergency situations such as floods or landslides, it is crucial to have a reliable supply of food and water. Food irradiation and preservation techniques ensure that these supplies remain safe and are available when needed the most.
+                </p>
+            </section>
+            <section className="image-section">
+                <img src={Supply} alt="Supply of Food/Water in Emergency Situations" className="image" />
+            </section>
+
+            <section className="focus-section">
+                <h2>Promotion of Self-Help Groups (SHG)</h2>
+                <p>
+                    Promoting self-help groups (SHG) involves providing support for value addition to domestic products and services. This includes assistance with packaging, digital market linkages, and quality certification, helping local communities to enhance their economic opportunities.
+                </p>
+            </section>
+            <section className="image-section">
+                <img src={ag5} alt="Promotion of Self-Help Groups" className="image" />
+            </section>
+        </div>
+    );
+}
 
 export default FoodProcessing;
