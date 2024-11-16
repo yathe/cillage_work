@@ -1,108 +1,106 @@
-import React from "react"
-import ag from "../../photos/saf.png"
-import ag1 from "../../photos/saf1.png"
-
-
-
+import React, { useEffect, useState } from "react";
+import ag from "../../photos/saf.png";
+import ag1 from "../../photos/saf1.png";
 
 function CleanWater() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  console.log(windowWidth);
+    const containerStyle = {
+        width: windowWidth > 768 ? '100%' : windowWidth > 480 ? '100%' : '100%',
+        padding: '20px',
+        backgroundColor: '#e1b470',
+        lineHeight: '1.6',
+        color: '#4a3c2f',
+        fontSize: windowWidth > 768 ? '18px' : windowWidth > 480 ? '16px' : '14px',
+        textAlign: 'justify',
+        borderRadius: '10px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    };
+
+    const headerStyle = {
+        textAlign: 'center',
+        fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
+        color: '#6a4f4b',
+        paddingBottom: '10px',
+        textTransform: 'uppercase',
+    };
+
+    const sectionStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        gap: '20px',
+        marginTop: '20px',
+        marginBottom: '20px',
+        flexDirection: windowWidth > 768 ? 'row' : 'column',
+    };
+
+    const imageAndContentWidth = {
+        width: windowWidth > 768 ? '45%' : '100%',
+    };
+
+    const imageStyle = {
+        ...imageAndContentWidth,
+        height:'400px',
+        objectFit: 'contain',
+        borderRadius: '8px',
+    };
+    
+    const contentStyle = {
+        ...imageAndContentWidth,
+        padding: windowWidth > 768 ? '20px' : windowWidth > 480 ? '15px' : '10px',
+        border: '1px solid #d3b82f',
+        borderRadius: '10px',
+        fontFamily: 'Georgia, serif',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    };
+
+    const missionTitleStyle = {
+        fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '24px' : '20px',
+        color: '#6a4f4b',
+        textAlign: 'center',
+        marginBottom: '15px',
+    };
+
     return (
-        <div style={{
-            width: '100%',
-            padding: '20px',
-            backgroundColor: '#e1b470', /* Soft cream background */
-            border: '1px solid #d3b82f', /* Classic golden border */
-            borderRadius: '10px',
-            fontFamily: 'Georgia, serif',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        }}>
-            <header style={{ textAlign: 'center' }}>
-                <h1 style={{
-                    fontSize: '36px',
-                    color: '#6a4f4b',
-                    borderBottom: '3px solid #d3b82f',
-                    paddingBottom: '10px',
-                    textTransform: 'uppercase'
-                }}>
-                    Clean Water
-                </h1>
+        <div style={containerStyle}>
+            <header style={headerStyle}>
+                <h1>Clean Water</h1>
             </header>
 
-            <section style={{ marginTop: '30px' }}>
-                <p style={{
-                    fontSize: '18px',
-                    color: '#4a3c2f',
-                    lineHeight: '1.6',
-                    textAlign: 'justify'
-                }}>
-                    Access to clean, safe drinking water is essential for life, yet it remains out of reach for millions in India. The scarcity and contamination of water have become major contributors to widespread health
-                     issues, with industrialization, agricultural runoff, and natural contaminants, like arsenic and chromium, further aggravating the crisis.
-                </p>
-            </section>
+            <div style={sectionStyle}>
+                <img src={ag} alt="Technology Centre" style={imageStyle} />
+                <div style={contentStyle}>
+                    <p>
+                        Access to clean, safe drinking water is essential for life, yet it remains out of reach for millions in India.
+                        The scarcity and contamination of water have become major contributors to widespread health issues, with industrialization, agricultural runoff, and natural contaminants, like arsenic and chromium, further aggravating the crisis.
+                    </p>
+                    <p>
+                        Safe drinking water is essential for life. The non-availability of safe drinking water is a reason for many health issues in India. Due to industrialization, agriculture, and geogenic reasons, water is getting polluted and scarce. Unpredictable flash floods and large dry areas add to the woes. The Foundation will promote technologies that can help provide clean and safe water.
+                    </p>
+                </div>
+            </div>
 
-            <section style={{ textAlign: 'center', margin: '20px 0' }}>
-                <img src={ag} alt="Technology Centre" style={{
-                    width: '90%',
-                    maxWidth: '800px',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }} />
-            </section>
-
-            <section style={{ marginTop: '30px' }}>
-                <h2 style={{
-                    fontSize: '28px',
-                    color: '#6a4f4b',
-                    textAlign: 'center',
-                    marginBottom: '15px'
-                }}>
-                    The Foundation’s Mission
-                </h2>
-                <p style={{
-                    fontSize: '18px',
-                    color: '#4a3c2f',
-                    lineHeight: '1.6',
-                    textAlign: 'justify'
-                }}>
-                    1. Ultrafiltration (UF), Nanofiltration, and Reverse Osmosis (RO) Membrane Filtration Systems:-
-                    These filtration technologies effectively remove contaminants, including bacteria, viruses, 
-                    and dissolved impurities, ensuring that water is purified to safe, potable standards.<br/>
-                    2. Arsenic and Chromium Removal Filters:-Many regions in India suffer from geogenic contamination of arsenic and chromium in groundwater, leading to severe health risks.  <br/>
-                    3. Mobile Water Treatment Systems (Solar/Diesel-Based):-For remote or disaster-affected areas, mobile water treatment units offer a flexible solution to ensure immediate access to clean water. <br/>
-                    4. Community-Level Water Treatment Systems and Water ATMs:-Community-scale water treatment systems, including Water ATMs, are an effective way to make purified water accessible to large populations. 
-                </p>
-            </section>
-
-            <section style={{ textAlign: 'center', margin: '20px 0' }}>
-                <img src={ag1} alt="Technology Centre" style={{
-                    width: '90%',
-                    maxWidth: '800px',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }} />
-            </section>
-
-            <section style={{ marginTop: '30px' }}>
-              
-                <p style={{
-                    fontSize: '18px',
-                    color: '#4a3c2f',
-                    lineHeight: '1.6',
-                    textAlign: 'justify'
-                }}>
-                    Safe drinking water is essential  for life. Non availability of  safe drinking 
-water is a reason for many health issues in India. Due to 
-Industrialization, agriculture and geogenic reasons, water is getting 
-polluted and scarce. Unpredictable  flash floods,  large dry areas add 
-to the woes. Foundation will promote technologies which can help 
-provide clean and safe water 
-                </p>
-            </section>
-
-           
-            
+            <div style={sectionStyle}>
+                
+                <div style={contentStyle}>
+                    <h2 style={missionTitleStyle}>The Foundation’s Mission</h2>
+                    <p>
+                        <strong>1. Ultrafiltration (UF), Nanofiltration, and Reverse Osmosis (RO) Membrane Filtration Systems:</strong> These filtration technologies effectively remove contaminants, including bacteria, viruses, and dissolved impurities, ensuring that water is purified to safe, potable standards.<br />
+                        <strong>2. Arsenic and Chromium Removal Filters:</strong> Many regions in India suffer from geogenic contamination of arsenic and chromium in groundwater, leading to severe health risks.<br />
+                        <strong>3. Mobile Water Treatment Systems (Solar/Diesel-Based):</strong> For remote or disaster-affected areas, mobile water treatment units offer a flexible solution to ensure immediate access to clean water.<br />
+                        <strong>4. Community-Level Water Treatment Systems and Water ATMs:</strong> Community-scale water treatment systems, including Water ATMs, are an effective way to make purified water accessible to large populations.
+                    </p>
+                </div>
+                <img src={ag1} alt="Technology Centre" style={imageStyle} />
+            </div>
         </div>
     );
 }
