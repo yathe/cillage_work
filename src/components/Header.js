@@ -23,13 +23,13 @@ const Header = () => {
                 </div>
             </div>
             <nav className="nav">
-                <Link to="/home" className="nav-link">Home</Link>
+                <Link to="/" className="nav-link">Home</Link>
                 <Link to="/what-we-do" className="nav-link">What We Do</Link>
                 <Link to="/who-we-are" className="nav-link">Who We Are</Link>
                 <Link to="/get-involved" className="nav-link">Get Involved</Link>
             </nav>
             {open && <nav className="nav1">
-                <Link to="/home" className="nav-link">Home</Link>
+                <Link to="/" className="nav-link">Home</Link>
                 <Link to="/what-we-do" className="nav-link">What We Do</Link>
                 <Link to="/who-we-are" className="nav-link">Who We Are</Link>
                 <Link to="/get-involved" className="nav-link">Get Involved</Link>
