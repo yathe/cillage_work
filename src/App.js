@@ -29,7 +29,7 @@ function App() {
      <Header />
       <Routes>
       <Route path="/" element={<Main />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/what-we-do" element={<Whatwedo />} />
         <Route path="/who-we-are" element={<Whoweare />} />
         <Route path="/get-involved" element={<Getinvolved />} />
