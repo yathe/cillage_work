@@ -1,119 +1,131 @@
 import React from "react";
-import ag from "../../photos/san.png";
-import ag1 from "../../photos/san1.png";
+import ag from "../../photos/san.jpg";
+import ag1 from "../../photos/sn1.png";
 import ag2 from "../../photos/san2.png";
-
+import { useState, useEffect } from "react";
 function Sanitation() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    console.log(windowWidth);
+    const containerStyle = {
+        width: windowWidth > 768 ? '100%' : windowWidth > 480 ? '100%' : '100%',
+        padding: '20px',
+        backgroundColor: '#e1b470',
+        lineHeight: '1.6',
+        color: '#4a3c2f',
+        fontSize: windowWidth > 768 ? '18px' : windowWidth > 480 ? '16px' : '14px',
+        textAlign: 'justify',
+        borderRadius: '10px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    };
+
+    const headerStyle = {
+        textAlign: 'center',
+        fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
+        color: '#6a4f4b',
+        paddingBottom: '10px',
+        textTransform: 'uppercase',
+    };
+
+    const sectionStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        gap: '20px',
+        marginTop: '20px',
+        marginBottom: '20px',
+        flexDirection: windowWidth > 768 ? 'row' : 'column',
+    };
+
+    const imageAndContentWidth = {
+        width: windowWidth > 768 ? '45%' : '100%',
+    };
+
+    const imageStyle = {
+        ...imageAndContentWidth,
+        height: '400px',
+        objectFit: 'contain',
+        borderRadius: '8px',
+    };
+
+    const contentStyle = {
+        ...imageAndContentWidth,
+        padding: windowWidth > 768 ? '20px' : windowWidth > 480 ? '15px' : '10px',
+        border: '1px solid #d3b82f',
+        borderRadius: '10px',
+        fontFamily: 'Georgia, serif',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+    };
+
+    const missionTitleStyle = {
+        fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '24px' : '20px',
+        color: '#6a4f4b',
+        textAlign: 'center',
+        marginBottom: '15px',
+    };
+
     return (
-        <div style={{
-            width: '100%',
-            padding: '20px',
-            backgroundColor: '#e1b470', /* Soft cream background */
-            border: '1px solid #d3b82f', /* Classic golden border */
-            borderRadius: '10px',
-            fontFamily: 'Georgia, serif',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        }}>
-            <header style={{ textAlign: 'center' }}>
-                <h1 style={{
-                    fontSize: '36px',
-                    color: '#6a4f4b',
-                    borderBottom: '3px solid #d3b82f',
-                    paddingBottom: '10px',
-                    textTransform: 'uppercase'
-                }}>
-                    Sanitation
+        <div style={containerStyle}>
+            <header style={headerStyle}>
+                <h1> Sanitation
                 </h1>
             </header>
 
-            <section style={{ marginTop: '30px' }}>
-                <p style={{
-                    fontSize: '18px',
-                    color: '#4a3c2f',
-                    lineHeight: '1.6',
-                    textAlign: 'justify'
-                }}>
-                    In both urban and rural settings, proper sanitation is a foundational aspect of community health, 
-                    significantly impacting the quality of life, public health, and the environment. In India, where 
-                    waterborne diseases are a major concern, inadequate sanitation remains one of the leading 
-                    contributors to widespread health issues, especially in underserved rural areas.
-                </p>
-            </section>
+            <div style={sectionStyle}>
+                <img src={ag} alt="Technology Centre" style={imageStyle} />
+                <div style={contentStyle}>
+                    <h2 style={missionTitleStyle}> Importance of Sanitation in Urban and Rural Areas</h2>
+                    <p>
+                    Proper sanitation is crucial in both urban and rural settings, as it significantly impacts the quality of life. Access to clean and safe sanitation facilities ensures that individuals can maintain their dignity and hygiene. This is particularly important in preventing the spread of infectious diseases and promoting overall well-being. The presence of adequate sanitation facilities also reduces the time and effort spent on seeking safe places for defecation, especially for women and children.
+                    </p>
+<p>
+Sanitation plays a vital role in public health by reducing the prevalence of waterborne diseases. In India, where these diseases pose a significant health risk, improving sanitation infrastructure is essential.
+</p>
+                </div>
+            </div>
 
-            <section style={{ textAlign: 'center', margin: '20px 0' }}>
-                <img src={ag} alt="Technology Centre" style={{
-                    width: '90%',
-                    maxWidth: '800px',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }} />
-            </section>
+            <div style={sectionStyle}>
 
-            <section style={{ marginTop: '30px' }}>
-                <h2 style={{
-                    fontSize: '28px',
-                    color: '#6a4f4b',
-                    textAlign: 'center',
-                    marginBottom: '15px'
-                }}>
-                    The Foundation’s Mission
-                </h2>
-                <p style={{
-                    fontSize: '18px',
-                    color: '#4a3c2f',
-                    lineHeight: '1.6',
-                    textAlign: 'justify'
-                }}>
-                    1. Toilet Construction and Maintenance: We aim to construct public toilet facilities where 
-                    they are needed most, especially in rural areas with limited access. <br/>
-                    2. Waste Management Innovations: Implementing effective waste management systems is essential 
-                    to our sanitation strategy. <br/>
-                    3. Community Education Programs: Through workshops and educational materials, we will raise 
-                    awareness about the importance of sanitation.
-                </p>
-            </section>
+                <div style={contentStyle}>
+                    <h2 style={missionTitleStyle}>The Foundation’s Mission</h2>
+                    <p>
+                        <strong>1.  Toilet Construction and Maintenance:</strong> We aim to construct public toilet facilities where
+                        they are needed most, especially in rural areas with limited access. <br />
+                        <strong>2.   Waste Management Innovations:</strong> Implementing effective waste management systems is essential
+                        to our sanitation strategy.<br />
+                        <strong>3.  Community Education Programs:</strong>Through workshops and educational materials, we will raise
+                        awareness about the importance of sanitation.<br />
+                        <strong>4.  Hygiene Promotion Campaigns:</strong>We will run extensive hygiene promotion campaigns to educate communities about the importance of personal hygiene practices, such as handwashing, to prevent diseases.<br />
+                        <strong>5.  Sustainable Water Supply Solutions:</strong>Ensuring access to sustainable water supply systems, such as rainwater harvesting and borewell installations, to complement sanitation facilities.
+                    </p>
+                </div>
+                <img src={ag1} alt="Technology Centre" style={imageStyle} />
+            </div>
+            <div style={sectionStyle}>
+                <img src={ag2} alt="Technology Centre" style={imageStyle} />
+                <div style={contentStyle}>
+                    <h2 style={{
+                        fontSize: '28px',
+                        color: '#6a4f4b',
+                        textAlign: 'center',
+                        marginBottom: '15px'
+                    }}>
+                        The Impact of Sanitation on Health
+                    </h2>
+                    <p>
+                    Sanitation facilities offer a safe, private space for individuals to take care of their personal hygiene needs. These spaces are essential for maintaining human dignity, particularly for women and children, who may face safety risks without proper facilities. Providing access to clean and secure toilets can significantly reduce the occurrence of open defecation, which is a major health hazard in many rural areas..</p>
+<p>
+A significant part of the foundation's mission is to construct and maintain toilets where they are most needed. This includes rural areas with limited access to sanitation infrastructure. By building public toilets and ensuring their proper maintenance, the foundation helps prevent the spread of diseases caused by poor sanitation. Proper toilet facilities also reduce environmental contamination and improve the overall quality of life for residents.
+</p>
+                </div>
+            </div>
 
-            <section style={{ textAlign: 'center', margin: '20px 0' }}>
-                <img src={ag1} alt="Technology Centre" style={{
-                    width: '90%',
-                    maxWidth: '800px',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }} />
-            </section>
-
-            <section style={{ marginTop: '30px' }}>
-                <h2 style={{
-                    fontSize: '28px',
-                    color: '#6a4f4b',
-                    textAlign: 'center',
-                    marginBottom: '15px'
-                }}>
-                    The Impact of Sanitation on Health
-                </h2>
-                <p style={{
-                    fontSize: '18px',
-                    color: '#4a3c2f',
-                    lineHeight: '1.6',
-                    textAlign: 'justify'
-                }}>
-                    Sanitation facilities provide a safe, private space for personal hygiene. The foundation will 
-                    promote community-led total sanitation by building and maintaining toilets and implementing 
-                    effective waste management technologies in villages and cities.
-                </p>
-            </section>
-
-            <section style={{ textAlign: 'center', margin: '20px 0' }}>
-                <img src={ag2} alt="Technology Centre" style={{
-                    width: '90%',
-                    maxWidth: '800px',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }} />
-            </section>
         </div>
     );
 }
