@@ -83,7 +83,7 @@ function CleanWater() {
                     The foundation's efforts to provide clean water are crucial in addressing these pervasive issues. By implementing advanced water purification technologies, such as Ultrafiltration, Nanofiltration, and Reverse Osmosis, the foundation aims to remove harmful contaminants from water sources. Moreover, the deployment of arsenic and chromium removal filters can mitigate the dangers posed by these toxic elements found in many groundwater supplies.
                     </p>
                     <p>
-                        Safe drinking water is essential for life. The non-availability of safe drinking water is a reason for many health issues in India. Due to industrialization, agriculture, and geogenic reasons, water is getting polluted and scarce. Unpredictable flash floods and large dry areas add to the woes. The Foundation will promote technologies that can help provide clean and safe water.
+                        Safe drinking water is essential for life. The non-availability of safe drinking water is a reason for many health issues in India. Due to industrialization, agriculture, and geogenic reasons, water is getting polluted and scarce. Unpredictable flash floods and large dry areas add to the woes.
                     </p>
                 </div>
             </div>
