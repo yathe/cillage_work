@@ -94,9 +94,8 @@ function SolarEnergy() {
                     <p>
                         <strong>1. Promoting Solar Power for Remote and Off-Grid Areas:</strong> In many rural and underserved regions, the lack of reliable electricity hinders development. The foundation will support the installation of solar electric panels to provide a clean.<br />
                         <strong>2. Supporting Solar Water Pump Systems for Agriculture:</strong> Solar water pumps have immense potential to improve water access for irrigation in Indian villages.<br />
-                        <strong>3. Providing Knowledge and Building a Solar Ecosystem:</strong> The foundation will offer technical guidance and training for the installation, operation, and maintenance of solar systems.<br />
-                        <strong>4. Fostering Local Employment and Skill Development:</strong> By training youth in solar technology, from system installation to maintenance, we are creating job opportunities in an high-demand sector.<br />
-                        <strong>5. Encouraging Community and Household Solar Installations:</strong> With government subsidies available for household and community-based solar programs, we are guiding communities through the process of acquiring and installing solar systems.
+                        <strong>3. Fostering Local Employment and Skill Development:</strong> By training youth in solar technology, from system installation to maintenance, we are creating job opportunities in an high-demand sector.<br />
+                        <strong>4. Encouraging Community and Household Solar Installations:</strong> With government subsidies available for household and community-based solar programs, we are guiding communities through the process of acquiring and installing solar systems.
                     </p>
                 </div>
                 <img src={ag1} alt="Solar Installation" style={imageStyle} />
