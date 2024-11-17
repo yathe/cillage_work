@@ -1,19 +1,18 @@
+/* General Styling for the About Us Section */
 .about-us {
   font-family: 'Arial', sans-serif;
   opacity: 0;
   transform: translateY(-50px);
   animation: slideUp 0.5s forwards;
   animation-delay: 0.6s;
-  padding: 0 2%;
+  padding: 20px 2%; /* Added padding for better layout */
   margin: 0 auto;
-  /* width: 100%; */
-  /* max-width: 1200px; */
-          background-color: #e1b470;
+  background-color: #e1b470;
 }
 
-/* Smaller, classic font size for the main heading (h1) */
+/* Heading Styling */
 .about-us h1 {
-  font-size: 2.5rem; /* Reduced from 4.5rem */
+  font-size: 2.5rem;
   font-weight: bold;
   color: #000;
   margin: 0 0 20px 0;
@@ -26,14 +25,14 @@
   animation-delay: 1.5s;
 }
 
-/* Smaller font size for subheading (h2) */
+/* Subheading Styling */
 .about-us h2 {
   text-align: center;
-  font-size: 1.5rem; /* Reduced from 2em */
+  font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
-/* Classic font sizing for founder sections */
+/* Founder Section Styling */
 .founder {
   padding: 15px;
   margin-bottom: 15px;
@@ -42,63 +41,71 @@
   max-width: 600px;
 }
 
-/* Reduced font size for founder names (h5) */
+/* Founder Name Styling */
 .founder h5 {
-  font-size: 1.3rem; /* Reduced from 1.75em */
+  font-size: 1.3rem;
   margin-bottom: 10px;
   color: black;
   cursor: pointer;
 }
 
-/* Smaller, standard font size for founder description (p) */
+/* Founder Description Styling */
 .founder p {
-  font-size: 1.2rem; /* Reduced from 1.5em */
+  font-size: 1.2rem;
   line-height: 1.6;
   color: black;
 }
 
-/* Responsive adjustments for even smaller font sizes on mobile devices */
+/* Remove White Line Between Sections */
+.about-us + .about-us {
+  margin-top: 0; /* Remove space between consecutive sections */
+  padding-top: 0; /* Adjust padding if necessary */
+  background-color: #e1b470; /* Consistent background color */
+}
+
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
   .about-us h1 {
-      font-size: 2rem; /* Slightly smaller for mobile */
+    font-size: 2rem;
   }
   .about-us h2 {
-      font-size: 1.25rem; /* Adjusted subheading size for mobile */
+    font-size: 1.25rem;
   }
   .founder h5 {
-      font-size: 1.15rem; /* Reduced font for founder names on mobile */
+    font-size: 1.15rem;
   }
   .founder p {
-      font-size: 0.9rem; /* Reduced paragraph font size on mobile */
+    font-size: 0.9rem;
   }
 }
 
-/* Tablet responsive adjustments */
+/* Tablet Responsive Design */
 @media (min-width: 768px) and (max-width: 1024px) {
   .about-us h1 {
-      font-size: 2.25rem;
+    font-size: 2.25rem;
   }
   .about-us h2 {
-      font-size: 1.4rem;
+    font-size: 1.4rem;
   }
   .founder h5 {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
   .founder p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 }
 
+/* Animations */
 @keyframes slideUp {
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes slideUps {
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
