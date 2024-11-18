@@ -26,7 +26,7 @@ function Centres() {
 
     const headerStyle = {
         textAlign: 'center',
-        fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
+        fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '24px' : '18px',
         color: '#6a4f4b',
         paddingBottom: '10px',
         textTransform: 'uppercase',
