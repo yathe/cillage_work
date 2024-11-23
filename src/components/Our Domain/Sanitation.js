@@ -2,6 +2,9 @@ import React from "react";
 import ag from "../../photos/san.jpg";
 import ag1 from "../../photos/sn1.png";
 import ag2 from "../../photos/san2.png";
+import About_us from "../About_us";
+import ag3 from "../../photos/wa.png";
+import ag4 from "../../photos/wa1.png";
 import { useState, useEffect } from "react";
 function Sanitation() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -107,6 +110,32 @@ Sanitation plays a vital role in public health by reducing the prevalence of wat
                 </div>
                 <img src={ag1} alt="Technology Centre" style={imageStyle} />
             </div>
+            <div style={sectionStyle}>
+              <img src={ag3} alt="Technology Centre" style={imageStyle} />
+              <div style={contentStyle}>
+              <h2 style={missionTitleStyle}>Hybrid Bio-Granular SBR Technology</h2>
+                  <p>
+                  Wastewater management is a critical component of ensuring public health and environmental sustainability, particularly in regions facing water scarcity. The Hybrid Bio-Granular Sequencing Batch Reactor (SBR) Technology is an advanced solution that combines biological and granular processes to treat wastewater efficiently. This technology is designed to deliver cleaner and safer water, providing a sustainable option for communities, industries, and agriculture.
+                  </p>
+                  <p>
+                  The hybrid SBR system operates through a sequence of processes that allow for the effective removal of organic pollutants, nitrogen, and phosphorus. A key feature of this system is its use of granular sludge, which settles more rapidly than conventional sludge. This results in better separation of treated water and biomass, significantly improving the quality of the treated effluent.
+                  </p>
+              </div>
+          </div>
+
+          <div style={sectionStyle}>
+             
+              <div style={contentStyle}>
+                  <h2 style={missionTitleStyle}>Radiation Technology for Sludge Hygienisation</h2>
+                  <p>
+                  Proper management of wastewater sludge is critical for environmental protection and sustainable waste practices. Radiation Technology for Sludge Hygienisation is an innovative solution that ensures sludge is treated effectively, making it safe for disposal or reuse. This cutting-edge technology uses ionizing radiation to eliminate harmful pathogens and microorganisms present in the sludge, transforming it into a hygienized and safer product.
+                  </p>
+                  <p>
+                  The process involves exposing the sludge to radiation, such as electron beams or gamma rays, which disrupt the DNA of harmful bacteria, viruses, and other pathogens. This ensures the treated sludge is free from contaminants, significantly reducing risks to public health and the environment.
+                  </p>
+              </div>
+              <img src={ag4} alt="Technology Centre" style={imageStyle} />
+          </div>
             <div style={sectionStyle}>
                 <img src={ag2} alt="Technology Centre" style={imageStyle} />
                 <div style={contentStyle}>
