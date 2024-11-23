@@ -91,7 +91,7 @@ function CleanWater() {
             <div style={sectionStyle}>
 
                 <div style={contentStyle}>
-                    <h2 style={missionTitleStyle}>The Foundation’s Mission</h2>
+                    <h2 style={missionTitleStyle}>The Foundation’s Focus areas</h2>
                     <p>
                         <strong>1. Ultrafiltration (UF), Nanofiltration, and Reverse Osmosis (RO) Membrane Filtration Systems:</strong> These filtration technologies effectively remove contaminants, including bacteria, viruses ensuring that water is purified to safe.<br />
                         <strong>2. Arsenic and Chromium Removal Filters:</strong> Many regions in India suffer from geogenic contamination of arsenic and chromium in groundwater, leading to severe health risks.<br />
