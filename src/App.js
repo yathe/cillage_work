@@ -22,6 +22,8 @@ import Mission from './components/OurMission';
 import Centres from './components/Mission/Demonstration';
 import Incubation from './components/Mission/Incubation';
 import Rural from './components/Mission/RuralBuisness';
+import Whatsapp from './components/Whatsapp';
+import Donate from './components/Donate';
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
         <Route path = "/demonstration" element = {<Centres />} />
         <Route path='/incubation' element = {<Incubation />} />
         <Route path='/rural' element = {<Rural />} />
+        <Route path='/whatsapp' element={<Whatsapp/>}/> 
+        <Route path='/donate' element={<Donate/>}/> 
       </Routes>
       <About_us />
     </BrowserRouter>
