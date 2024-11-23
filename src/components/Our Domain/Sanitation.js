@@ -93,7 +93,7 @@ Sanitation plays a vital role in public health by reducing the prevalence of wat
             <div style={sectionStyle}>
 
                 <div style={contentStyle}>
-                    <h2 style={missionTitleStyle}>The Foundation’s Mission</h2>
+                    <h2 style={missionTitleStyle}>The Foundation’s Focus areas</h2>
                     <p>
                         <strong>1.  Toilet Construction and Maintenance:</strong> We aim to construct public toilet facilities where
                         they are needed most, especially in rural areas with limited access. <br />
