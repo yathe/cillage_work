@@ -1,18 +1,18 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import cillageLogo from '../photos/cillage_logo.jpg'; // Ensure the path to your logo image is correct
-import './Header.css';
-import loho from "../photos/loho.jpg"
+import loho from "../photos/loho.jpg";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
+import './Header.css';
 
 const Header = () => {
-    const [open,setOpen] = useState();
-    const toggle = ()=>{
+    const [open, setOpen] = useState(false);
+
+    const toggle = () => {
         setOpen(!open);
     }
+
     return (
         <header className="header">
             <div className="header-top">
@@ -22,23 +22,40 @@ const Header = () => {
                     <p>Technology to Transform Village Life</p>
                 </div>
             </div>
+
             <nav className="nav">
+                <div className="nav-left">
+                <Link to="/whatsapp" className="nav-link">Whatsapp</Link>
+                    <Link to="/donate" className="nav-link">Donate</Link>
+               
+                </div>
+
+                <div className="nav-right">
                 <Link to="/" className="nav-link">Home</Link>
-                <Link to="/what-we-do" className="nav-link">What We Do</Link>
-                <Link to="/who-we-are" className="nav-link">Who We Are</Link>
-                <Link to="/get-involved" className="nav-link">Get Involved</Link>
+                    <Link to="/what-we-do" className="nav-link">What We Do</Link>
+                    <Link to="/who-we-are" className="nav-link">Who We Are</Link>
+                    <Link to="/get-involved" className="nav-link">Get Involved</Link>
+                </div>
             </nav>
-            {open && <nav className="nav1">
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/what-we-do" className="nav-link">What We Do</Link>
-                <Link to="/who-we-are" className="nav-link">Who We Are</Link>
-                <Link to="/get-involved" className="nav-link">Get Involved</Link>
-            </nav>}
+
+            {/* Mobile dropdown */}
+            {open && (
+                <nav className="nav1">
+                    <Link to="/" className="nav-link">Home</Link>
+                    <Link to="/what-we-do" className="nav-link">What We Do</Link>
+                    <Link to="/who-we-are" className="nav-link">Who We Are</Link>
+                    <Link to="/get-involved" className="nav-link">Get Involved</Link>
+                    <Link to="/whatsapp" className="nav-link">Whatsapp</Link>
+                    <Link to="/donate" className="nav-link">Donate</Link>
+                </nav>
+            )}
+
+            {/* Navbar toggle button for mobile */}
             <div className="nav-bar">
-           <button className="nav-bar-toggle" onClick={toggle}>
-            <div className="nav-bar-toggle1">{open ?<CloseIcon />:<MenuIcon />}</div>
-           </button>
-         </div>
+                <button className="nav-bar-toggle" onClick={toggle}>
+                    <div className="nav-bar-toggle1">{open ? <CloseIcon /> : <MenuIcon />}</div>
+                </button>
+            </div>
         </header>
     );
 };

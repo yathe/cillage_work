@@ -1,0 +1,142 @@
+/* Container */
+.container1 {
+    font-family: 'Arial', sans-serif;
+    background-color: #e1b470;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Animated Heading */
+.text-container {
+    width: 100%;
+    background-color: rgb(198, 153, 84);
+    padding: 20px;
+    font-size: 2.8rem;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideUp 0.5s forwards;
+    animation-delay: 0.6s;
+}
+
+.text-container h1 {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUps 0.5s forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUps {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form Container */
+.donate-form-container {
+    background-color: #e1b470;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: bold;
+}
+
+.donate-form-container input,
+.donate-form-container select,
+.donate-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+}
+
+.donate-form-container button {
+    background-color: #25d366;
+    color: white;
+    font-weight: bold;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    transition: background-color 0.3s ease, transform 0.2s;
+    cursor: pointer;
+}
+
+.donate-form-container button:hover {
+    background-color: #1da955;
+    transform: scale(1.05);
+}
+
+/* Identity Proof Section */
+.identity-proof-section input {
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 850px) {
+    .donate-form-container {
+        padding: 20px;
+    }
+
+    .text-container h1 {
+        font-size: 2rem;
+    }
+
+    .donate-form-container input,
+    .donate-form-container select,
+    .donate-form-container textarea {
+        font-size: 1.1rem;
+    }
+
+    .donate-form-container button {
+        font-size: 1.2rem;
+        padding: 12px 18px;
+    }
+}
+
+@media (max-width: 650px) {
+    .text-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .donate-form-container input,
+    .donate-form-container select,
+    .donate-form-container textarea {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .donate-form-container button {
+        font-size: 1.2rem;
+        padding: 12px 18px;
+    }
+}
