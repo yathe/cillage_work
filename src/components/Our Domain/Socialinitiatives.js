@@ -2,9 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import About_us from "../About_us";
-import ag from "../../photos/wa.png";
-import ag1 from "../../photos/wa1.png";
+import img1 from "../../photos/OIP.jpg";
+import ag4 from "../../photos/Smart.jpg";
 import { useState } from "react";
 import { useEffect } from "react";
 const SocialInit = () => {
@@ -77,18 +76,14 @@ console.log(windowWidth);
   return (
       <div style={containerStyle}>
           <header style={headerStyle}>
-              <h1>Waste water Treatment & sewage sludge hygiene</h1>
+              <h1>Virtual Care & Smart Learning</h1>
           </header>
-
           <div style={sectionStyle}>
-              <img src={ag} alt="Technology Centre" style={imageStyle} />
+              <img src={img1} alt="Technology Centre" style={imageStyle} />
               <div style={contentStyle}>
-              <h2 style={missionTitleStyle}>Hybrid Bio-Granular SBR Technology</h2>
+              <h2 style={missionTitleStyle}>Digital Clinic</h2>
                   <p>
-                  Wastewater management is a critical component of ensuring public health and environmental sustainability, particularly in regions facing water scarcity. The Hybrid Bio-Granular Sequencing Batch Reactor (SBR) Technology is an advanced solution that combines biological and granular processes to treat wastewater efficiently. This technology is designed to deliver cleaner and safer water, providing a sustainable option for communities, industries, and agriculture.
-                  </p>
-                  <p>
-                  The hybrid SBR system operates through a sequence of processes that allow for the effective removal of organic pollutants, nitrogen, and phosphorus. A key feature of this system is its use of granular sludge, which settles more rapidly than conventional sludge. This results in better separation of treated water and biomass, significantly improving the quality of the treated effluent.
+                  A digital clinic leverages technology to provide healthcare services remotely, making medical consultations more accessible and efficient. These clinics use telemedicine platforms to connect patients with healthcare professionals via video calls, phone consultations, or messaging systems. Digital clinics often offer features like online appointment scheduling, electronic health records, prescription management, and remote monitoring of chronic conditions. By reducing the need for in-person visits, digital clinics can save time for both patients and doctors, and provide medical care to those in remote or underserved areas. Prescription management is another vital component of digital clinics. Patients can receive their prescriptions electronically, which can then be sent directly to their chosen pharmacy. This not only saves time but also reduces the risk of errors associated with handwritten prescriptions.
                   </p>
               </div>
           </div>
@@ -96,15 +91,15 @@ console.log(windowWidth);
           <div style={sectionStyle}>
              
               <div style={contentStyle}>
-                  <h2 style={missionTitleStyle}>Radiation Technology for Sludge Hygienisation</h2>
+                  <h2 style={missionTitleStyle}>Smart Education: EdTech</h2>
                   <p>
-                  Proper management of wastewater sludge is critical for environmental protection and sustainable waste practices. Radiation Technology for Sludge Hygienisation is an innovative solution that ensures sludge is treated effectively, making it safe for disposal or reuse. This cutting-edge technology uses ionizing radiation to eliminate harmful pathogens and microorganisms present in the sludge, transforming it into a hygienized and safer product.
+                  Smart Education leverages advanced technologies to enhance and personalize the learning experience. It integrates tools like artificial intelligence, virtual reality, and data analytics to create interactive and adaptive educational environments. This approach allows for real-time feedback, tailored lesson plans, and engaging learning modules that cater to individual student needs and learning styles. Smart Education also facilitates remote learning, making quality education accessible to students regardless of their geographical location. By fostering a more engaging and efficient learning process, Smart Education aims to prepare students for the demands of the modern world.
                   </p>
                   <p>
-                  The process involves exposing the sludge to radiation, such as electron beams or gamma rays, which disrupt the DNA of harmful bacteria, viruses, and other pathogens. This ensures the treated sludge is free from contaminants, significantly reducing risks to public health and the environment.
+                  Smart Education breaks down geographical barriers, making education accessible to students in remote or underserved areas. Online platforms and digital classrooms enable students to learn from anywhere, at any time.
                   </p>
               </div>
-              <img src={ag1} alt="Technology Centre" style={imageStyle} />
+              <img src={ag4} alt="Technology Centre" style={imageStyle} />
           </div>
       </div>
   );
