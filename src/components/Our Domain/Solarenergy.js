@@ -90,7 +90,7 @@ function SolarEnergy() {
 
             <div style={sectionStyle}>
                 <div style={contentStyle}>
-                    <h2 style={missionTitleStyle}>The Foundation’s Mission</h2>
+                    <h2 style={missionTitleStyle}>The Foundation’s Focus areas</h2>
                     <p>
                         <strong>1. Promoting Solar Power for Remote and Off-Grid Areas:</strong> In many rural and underserved regions, the lack of reliable electricity hinders development. The foundation will support the installation of solar electric panels to provide a clean.<br />
                         <strong>2. Supporting Solar Water Pump Systems for Agriculture:</strong> Solar water pumps have immense potential to improve water access for irrigation in Indian villages.<br />
