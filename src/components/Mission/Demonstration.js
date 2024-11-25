@@ -1,8 +1,12 @@
 import React from 'react';
-import Cillage from "../../photos/cillage.jpeg";
-import { useState,useEffect } from 'react';
-
-function Centres() {
+import './demonstration.css';
+import Community from "../../photos/community.jpg";
+import renewable from "../../photos/renewable.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useState } from "react";
+import { useEffect } from "react";
+const Centres = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -11,7 +15,7 @@ function Centres() {
 
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-  console.log(windowWidth);
+    console.log(windowWidth);
     const containerStyle = {
         width: windowWidth > 768 ? '100%' : windowWidth > 480 ? '100%' : '100%',
         padding: '20px',
@@ -26,7 +30,7 @@ function Centres() {
 
     const headerStyle = {
         textAlign: 'center',
-        fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '24px' : '18px',
+        fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '20px' : '15px',
         color: '#6a4f4b',
         paddingBottom: '10px',
         textTransform: 'uppercase',
@@ -48,11 +52,11 @@ function Centres() {
 
     const imageStyle = {
         ...imageAndContentWidth,
-        height:'400px',
+        height: '400px',
         objectFit: 'contain',
         borderRadius: '8px',
     };
-    
+
     const contentStyle = {
         ...imageAndContentWidth,
         padding: windowWidth > 768 ? '20px' : windowWidth > 480 ? '15px' : '10px',
@@ -76,30 +80,34 @@ function Centres() {
             </header>
 
             <div style={sectionStyle}>
-                <img src={Cillage} alt="Technology Centre" style={imageStyle} />
+                <img src={Community} alt="Technology Centre" style={imageStyle} />
                 <div style={contentStyle}>
-                <p>
-                            Our Technology Demonstration Centres aim to bridge the technology gap in rural areas,
-                            promoting sustainable advancements in areas like clean water, solar energy, sanitation, health,
-                            agriculture, housing, and education. These centres empower communities with hands-on exposure
-                            to innovations that drive local development and employment.
-                        </p>
-                        <h2>Our Focus Areas</h2>
-                        <ul>
-                            <li>Providing clean water solutions</li>
-                            <li>Harnessing solar energy for rural needs</li>
-                            <li>Improving sanitation and health standards</li>
-                            <li>Supporting sustainable agriculture practices</li>
-                            <li>Innovating housing solutions</li>
-                            <li>Enhancing educational resources</li>
-                        </ul>
+                    <h2 style={missionTitleStyle}>Empowering Communities Through Innovation</h2>
+                    <p>
+                        <strong>1.  Interactive Demonstrations:</strong> Experience innovative technologies solving everyday challenges, including clean water, renewable energy, advanced agriculture, and healthcare solutions. <br />
+                        <strong>2.   Training and Capacity Building:</strong> Join our training sessions and workshops to gain essential skills for using and maintaining these technologies, ensuring long-term sustainability.<br />
+                        <strong>3.  Sustainable Practices:</strong>Learn eco-friendly technologies and practices that minimize environmental impact, including renewable energy, waste management, and sustainable agriculture.<br />
+                        <strong>4.  Community Engagement:</strong>Community involvement is crucial. We engage local residents in planning and implementation, fostering ownership and responsibility, and refining our approaches through community feedback.
+                    </p>
                 </div>
             </div>
 
-          
+            <div style={sectionStyle}>
+
+                <div style={contentStyle}>
+                    <h2 style={missionTitleStyle}>Our Mission</h2>
+                    <p>
+                        Our mission is to bridge the gap between cutting-edge technology and the communities that need it most. By providing access to practical technological solutions, we aim to enhance daily living, promote economic growth, and empower individuals to drive their own development.Health and wellbeing are fundamental to a thriving community. Our Technology Demonstration Centres showcase healthcare technologies that can improve health outcomes, such as telemedicine platforms, mobile health units, and diagnostic tools. By enhancing access to healthcare, we help communities address common health issues more effectively and efficiently
+                    </p>
+                    <p>
+                        Sustainability is at the core of our mission. We introduce eco-friendly technologies and practices that help communities reduce their environmental impact. From renewable energy solutions like solar panels and wind turbines to sustainable agricultural practices and efficient water management systems, we demonstrate how technology can contribute to a greener and more sustainable future.
+                    </p>
+                </div>
+                <img src={renewable} alt="Technology Centre" style={imageStyle} />
+            </div>
         </div>
     );
 
-}
+};
 
 export default Centres;
