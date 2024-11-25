@@ -1,5 +1,4 @@
 import React from 'react';
-import './ruralbuisness.css';
 import Entre from "../../photos/1er.jpg";
 import Ruralemploy from "../../photos/1e.jpg";
 import { useState,useEffect } from 'react';
@@ -77,11 +76,11 @@ function Rural() {
                 They provide support and resources to local entrepreneurs, helping them start and grow their businesses.</p>
                 <p><strong>1.Training and Education: </strong>Offering workshops and training programs to enhance the skills of local entrepreneurs and workers.</p><br />
 
-<p><strong>2.Access to Resources:</strong> Providing access to financial resources, such as loans and grants, as well as physical resources like office space and equipment.</p>
+<p><strong>2.Access to Resources:</strong> Providing access to financial resources, such as loans and grants, as well as physical resources like office space and equipment.</p><br />
 
-<p><strong>3.Networking Opportunities:</strong> Facilitating connections between rural businesses and larger markets, suppliers, and potential customers.</p>
+<p><strong>3.Networking Opportunities:</strong> Facilitating connections between rural businesses and larger markets, suppliers, and potential customers.</p><br />
 
-<p><strong>4.Mentorship and Support:</strong> Offering guidance and mentorship from experienced business professionals to help navigate challenges and seize opportunities.</p>
+<p><strong>4.Mentorship and Support:</strong> Offering guidance and mentorship from experienced business professionals to help navigate challenges and seize opportunities.</p><br />
 
 <p><strong>5.Promotion and Marketing:</strong> Assisting with marketing strategies to increase visibility and reach of rural businesses.</p>              
                                     </div>
