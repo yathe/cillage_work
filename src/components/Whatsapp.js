@@ -2,7 +2,7 @@ import React from "react";
 import "./Whatsapp.css";
 
 const Whatsapp = () => {
-  const whatsappNumber = "924747474848"; // Replace with your NGO's number
+  const whatsappNumber = "9224688900"; // Replace with your NGO's number
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   return (
