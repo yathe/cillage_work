@@ -1,6 +1,7 @@
 import React from 'react';
-import Entre from "../../photos/enter.jpeg";
-import Ruralemploy from "../../photos/empl.jpg";
+import './ruralbuisness.css';
+import Entre from "../../photos/1er.jpg";
+import Ruralemploy from "../../photos/1e.jpg";
 import { useState,useEffect } from 'react';
 function Rural() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -72,25 +73,27 @@ function Rural() {
             <div style={sectionStyle}>
                 <img src={Entre} alt="Technology Centre" style={imageStyle} />
                 <div style={contentStyle}>
-                <h2>Promoting Entrepreneurship</h2>
-                <ul>
-                    <li>Foundation will set up following Cillage Centres at Taluka Levels:</li>
-                    <li>Rural Technology Demonstration Centres</li>
-                    <li>Rural Technology Incubation Centres</li>
-                    <li>Rural business Promotion Centres</li>
-                    <li>Rural Youths will be pursued to be part of these Centres and set up</li>
-                    <li>businesses in their native villages itself.</li>
-                </ul>
+               <p>Rural business promotion centers play a crucial role in fostering economic development in rural areas. 
+                They provide support and resources to local entrepreneurs, helping them start and grow their businesses.</p>
+                <p><strong>1.Training and Education: </strong>Offering workshops and training programs to enhance the skills of local entrepreneurs and workers.</p><br />
+
+<p><strong>2.Access to Resources:</strong> Providing access to financial resources, such as loans and grants, as well as physical resources like office space and equipment.</p>
+
+<p><strong>3.Networking Opportunities:</strong> Facilitating connections between rural businesses and larger markets, suppliers, and potential customers.</p>
+
+<p><strong>4.Mentorship and Support:</strong> Offering guidance and mentorship from experienced business professionals to help navigate challenges and seize opportunities.</p>
+
+<p><strong>5.Promotion and Marketing:</strong> Assisting with marketing strategies to increase visibility and reach of rural businesses.</p>              
                                     </div>
             </div>
             <div style={sectionStyle}>
                 
                 <div style={contentStyle}>
-                <h2>Generating Employment</h2>
+                <h2>Our Mission</h2>
                 <p>
-                    Cillage Centres will help people to set up rural specific micro 
-                    and small enterprises and generate employment opportunities 
-                    in these enterprises for local youths.
+                We envision vibrant and thriving rural communities where local businesses flourish, creating jobs and opportunities for all. By empowering rural entrepreneurs and fostering sustainable growth, we aim to bridge the gap between rural and urban economies, ensuring that the benefits of development reach every corner of the country.
+
+Together, we can build a brighter future for our rural communities, where innovation, sustainability, and prosperity go hand in hand.
                 </p>                     </div>
                                     <img src={Ruralemploy} alt="Technology Centre" style={imageStyle} />
             </div>
