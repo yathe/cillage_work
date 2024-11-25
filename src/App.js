@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from "./ScrollToTop";
 import Header from './components/Header';
 import Whatwedo from './components/Whatwedo';
 import Whoweare from './components/Whoweare';
@@ -29,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
      <Header />
+     <ScrollToTop/>
       <Routes>
       <Route path="/" element={<Main />} />
         <Route path="/" element={<Home />} />
