@@ -73,7 +73,7 @@ const Incubation = () => {
     return (
         <div style={containerStyle}>
             <header style={headerStyle}>
-                <h1>Technology Incubation Center</h1>
+                <h1>Technology Incubation Centres</h1>
             </header>
 
             <div style={sectionStyle}>
