@@ -66,7 +66,7 @@ function Rural() {
     return (
         <div style={containerStyle}>
             <header style={headerStyle}>
-                <h1>Rural Business Promotion Center</h1>
+                <h1>Rural Business Promotion Centres</h1>
             </header>
     
             <div style={sectionStyle}>
