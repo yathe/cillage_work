@@ -1,13 +1,11 @@
 /* General Styling for the About Us Section */
 .about-us {
   font-family: 'Arial', sans-serif;
-  opacity: 0;
-  transform: translateY(-50px);
-  animation: slideUp 0.5s forwards;
-  animation-delay: 0.6s;
-  padding: 20px 2%; /* Added padding for better layout */
+  padding: 20px 2%;
   margin: 0 auto;
-  background-color: #e1b470;
+  background-color: #e1b470; /* Matches website background */
+  max-width: 100%;
+  margin-top: 50px; /* Space above */
 }
 
 /* Heading Styling */
@@ -16,6 +14,7 @@
   font-weight: bold;
   color: #000;
   margin: 0 0 20px 0;
+  width: 100%;
   text-align: center;
   background-color: rgb(198, 153, 84);
   padding: 10px 40px;
@@ -25,87 +24,326 @@
   animation-delay: 1.5s;
 }
 
-/* Subheading Styling */
-.about-us h2 {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
 /* Founder Section Styling */
 .founder {
-  padding: 15px;
-  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  gap: 30px; /* Space between image and content */
+  padding: 20px;
+  background-color:#e1b470; /* White background for founder section */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 600px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.founder:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Hover effect */
+}
+
+/* Founder Image Styling (Left-Aligned and Centered Vertically) */
+.founder-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-right: 20px; /* Space between image and content */
+  align-self: center; /* Center the image vertically */
+}
+
+/* Founder Details Styling (Right-Aligned) */
+.founder-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Founder Name Styling */
-.founder h5 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-  color: black;
-  cursor: pointer;
+.founder-details h5 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px;
+  text-align: left;
+  line-height: 1.4;
 }
 
 /* Founder Description Styling */
-.founder p {
-  font-size: 1.2rem;
+.founder-details p {
+  font-size: 1.1rem;
+  color: #555;
   line-height: 1.6;
-  color: black;
+  margin: 0 0 10px;
+  text-align: left;
+  max-width: 80%; /* Ensures text does not stretch too far */
 }
 
-/* Remove White Line Between Sections */
-.about-us + .about-us {
-  margin-top: 0; /* Remove space between consecutive sections */
-  padding-top: 0; /* Adjust padding if necessary */
-  background-color: #e1b470; /* Consistent background color */
+/* See More Styling */
+.see-more {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e1b470; /* White background for a classic feel */
+  padding: 40px 60px; /* Add enough padding for a comfortable look */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  width: 70%;
+  max-width: 900px;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  animation: fadeIn 0.3s forwards; /* Fade-in effect */
+}
+
+.modal.active {
+  display: block; /* Show modal when active */
+  opacity: 1; /* Ensure the modal becomes fully opaque */
+}
+
+/* Modal Content */
+.modal-content {
+  display: flex;
+  align-items: center; /* Center image and text vertically */
+  gap: 30px; /* Provide more space between image and text */
+  justify-content: flex-start;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.modal-image {
+  width: auto;
+  height: auto;
+  max-width: 180px; /* Keep the image size moderate */
+  object-fit: cover;
+  border-radius: 12px; /* Slightly rounded edges */
+  margin-right: 20px; /* Margin between image and text */
+}
+
+.modal-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  text-align: justify;
+  margin-top: 0;
+  max-width: 500px;
+  font-family: 'Georgia', serif; /* Classic serif font for text */
+  color: #555; /* Dark grey text color */
+  padding-left: 10px; /* Padding for text */
+}
+
+/* Modal Close Button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.modal-close:hover {
+  color: #333; /* Darken close button on hover */
+  transform: rotate(90deg); /* Smooth rotate effect */
+}
+
+/* Overlay for Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay for focus */
+  z-index: 999;
+  display: none; /* Hidden by default */
+}
+
+.modal-overlay.active {
+  display: block; /* Show overlay when modal is active */
 }
 
 /* Mobile Responsive Design */
 @media (max-width: 768px) {
-  .about-us h1 {
-    font-size: 2rem;
+  .about-us {
+    padding: 20px 5%;
   }
-  .about-us h2 {
-    font-size: 1.25rem;
-  }
-  .founder h5 {
-    font-size: 1.15rem;
-  }
-  .founder p {
-    font-size: 0.9rem;
-  }
-}
 
-/* Tablet Responsive Design */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .about-us h1 {
-    font-size: 2.25rem;
+  .founder {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
   }
-  .about-us h2 {
+
+  .founder-image {
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+  }
+
+  .founder-details h5 {
     font-size: 1.4rem;
   }
-  .founder h5 {
-    font-size: 1.2rem;
+
+  .founder-details p {
+    font-size: 1rem;
+    max-width: 100%;
   }
-  .founder p {
+
+  .see-more {
+    font-size: 0.9rem;
+  }
+
+  /* Modal adjustments for smaller devices */
+  .modal {
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+  }
+
+  .modal-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-image {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-text {
     font-size: 1rem;
   }
 }
 
-/* Animations */
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* Tablet Responsive Design */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .founder {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  .founder-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .founder-details h5 {
+    font-size: 1.5rem;
+  }
+
+  .founder-details p {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .see-more {
+    font-size: 1rem;
+  }
+
+  .modal {
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  .modal-content {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .modal-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .modal-text {
+    font-size: 1.1rem;
   }
 }
 
+/* Large Screen (Desktop) */
+@media (min-width: 1025px) {
+  .founder {
+    padding: 20px;
+  }
+
+  .founder-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .founder-details h5 {
+    font-size: 1.6rem;
+  }
+
+  .founder-details p {
+    font-size: 1.1rem;
+  }
+
+  .see-more {
+    font-size: 1rem;
+  }
+
+  .modal {
+    padding: 40px;
+    width: 70%;
+    max-width: 900px;
+  }
+
+  .modal-content {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .modal-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .modal-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animations */
 @keyframes slideUps {
-  to {
-    opacity: 1;
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
