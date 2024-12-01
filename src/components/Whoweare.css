@@ -66,7 +66,7 @@
 
 /* Founder Name Styling */
 .founder-details h5 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #333;
   margin: 0 0 10px;
@@ -76,7 +76,7 @@
 
 /* Founder Description Styling */
 .founder-details p {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #555;
   line-height: 1.6;
   margin: 0 0 10px;
@@ -113,66 +113,16 @@
 
 .modal.active {
   display: block; /* Show modal when active */
-  opacity: 1; /* Ensure the modal becomes fully opaque */
+  opacity: 1;
 }
 
-/* Modal Content */
-.modal-content {
-  display: flex;
-  align-items: center; /* Center image and text vertically */
-  gap: 30px; /* Provide more space between image and text */
-  justify-content: flex-start;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.modal-image {
-  width: auto;
-  height: auto;
-  max-width: 180px; /* Keep the image size moderate */
-  object-fit: cover;
-  border-radius: 12px; /* Slightly rounded edges */
-  margin-right: 20px; /* Margin between image and text */
-}
-
-.modal-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #333;
-  text-align: justify;
-  margin-top: 0;
-  max-width: 500px;
-  font-family: 'Georgia', serif; /* Classic serif font for text */
-  color: #555; /* Dark grey text color */
-  padding-left: 10px; /* Padding for text */
-}
-
-/* Modal Close Button */
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: transparent;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #888;
-  transition: color 0.3s ease, transform 0.2s ease-in-out;
-}
-
-.modal-close:hover {
-  color: #333; /* Darken close button on hover */
-  transform: rotate(90deg); /* Smooth rotate effect */
-}
-
-/* Overlay for Modal */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7); /* Darker overlay for focus */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   display: none; /* Hidden by default */
 }
@@ -181,72 +131,190 @@
   display: block; /* Show overlay when modal is active */
 }
 
-/* Mobile Responsive Design */
-@media (max-width: 768px) {
-  .about-us {
-    padding: 20px 5%;
-  }
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
 
-  .founder {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-    padding: 20px;
-  }
+/* Modal Image Styling */
+.modal-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
-  .founder-image {
-    margin: 0 auto;
-    width: 120px;
-    height: 120px;
-  }
+/* Modal Text Styling */
+.modal-text {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 500px;
+  font-family: 'Arial', sans-serif;
+}
 
-  .founder-details h5 {
-    font-size: 1.4rem;
-  }
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
 
-  .founder-details p {
-    font-size: 1rem;
-    max-width: 100%;
-  }
+/* Directors Section Styling */
+.directors-heading {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-family: 'Arial', sans-serif;
+}
 
-  .see-more {
-    font-size: 0.9rem;
-  }
+.directors-section {
+  background-color: #e1b470;
+  padding: 30px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
-  /* Modal adjustments for smaller devices */
+.director {
+  background-color: #e1b470;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 942px;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.director:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.director-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-family: 'Georgia', serif;
+}
+
+.director-details {
+  font-size: 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+/* Media Queries for Modal Responsiveness */
+
+/* For tablets and smaller screens */
+@media (max-width: 1024px) {
   .modal {
-    padding: 20px;
-    width: 90%;
-    max-width: 500px;
+    width: 80%; /* Increase width for tablet devices */
+    padding: 30px 40px; /* Adjust padding for smaller screens */
   }
 
   .modal-content {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column; /* Stack the modal content vertically */
+    align-items: center;
   }
 
   .modal-image {
-    margin: 0 auto;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px; /* Resize image for smaller screens */
   }
 
   .modal-text {
-    font-size: 1rem;
+    max-width: 90%; /* Make text block more flexible */
+    font-size: 1rem; /* Slightly reduce text size */
+  }
+
+  .modal-close {
+    font-size: 1.5rem; /* Smaller close button for tablets */
   }
 }
 
-/* Tablet Responsive Design */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* For smaller phones (Mobile) */
+@media (max-width: 768px) {
+  .modal {
+    width: 90%; /* Increase modal width for mobile devices */
+    padding: 20px 30px; /* Adjust padding */
+  }
+
+  .modal-image {
+    width: 180px;
+    height: 180px; /* Resize image */
+  }
+
+  .modal-text {
+    max-width: 95%; /* Allow more flexibility in the text area */
+    font-size: 0.95rem; /* Slightly smaller text for better readability */
+  }
+
+  .modal-close {
+    font-size: 1.3rem; /* Slightly smaller close button */
+  }
+}
+
+/* For extra small devices (phones) */
+@media (max-width: 480px) {
+  .modal {
+    width: 95%; /* Maximize the width for very small screens */
+    padding: 15px 25px; /* Tighten padding */
+  }
+
+  .modal-image {
+    width: 150px;
+    height: 150px; /* Make the image smaller */
+  }
+
+  .modal-text {
+    font-size: 0.9rem; /* Make the text smaller for very small screens */
+    max-width: 90%; /* Ensure text takes up most of the modal space */
+  }
+
+  .modal-close {
+    font-size: 1.2rem; /* Further reduce close button size */
+  }
+  .director-name {
+    font-size: 21px;
+  }
+  
+  .director-details {
+    font-size: 16px;
+  }
+}
+
+/* Responsive Styling for About Us Section */
+@media (max-width: 768px) {
+  .about-us {
+    padding: 10px;
+  }
+
   .founder {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column; /* Stack founder image and details vertically */
+    align-items: center; /* Center the founder content */
     padding: 15px;
   }
 
   .founder-image {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px; /* Resize image for smaller devices */
   }
 
   .founder-details h5 {
@@ -254,96 +322,30 @@
   }
 
   .founder-details p {
-    font-size: 1.1rem;
-    max-width: 90%;
-  }
-
-  .see-more {
-    font-size: 1rem;
-  }
-
-  .modal {
-    padding: 30px;
-    width: 80%;
-    max-width: 700px;
-  }
-
-  .modal-content {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .modal-image {
-    width: 150px;
-    height: 150px;
-  }
-
-  .modal-text {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    text-align: center; /* Center the text on smaller screens */
   }
 }
 
-/* Large Screen (Desktop) */
-@media (min-width: 1025px) {
-  .founder {
-    padding: 20px;
-  }
-
-  .founder-image {
-    width: 150px;
-    height: 150px;
-  }
-
+/* For very small screens (mobile) */
+@media (max-width: 480px) {
   .founder-details h5 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-left: 67px;
   }
 
   .founder-details p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-align: center;
+    padding-left: 37px;
   }
 
   .see-more {
-    font-size: 1rem;
+    font-size: 1rem; /* Adjust 'see more' font size for smaller screens */
+    margin-left: 112px;
   }
-
-  .modal {
-    padding: 40px;
-    width: 70%;
-    max-width: 900px;
-  }
-
-  .modal-content {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .modal-image {
-    width: 180px;
-    height: 180px;
-  }
-
-  .modal-text {
-    font-size: 1.1rem;
-  }
-}
-
-/* Animations */
-@keyframes slideUps {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  .directors-heading {
+    font-size: 1.8rem;
   }
 }
