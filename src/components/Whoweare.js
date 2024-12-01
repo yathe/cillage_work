@@ -36,6 +36,7 @@ const Whoweare = () => {
   return (
     <div className="about-us">
       <h1>About Us</h1>
+      <h2 className="directors-heading">Founders</h2>
       {founders.map((founder, index) => (
         <div className="founder" key={index}>
           <img
@@ -74,6 +75,35 @@ const Whoweare = () => {
           </div>
         </>
       )}
+  <h2 className="directors-heading">DIRECTORS</h2>
+<div className="directors-section">
+  <div className="director">
+    <h5 className="director-name">Pushkal Tiwari</h5>
+    <p className="director-details">
+      (An entrepreneur promoting/manufacturing products for <br/>
+      societal benefits).<br />
+      Experienced in working at villages to promote sustainable living.
+    </p>
+  </div>
+  <div className="director">
+    <h5 className="director-name">Shubhankar Srivastava</h5>
+    <p className="director-details">
+      A BITS Pilani Alumnus<br />
+      An entrepreneur developing AI-based applications for Industry.<br />
+      An expert in Data Science.
+    </p>
+  </div>
+  <div className="director">
+    <h5 className="director-name">Shreyash Gupta</h5>
+    <p className="director-details">
+      An IIT Mumbai Alumnus<br />
+      Currently a Harvard University student in Management.<br />
+      Experienced in Product Management Consultancy.
+    </p>
+  </div>
+</div>
+
+
     </div>
   );
 };
