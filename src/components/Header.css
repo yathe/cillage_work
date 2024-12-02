@@ -71,7 +71,17 @@
     display: flex;
     gap: 40px; /* Space between right links */
 }
+@media (max-width:955px){
+    .nav-left {
+    display: flex;
+    gap: 18px; /* Space between left links */
+}
 
+.nav-right {
+    display: flex;
+    gap: 18px; /* Space between right links */
+}
+}
 .nav-link {
     color: #000;
     font-weight: bold;
