@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import fo1 from "../photos/fo1.png";
 import fo2 from "../photos/fo2.png";
-import fo from "../photos/fo.png"
-import shub from "../photos/shub.jpeg";
-import yas from "../photos/ya.jpeg";
-import shre from "../photos/shre.jpeg";
+import fo from "../photos/fo.png";
+import tiwari from "../photos/tiwari.jpeg";
+import shubhankar from "../photos/shubhankar.jpeg";
+import shreyash from "../photos/shreyash.jpeg";
 import "./Whoweare.css";
 
 const Whoweare = () => {
@@ -30,6 +30,24 @@ const Whoweare = () => {
       description: "(An entrepreneur promoting/manufacturing products for clean water and waste water treatment)<br/>An IIT Delhi Alumni<br/>Experienced in working at villages to promote sustainable living",
       modalContent:
         "<ul><li>Shri Tiwari is an Industrialist and social worker, very keen to restore the environment by deploying modern technology and improving the quality of life for deprived citizens from rural areas.</li><li>He is an IITD alumnus and licensee of DAE/DRDO/ISRO technologies.</li><li>Completed many projects of DAE on water and sanitation. Actively involved in many social initiatives.</li></ul>",
+    },
+  ];
+  const directors = [
+    {
+      name: "Pushkal Tiwari",
+      image: tiwari,
+      description: " (An entrepreneur promoting/manufacturing products for <br/>societal benefits).<br />Experienced in working at villages to promote sustainable living.",
+      
+    },
+    {
+      name: "Shubhankar Srivastava",
+      image: shubhankar,
+      description: "A BITS Pilani Alumnus<br />An entrepreneur developing AI-based applications for Industry.<br />An expert in Data Science.",
+    },
+    {
+      name: "Shreyash Gupta",
+      image: shreyash,
+      description: "An IIT Mumbai Alumnus<br />Currently a Harvard University student in Management.<br />Experienced in Product Management Consultancy.",
     },
   ];
 
@@ -78,43 +96,20 @@ const Whoweare = () => {
           </div>
         </>
       )}
- <h2 className="directors-heading">DIRECTORS</h2>
-<div className="directors-section">
-  <div className="director">
-    <img src={yas} alt="Pushkal Tiwari" className="director-image" />
-    <div className="director-content">
-      <h5 className="director-name">Pushkal Tiwari</h5>
-      <p className="director-details">
-        (An entrepreneur promoting/manufacturing products for <br/>
-        societal benefits).<br />
-        Experienced in working at villages to promote sustainable living.
-      </p>
-    </div>
-  </div>
-  <div className="director">
-    <img src={shub} alt="Shubhankar Srivastava" className="director-image" />
-    <div className="director-content">
-      <h5 className="director-name">Shubhankar Srivastava</h5>
-      <p className="director-details">
-        A BITS Pilani Alumnus<br />
-        An entrepreneur developing AI-based applications for Industry.<br />
-        An expert in Data Science.
-      </p>
-    </div>
-  </div>
-  <div className="director">
-    <img src={shre} alt="Shreyash Gupta" className="director-image" />
-    <div className="director-content">
-      <h5 className="director-name">Shreyash Gupta</h5>
-      <p className="director-details">
-        An IIT Mumbai Alumnus<br />
-        Currently a Harvard University student in Management.<br />
-        Experienced in Product Management Consultancy.
-      </p>
-    </div>
-  </div>
-</div>
-
+  <h2 className="directors-heading">DIRECTORS</h2>
+  {directors.map((director, index) => (
+        <div className="founder" key={index}>
+          <img
+            src={director.image}
+            alt={director.name}
+            className="founder-image"
+          />
+          <div className="founder-details">
+            <h5>{director.name}</h5>
+            <p dangerouslySetInnerHTML={{ __html: director.description }}></p>
+          </div>
+        </div>
+      ))}
 
 
     </div>
