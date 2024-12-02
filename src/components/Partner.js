@@ -95,7 +95,7 @@ const Partner = () => {
 
 const styles = {
   container: {
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#d2a569',
     padding: '50px 10%',
     fontFamily: 'Arial, sans-serif',
   },
@@ -136,6 +136,9 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '5px',
   },
+  .section1 a {
+  text-decoration: none;
+}
   select: {
     padding: '10px',
     fontSize: '1rem',
