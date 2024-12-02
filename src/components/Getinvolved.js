@@ -3,6 +3,7 @@ import React from 'react'
 import './Getinvolved.css'
 import partner from '../photos/partner.jpg'
 import vol from "../photos/volunteer.jpg"
+import { Link } from 'react-router-dom';
 const Getinvolved = () => {
   return (
     <div className='container1'><div className="text-container">
@@ -14,7 +15,7 @@ const Getinvolved = () => {
   <img src={vol} alt="Technology Demonstration" className="image1" />
   </div>
   <div className='section1'>
-  <a href = "/partner"><h5 className="label1">Partner  with  us</h5></a>
+  <Link to = "/partner"><h5 className="label1">Partner  with  us</h5></Link>
   <img src={partner} alt="Technology Demonstration" className="image1" />
   </div>
 
