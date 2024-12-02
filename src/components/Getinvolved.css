@@ -11,9 +11,15 @@
     animation: slideUp 0.5s forwards;
     animation-delay: 0.6s; /* Slight delay before animation starts */
 }
-Link{
-    text-decoration:none,
-        }
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  color: #e1b470; /* Optional hover effect */
+}
+
 .text-container h1{
   transform: translateY(50px);
     opacity: 0;
