@@ -116,10 +116,9 @@ const Partner = () => {
         </form>
         <div className="contact-info1">
           <h3>Our Contact Details</h3>
-          <p><strong>Address:</strong> (Your organization's address)</p>
-          <p><strong>Email:</strong> (Your organization's email)</p>
-          <p><strong>Phone No.:</strong> (Your organization's phone number)</p>
-          <p><strong>WhatsApp No.:</strong> (Your organization's WhatsApp number)</p>
+          <p><strong>Email:</strong>contact@cillage.org</p>
+          <p><strong>Phone No.:</strong>9869432338</p>
+          <p><strong>WhatsApp No.:</strong>9869432338</p>
         </div>
       </div>
     </div>
