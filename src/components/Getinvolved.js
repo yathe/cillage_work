@@ -11,7 +11,10 @@ const Getinvolved = () => {
 </div>
 <div className='grid1'>
   <div className='section1'>
+  
+    <Link to="/volunter" className="link">
   <h5 className="label1">Volunteer  with  us</h5>
+</Link>
   <img src={vol} alt="Technology Demonstration" className="image1" />
   </div>
   <div className='section1'>
