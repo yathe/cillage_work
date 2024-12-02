@@ -6,7 +6,7 @@ const Partner = () => {
   return (
     <div style={styles.container}>
       <div style={styles.textContainer}>
-        <h1 style={styles.heading}>Donate to Our Cause</h1>
+        <h1 style={styles.heading}>Partner With Us</h1>
       </div>
 
       <div style={styles.formContainer}>
