@@ -165,12 +165,12 @@ const Donate = () => {
         </div>
 
         <div className="donate-form-group">
-          <label>Bank Account Details *</label>
+          <label>Foundation's Bank Account Detail</label>
           <textarea
             name="bankAccount"
             value={formData.bankAccount}
             onChange={handleInputChange}
-            placeholder="Enter your bank account details"
+            placeholder=""
             required
           ></textarea>
         </div>
