@@ -50,6 +50,11 @@
     text-align: center;
     flex: 1; /* Allow heading to take up available space */
 }
+a{
+    text-decoration:none;
+    fontSize:18px;
+    
+}
 
 .pdf-button {
     margin-left: auto; /* Push the button to the right */
