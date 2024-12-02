@@ -23,6 +23,7 @@ import Rural from './components/Mission/RuralBuisness';
 import Whatsapp from './components/Whatsapp';
 import Donate from './components/Donate';
 import Partner from './components/Partner';
+import Volunter from './components/Volunter';
 function App() {
   return (
     <BrowserRouter>
@@ -47,6 +48,7 @@ function App() {
         <Route path='/whatsapp' element={<Whatsapp/>}/> 
         <Route path='/donate' element={<Donate/>}/> 
   <Route path='/partner' element = {<Partner />} />
+  <Route path='/volunter' element = {<Volunter />} />
       </Routes>
       <About_us />
     </BrowserRouter>
