@@ -196,12 +196,28 @@
   width: 100%;
   max-width: 942px;
   text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .director:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.director-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.director-content {
+  flex: 1;
 }
 
 .director-name {
@@ -218,6 +234,22 @@
   line-height: 1.6;
   font-family: 'Arial', sans-serif;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .director {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center; /* Center-align text for smaller screens */
+  }
+
+  .director-image {
+    margin-bottom: 15px;
+  }
+
+  .director-content {
+    text-align: left; /* Restore left-align for content if needed */
+  }
 }
 
 /* Media Queries for Modal Responsiveness */
