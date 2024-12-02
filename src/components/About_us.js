@@ -54,7 +54,7 @@ const About_us = () => {
           {/* Phone */}
           <div className="phone">
             <h3>Phone:</h3>
-            <p>91-9224688900</p>
+            <p>9869432338</p>
           </div>
         </div>
       </div>
