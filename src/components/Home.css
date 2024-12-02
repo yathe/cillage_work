@@ -44,6 +44,7 @@
     align-items: center;
     width: 100%; /* Ensure the container spans the available width */
     max-width: 800px; /* Optional: Set a max-width for better design */
+    overflow: hidden; 
 }
 
 .mission-heading {
@@ -57,7 +58,7 @@ a{
 }
 
 .pdf-button {
-    margin-right: -100px; /* Push the button to the right */
+    float:right/* Push the button to the right */
      font-size:18px;
 }
 
