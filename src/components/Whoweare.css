@@ -66,7 +66,7 @@
 
 /* Founder Name Styling */
 .founder-details h5 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: #333;
   margin: 0 0 10px;
@@ -76,7 +76,7 @@
 
 /* Founder Description Styling */
 .founder-details p {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #555;
   line-height: 1.6;
   margin: 0 0 10px;
@@ -170,7 +170,7 @@
 
 /* Directors Section Styling */
 .directors-heading {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #000;
   text-align: center;
@@ -196,27 +196,12 @@
   width: 100%;
   max-width: 942px;
   text-align: left;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .director:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.director-image {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.director-content {
-  flex: 1;
 }
 
 .director-name {
@@ -233,22 +218,6 @@
   line-height: 1.6;
   font-family: 'Arial', sans-serif;
   margin: 0;
-}
-
-@media (max-width: 768px) {
-  .director {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center; /* Center-align text for smaller screens */
-  }
-
-  .director-image {
-    margin-bottom: 15px;
-  }
-
-  .director-content {
-    text-align: left; /* Restore left-align for content if needed */
-  }
 }
 
 /* Media Queries for Modal Responsiveness */
@@ -353,7 +322,7 @@
   }
 
   .founder-details p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-align: center; /* Center the text on smaller screens */
   }
 }
