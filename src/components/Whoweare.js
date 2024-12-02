@@ -57,7 +57,7 @@ const Whoweare = () => {
   return (
     <div className="about-us">
       <h1>About Us</h1>
-      <h2 className="directors-heading">Founders</h2>
+      <h2 className="directors-heading">FOUNDERS</h2>
       {founders.map((founder, index) => (
         <div className="founder" key={index}>
           <img
