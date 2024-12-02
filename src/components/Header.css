@@ -80,7 +80,15 @@
     transition: background-color 0.3s ease, color 0.3s ease;
     padding: 5px 10px;
     border-radius: 5px;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    gap: 8px; /* Add spacing between icon and text */
 }
+
+.whatsapp-icon {
+    font-size: 1.5em; /* Adjust the size of the WhatsApp icon */
+}
+
 
 .nav-link:hover {
     background-color: #fff;
@@ -165,4 +173,19 @@
     .nav-link {
         font-size: 0.8rem;
     }
+    .nav1 .nav-link {
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    gap: 8px; /* Add spacing between icon and text */
+    font-size: 1.2rem;
+    padding: 15px;
+    background-color: #d2a569;
+    color: #fff;
+    border-radius: 5px; /* Optional for rounded look */
+}
+
+.nav1 .whatsapp-icon {
+    font-size: 1.5rem; /* Adjust icon size for mobile */
+}
+
 }
