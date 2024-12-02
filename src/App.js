@@ -22,7 +22,7 @@ import Incubation from './components/Mission/Incubation';
 import Rural from './components/Mission/RuralBuisness';
 import Whatsapp from './components/Whatsapp';
 import Donate from './components/Donate';
-
+import Partner from './components/Partner';
 function App() {
   return (
     <BrowserRouter>
@@ -46,6 +46,7 @@ function App() {
         <Route path='/rural' element = {<Rural />} />
         <Route path='/whatsapp' element={<Whatsapp/>}/> 
         <Route path='/donate' element={<Donate/>}/> 
+  <Route path='/partner' element = {<Partner />} />
       </Routes>
       <About_us />
     </BrowserRouter>
