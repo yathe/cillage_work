@@ -1,22 +1,21 @@
-
 /* Container for the home page */
 .home-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-     /* Match the beige-brown background */
-    /* padding: 100px; */
-            background-color: #e1b470;
-   
+    background-color: #e1b470;
 }
-.earthText{
-    font-size: 2rem; /* Adjust heading size */
+
+/* Earth Text */
+.earthText {
+    font-size: 2rem;
     font-weight: 700;
     color: #000;
     text-align: center;
     margin: 20px 0;
 }
+
 /* Image of Earth with hands */
 .background-image {
     width: 100%;
@@ -28,21 +27,62 @@
     transform: translateY(50px);
     opacity: 0;
     animation: slideUps 4s forwards;
-    animation-delay: 1s; /* Delay after the container animation */
+    animation-delay: 1s;
 }
 
 /* Text container */
 .text-container {
     width: 100%;
-    /* Adjust this value based on the max-width of your content */
-    background-color: rgb(198, 153, 84); /* Semi-transparent background */
+    background-color: rgb(198, 153, 84);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for better contrast */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transform: translateY(-50px);
     animation: slideUp 0.5s forwards;
-    animation-delay: 0.6s; /* Slight delay before animation starts */
+    animation-delay: 0.6s;
+}
+
+/* Mission heading container */
+.mission-heading-container {
+    display: flex;
+    justify-content: center; /* Center the heading */
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 190px; /* Space between heading and button */
+}
+
+/* Mission heading */
+.mission-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+
+/* PDF Button */
+.pdf-button {
+    background-color: #ffc955;
+    color: #7c4b35;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 18px;
+    border: 1px solid #7c4b35;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pdf-button:hover {
+    background-color: #e1b470;
+    transform: scale(1.05);
+}
+
+.pdf-button:active {
+    transform: scale(1);
 }
 
 /* Image and text row */
@@ -62,18 +102,16 @@
 }
 
 .tech-image {
-    width: 100%; /* Adjust the size as needed */
+    width: 100%;
     height: 360px;
     border-radius: 5px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-   
 }
 
 /* Right text container */
 .right {
     flex: 2;
     margin-left: 20px;
-   
 }
 
 /* Styling for headings and paragraphs */
@@ -82,24 +120,13 @@
     font-weight: bold;
     color: #000;
     margin: 0 0 20px 0;
-    text-align: center; /* Center align for header */
+    text-align: center;
     transform: translateY(50px);
     opacity: 0;
     animation: slideUps 0.5s forwards;
-    animation-delay: 1.5s; /* Delay after the container animation */
+    animation-delay: 1.5s;
 }
-@keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes slideUps {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 .text-container h2 {
     font-size: 1.5rem;
     font-weight: bold;
@@ -107,14 +134,15 @@
     margin: 20px 0 10px 0;
 }
 
-.home-ul{
+.home-ul {
     display: flex;
     flex-direction: column;
     gap: 5px;
     text-decoration: dotted;
     padding: 40px;
 }
-.home-ul li{
+
+.home-ul li {
     font-size: 1.2rem;
     font-weight: 400;
     color: black;
@@ -122,29 +150,43 @@
 
 /* Responsive styling */
 @media (max-width: 768px) {
+    .mission-heading-container {
+        flex-direction: column; /* Stack heading and button vertically */
+        align-items: center;
+        gap: 20px; /* Reduce space between heading and button when stacked */
+    }
+
+    .mission-heading {
+        font-size: 2rem;
+    }
+
+    .pdf-button {
+        margin-top: 10px; /* Add space between heading and button when stacked */
+    }
+
     .image-text-row {
         flex-direction: column;
         align-items: center;
     }
-    .earthText{
-        font-size: 1.5rem; /* Adjust heading size */
-       
+
+    .earthText {
+        font-size: 1.5rem;
     }
-    .home-ul{
-        
+
+    .home-ul {
         padding: 20px;
     }
-    .home-ul li{
+
+    .home-ul li {
         font-size: 0.8rem;
-        
     }
+
     .text-container h1 {
         font-size: 1.5rem;
-       
     }
+
     .text-container h2 {
         font-size: 1.5rem;
-      
     }
 
     .image-container {
@@ -164,12 +206,13 @@
         font-size: 0.9rem;
     }
 }
-@media (max-width:600px){
+
+@media (max-width: 600px) {
     .image-container {
-       
-        margin-left: 0px;
+        margin-left: 0;
     }
 }
+
 @media (max-width: 480px) {
     .text-container h1 {
         font-size: 1.5rem;
@@ -184,6 +227,6 @@
     }
 
     .tech-image {
-        width: 100%; /* Adjust the size for mobile screens */
+        width: 100%;
     }
 }
