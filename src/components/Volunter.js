@@ -68,7 +68,7 @@ const Volunter = () => {
 
 const styles = {
   container: {
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#d2a569',
     padding: '50px 10%',
     fontFamily: 'Arial, sans-serif',
   },
@@ -82,7 +82,7 @@ const styles = {
     color: '#333',
   },
   formContainer: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#d2a569',
     padding: '30px',
     borderRadius: '10px',
     boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
