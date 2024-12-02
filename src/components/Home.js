@@ -10,7 +10,16 @@ const Home = () => {
             <img src={earthWithHandsImage} alt="Earth with Hands" className="background-image" />
             <h1 className="earthText">Transforming Rural Lives with the Use of Technology</h1>
             <div className="text-container">
-                <h1>Our Mission</h1>
+                <div className="mission-heading-container">
+                    <h1 className="mission-heading">Our Mission</h1>
+                    <a
+                        href="\Cillage India Foundation-3.pdf" // Ensure correct link to the PDF
+                        className="pdf-button"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Foundation Brochure
+                    </a>
+                </div>
             </div>
             <div className="text-contained">
                 <div className="image-text-row">
