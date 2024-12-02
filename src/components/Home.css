@@ -52,12 +52,13 @@
 }
 a{
     text-decoration:none;
-    fontSize:18px;
+   
     
 }
 
 .pdf-button {
-    margin-left: auto; /* Push the button to the right */
+    margin-right: 20px; /* Push the button to the right */
+     fontSize:18px;
 }
 
 
