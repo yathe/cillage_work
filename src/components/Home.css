@@ -57,7 +57,7 @@ a{
 }
 
 .pdf-button {
-    margin-right: 10px; /* Push the button to the right */
+    margin-right: -40px; /* Push the button to the right */
      font-size:18px;
 }
 
