@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import fo1 from "../photos/fo1.png";
 import fo2 from "../photos/fo2.png";
 import fo from "../photos/fo.png"
+import shub from "../photos/shub.jpeg";
+import yas from "../photos/ya.jpeg";
+import shre from "../photos/shre.jpeg";
 import "./Whoweare.css";
 
 const Whoweare = () => {
