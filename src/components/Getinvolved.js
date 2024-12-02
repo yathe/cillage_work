@@ -15,7 +15,9 @@ const Getinvolved = () => {
   <img src={vol} alt="Technology Demonstration" className="image1" />
   </div>
   <div className='section1'>
-  <Link to = "/partner"><h5 className="label1">Partner  with  us</h5></Link>
+  <Link to="/partner" className="link">
+  <h5 className="label1">Partner with us</h5>
+</Link>
   <img src={partner} alt="Technology Demonstration" className="image1" />
   </div>
 
