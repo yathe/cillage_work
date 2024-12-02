@@ -15,7 +15,7 @@ const Volunter = () => {
             <label style={styles.label}>Address</label>
             <input
               type="text"
-              placeholder="Your Company Name"
+              placeholder="Your Adddress"
               
               
               required
@@ -49,7 +49,7 @@ const Volunter = () => {
             <label style={styles.label}>Whatsapp No:-</label>
             <input
               type="number"
-              placeholder="Phone Number"
+              placeholder="Whatsapp Number"
              
               required
               style={styles.input}
