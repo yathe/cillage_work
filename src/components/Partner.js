@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
 const Partner = () => {
-  
-
   return (
     <div style={styles.container}>
       <div style={styles.textContainer}>
@@ -16,8 +14,6 @@ const Partner = () => {
             <input
               type="text"
               placeholder="Your Company Name"
-              
-              
               required
               style={styles.input}
             />
@@ -26,9 +22,8 @@ const Partner = () => {
           <div style={styles.formGroup}>
             <label style={styles.label}>Contact Person</label>
             <input
-              type="contact"
+              type="text"
               placeholder="Your Contact Person"
-             
               required
               style={styles.input}
             />
@@ -37,56 +32,55 @@ const Partner = () => {
           <div style={styles.formGroup}>
             <label style={styles.label}>E-mail</label>
             <input
-              type="mail"
+              type="email"
               placeholder="E-mail"
-             
               required
               style={styles.input}
             />
           </div>
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Phone</label>
             <input
-              type="number"
+              type="tel"
               placeholder="Phone Number"
-             
               required
               style={styles.input}
             />
           </div>
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Your Address</label>
             <input
-              type="name"
+              type="text"
               placeholder="Your Address"
-             
               required
               style={styles.input}
             />
           </div>
+
           <div style={styles.formGroup}>
             <label style={styles.label}>Area of Interest</label>
             <input
-              type="name"
+              type="text"
               placeholder="Area of Interest"
-             
               required
               style={styles.input}
             />
           </div>
+
           <div style={styles.formGroup}>
-            <label style={styles.label}>Your Message to us </label>
+            <label style={styles.label}>Your Message to Us</label>
             <textarea
               placeholder="Your Message to us"
-             
               rows="4"
               style={styles.textarea}
             ></textarea>
           </div>
 
-          
-
-          <button type="submit" style={styles.button}>Submit</button>
+          <button type="submit" style={styles.button}>
+            Submit
+          </button>
         </form>
       </div>
     </div>
@@ -136,9 +130,6 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '5px',
   },
-  .section1 a {
-  text-decoration: none;
-}
   select: {
     padding: '10px',
     fontSize: '1rem',
