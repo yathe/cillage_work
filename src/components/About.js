@@ -37,9 +37,20 @@ const About = () => {
     ‘Technology Incubation/Business Promotion Centers’</li>
     <li className='about-ul-li'>Foundation aims to adopt & convert few villages into ‘Model  Sustainable Villages’</li>
 </ul>
+<a
+  href="\Cillage India Foundation-3.pdf" // Ensure correct link to the PDF
+  className="pdf-button"
+  target="_blank"
+  rel="noopener noreferrer">
+  Foundation Brochure
+</a>
+
 </div>
   )
 }
 
 
 export default About
+
+
+
