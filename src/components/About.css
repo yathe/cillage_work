@@ -1,11 +1,13 @@
+/* General Container Styling */
 .container1 {
     justify-content: flex-start;
-    padding: 0;
+    padding: 20px;
+    position: relative; /* For proper positioning of elements */
 }
 
-/* Main text container styling */
+/* Main Text Container Styling */
 .text-container1 {
-    width: 100%; /* Limit width on large screens */
+    width: 100%;
     background-color: rgb(198, 153, 84);
     border-radius: 10px;
     margin-top: 40px;
@@ -18,17 +20,17 @@
     padding: 20px;
 }
 
-/* Heading styling */
+/* Heading Styling */
 .text-container1 h1 {
     font-size: 3.5rem;
-    margin-left: 100px;
+    margin: 0;
     transform: translateY(50px);
     opacity: 0;
     animation: slideUps 0.5s forwards;
     animation-delay: 1.5s;
 }
 
-/* List styling */
+/* List Styling */
 .about-ul {
     display: flex;
     flex-direction: column;
@@ -38,102 +40,135 @@
 }
 
 .about-ul-li {
-    margin-left: 100px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
     color: black;
 }
+
 /* PDF Button Styling */
 .pdf-button {
     display: inline-block;
-    margin: 30px auto 0; /* Center align and add spacing */
+    margin: 20px auto; /* Center align */
     padding: 15px 30px;
-    background-color: #a0bad4; /* Dark background for contrast */
-    color: #fff; /* White text */
+    background-color: rgb(198, 153, 84);
+    color: black;
     font-size: 1rem;
     font-weight: bold;
     border: none;
     border-radius: 25px; /* Rounded button */
     text-align: center;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgb(211, 180, 134); /* Add shadow */
-  }
-  
-  .pdf-button:hover {
-    background-color:rgb(211, 180, 134) ; /* Slightly darker on hover */
-    box-shadow: 0px 6px 12px rgb(238, 194, 129); /* Enhance shadow */
-    transform: scale(1.05); /* Slight zoom on hover */
-  }
-  
-  /* Adjust button position */
-  .container1 {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     position: relative;
-  }
-  
-  .pdf-button {
-    position: absolute;
-    bottom: 123px;
-    left: 44%;
-    background-color: rgb(198 153 84);
-    color: black;
-  }
-  
+}
 
-/* Small screens */
+/* Button Hover Effect */
+.pdf-button:hover {
+    background-color: rgb(211, 180, 134);
+    box-shadow: 0px 6px 12px rgba(238, 194, 129, 0.8);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+
+/* Medium Devices (Tablets) */
 @media (max-width: 768px) {
     .text-container1 h1 {
         font-size: 2.5rem;
-        margin-left: 40px;
     }
-    .about-ul-li {
-        font-size: 1.2rem;
-        margin-left: 20px;
-    }
-}
 
-/* Extra small screens */
-@media (max-width: 480px) {
-    .text-container1 h1 {
-        font-size: 1.5rem;
+    .about-ul {
+        padding: 20px;
     }
-    .about-ul-li {
-        font-size: 0.8rem;
-    }
-}
 
-/* Large screens (1440px and up) */
-@media (min-width: 1440px) {
-    .text-container1 h1 {
-        font-size: 2.5rem; /* Reduced size for larger screens */
-        margin-left: 80px;
-    }
-    .about-ul-li {
-        font-size: 1.4rem;
-        margin-left: 80px;
-    }
-}
-
-/* Ultra-large screens (1920px and up) */
-@media (min-width: 1920px) {
-    .text-container1 h1 {
-        font-size: 2rem; /* Further reduced size for ultra-large screens */
-        margin-left: 60px;
-    }
-    .about-ul-li {
-        font-size: 1.2rem;
-        margin-left: 60px;
-    }
-}
-
-/* Extra-wide screens (2560px and up) */
-@media (min-width: 2560px) {
-    .text-container1 h1 {
-        font-size: 1.8rem;
-        margin-left: 40px;
-    }
     .about-ul-li {
         font-size: 1rem;
-        margin-left: 40px;
+        margin: 10px 0;
+    }
+
+    .pdf-button {
+        font-size: 0.9rem;
+        padding: 12px 25px;
+        margin: 20px auto;
+        position: static; /* Default positioning */
+    }
+}
+
+/* Small Devices (Phones) */
+@media (max-width: 480px) {
+    .text-container1 {
+        text-align: center; /* Center content for small screens */
+        padding: 15px;
+    }
+
+    .text-container1 h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-ul {
+        padding: 10px;
+    }
+
+    .about-ul-li {
+        font-size: 0.9rem;
+        margin: 5px 0;
+    }
+
+    .pdf-button {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+        margin-top: 15px;
+        position: static; /* Ensure no overlap */
+    }
+}
+
+/* Large Screens (1440px and up) */
+@media (min-width: 1440px) {
+    .text-container1 h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-ul-li {
+        font-size: 1.4rem;
+    }
+
+    .pdf-button {
+        font-size: 1rem;
+        padding: 15px 30px;
+    }
+}
+
+/* Extra-Large Screens (1920px and up) */
+@media (min-width: 1920px) {
+    .text-container1 h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-ul-li {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUps {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
