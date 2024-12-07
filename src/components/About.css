@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: flex-start;
     padding: 20px;
+    min-height: 72vh;
     position: relative;
 }
 
