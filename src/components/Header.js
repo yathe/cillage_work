@@ -19,7 +19,7 @@ const Header = () => {
             <div className="header-top">
                 <img src={loho} alt="Cillage Logo" className="logo" />
                 <div className="header-text">
-                    <h1>CILLAGE INDIA FOUNDATION</h1>
+                   <Link to="/"><h1>CILLAGE INDIA FOUNDATION</h1></Link>
                     <p>Technology to Transform Village Life</p>
                 </div>
             </div>
