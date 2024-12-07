@@ -5,7 +5,7 @@
   margin: 0 auto;
   background-color: #e1b470; /* Matches website background */
   max-width: 100%;
-  margin-top: 50px; /* Space above */
+  margin-top:0;
 }
 
 /* Heading Styling */
