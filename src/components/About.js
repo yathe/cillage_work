@@ -22,7 +22,7 @@ const About = () => {
     }
 });
   return (
-    <div className='container1'><div className="text-container1">
+    <div className='container11'><div className="text-container1">
     <h1>About the  </h1>
     <h1>Cillage India Foundation  </h1>
 </div>
