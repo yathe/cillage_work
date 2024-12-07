@@ -6,7 +6,7 @@ import vol from "../photos/volunteer.jpg"
 import { Link } from 'react-router-dom';
 const Getinvolved = () => {
   return (
-    <div className='container1'><div className="text-container">
+    <div className='container12'><div className="text-container">
     <h1>Get Involved</h1>
 </div>
 <div className='grid1'>
