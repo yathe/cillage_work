@@ -39,9 +39,8 @@ const Volunter = () => {
     alert('Thank you for your interest! Our team will contact you shortly.');
     console.log('Form Submitted:', formData);
   };
-
   return (
-    <div  className={`page-container ${formVisible ? 'form-visible' : 'form-hidden'}`}>
+    <div className={`page-container ${formVisible ? 'form-visible' : 'form-hidden'}`}>
       <div className="form-container">
         <h1 className="form-header">Volunteer with Us</h1>
         <p className="form-description">
