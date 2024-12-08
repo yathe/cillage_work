@@ -1,6 +1,7 @@
 /* Header Styling */
 .header {
     background-color: #e1b470; /* Match the beige-brown color */
+    padding: 20px 0;
     text-align: left;
     font-family: 'Arial', sans-serif;
 }
