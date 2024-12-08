@@ -36,7 +36,6 @@
     align-items: center; /* Ensure content is centered vertically */
     gap: 40px;
     background-color: #e1b470;
-    margin-top: 30px;
     border-radius: 8px;
     padding: 0 50px;
     flex-wrap: wrap; /* Ensure items wrap on smaller screens */
@@ -126,7 +125,6 @@
 .line1 {
     height: 4px;
     background-color: black;
-    margin: 20px auto;
     width: calc(100% - 100px);
 }
 
