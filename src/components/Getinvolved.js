@@ -15,13 +15,13 @@ const Getinvolved = () => {
     <Link to="/volunter" className="link">
   <h5 className="label1">Volunteer  with  us</h5>
 </Link>
-  <img src={vol} alt="Technology Demonstration" className="image1" />
+<Link to="/volunter" className="link"><img src={vol} alt="Technology Demonstration" className="image1" /></Link>
   </div>
   <div className='section1'>
   <Link to="/partner" className="link">
   <h5 className="label1">Partner with us</h5>
 </Link>
-  <img src={partner} alt="Technology Demonstration" className="image1" />
+<Link to="/partner" className="link"> <img src={partner} alt="Technology Demonstration" className="image1" /></Link>
   </div>
 
   </div>
