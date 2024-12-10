@@ -1,6 +1,6 @@
 /* Header Styling */
 .header {
-    background-color: #e1b470; /* Match the beige-brown color */
+    background-color: #e1b470; /* Beige-brown color */
     padding: 20px 0;
     text-align: left;
     font-family: 'Arial', sans-serif;
@@ -17,6 +17,7 @@
 .header-top {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     gap: 30px;
     margin-bottom: 20px;
     margin-left: 50px;
@@ -24,7 +25,7 @@
 
 .logo {
     width: 150px;
-    height: 150px;
+    height: auto;
 }
 
 .header-text {
@@ -35,14 +36,14 @@
 }
 
 .header-text h1 {
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 700;
     color: #000;
     margin: 0;
 }
 
 .header-text p {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #333;
     margin-top: 5px;
     font-weight: 400;
@@ -51,57 +52,40 @@
 /* Navigation styling */
 .nav {
     display: flex;
-    justify-content: space-between; /* Distribute the items with space between them */
+    justify-content: space-between;
     gap: 40px;
     padding: 10px 20px;
-    background-color: #d2a569; /* Slightly darker background for navigation */
-    opacity: 0;
-    transform: translateY(-50px);
+    background-color: #d2a569;
     animation: slideUp 0.5s forwards;
     animation-delay: 0.6s;
 }
 
-.nav-left {
-    display: flex;
-    gap: 40px; /* Space between left links */
-}
-
+.nav-left,
 .nav-right {
     display: flex;
-    gap: 40px; /* Space between right links */
-}
-@media (max-width:985px){
-    .nav-left {
-    display: flex;
-    gap: 18px; /* Space between left links */
+    gap: 30px;
 }
 
-.nav-right {
-    display: flex;
-    gap: 18px; /* Space between right links */
-}
-}
 .nav-link {
     color: #000;
     font-weight: bold;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    padding: 5px 10px;
+    padding: 8px 15px;
     border-radius: 5px;
     display: flex;
-    align-items: center; /* Align icon and text vertically */
-    gap: 8px; /* Add spacing between icon and text */
+    align-items: center;
+    gap: 8px;
 }
-
-.whatsapp-icon {
-    font-size: 1.5em; /* Adjust the size of the WhatsApp icon */
-}
-
 
 .nav-link:hover {
     background-color: #fff;
     color: #d2a569;
+}
+
+.whatsapp-icon {
+    font-size: 1.5rem;
 }
 
 /* Navbar toggle styling */
@@ -111,15 +95,82 @@
 
 .nav-bar-toggle {
     background-color: #d2a569;
+    border: none;
+    cursor: pointer;
 }
 
 .nav-bar-toggle1 {
-    font-size: 20px;
+    font-size: 24px;
     color: black;
-    font-weight: 800;
+    font-weight: bold;
 }
 
-/* Responsive styling for smaller screens */
+/* Mobile dropdown */
+.nav1 {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background-color: #d2a569;
+    padding: 10px;
+}
+
+.nav1 .nav-link {
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.nav1 .nav-link:hover {
+    background-color: #fff;
+    color: #d2a569;
+}
+
+/* Responsive Styling */
+@media (max-width: 1200px) {
+    .header-top {
+        margin-left: 20px;
+        gap: 20px;
+    }
+
+    .header-text h1 {
+        font-size: 3rem;
+    }
+
+    .header-text p {
+        font-size: 1.2rem;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-top {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .header-text h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .header-text p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 15px;
+    }
+}
+
 @media (max-width: 768px) {
     .header-top {
         flex-direction: column;
@@ -128,12 +179,11 @@
     }
 
     .logo {
-        width: 100px;
-        margin-bottom: 10px;
+        width: 120px;
     }
 
     .header-text h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .header-text p {
@@ -146,56 +196,89 @@
 
     .nav1 {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background-color: #d2a569;
-        padding: 10px;
-    }
-
-    .nav-link {
-        font-size: 1.2rem;
-        padding: 15px;
-        background-color: #d2a569;
-        color: #fff;
-    }
-
-    .nav-link:hover {
-        background-color: #fff;
-        color: #d2a569;
     }
 
     .nav-bar {
         display: block;
     }
+
+    .nav-bar-toggle1 {
+        font-size: 28px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
 }
 
-/* Very small screens */
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+    .header-top {
+        margin-left: 0;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
     .header-text h1 {
-        font-size: 1.2rem;
+        font-size: 1.8rem;
     }
 
     .header-text p {
         font-size: 0.8rem;
     }
 
-    .nav-link {
+    .nav1 .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .whatsapp-icon {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .header-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-text p {
+        font-size: 0.7rem;
+    }
+
+    .nav1 .nav-link {
         font-size: 0.8rem;
     }
-    .nav1 .nav-link {
-    display: flex;
-    align-items: center; /* Align icon and text vertically */
-    gap: 8px; /* Add spacing between icon and text */
-    font-size: 1.2rem;
-    padding: 15px;
-    background-color: #d2a569;
-    color: #fff;
-    border-radius: 5px; /* Optional for rounded look */
 }
 
-.nav1 .whatsapp-icon {
-    font-size: 1.5rem; /* Adjust icon size for mobile */
-}
+@media (min-width: 1440px) {
+    .header {
+        padding: 30px 0;
+    }
 
+    .header-top {
+        margin-left: 80px;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .header-text h1 {
+        font-size: 5rem;
+    }
+
+    .header-text p {
+        font-size: 2rem;
+    }
+
+    .nav-link {
+        font-size: 22px;
+        padding: 10px 20px;
+    }
+
+    .nav-left,
+    .nav-right {
+        gap: 50px;
+    }
 }
