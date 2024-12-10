@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from "./ScrollToTop";
@@ -24,31 +23,34 @@ import Whatsapp from './components/Whatsapp';
 import Donate from './components/Donate';
 import Partner from './components/Partner';
 import Volunter from './components/Volunter';
+import SharePage from './components/SharePage';  // Import SharePage
+
 function App() {
   return (
     <BrowserRouter>
-     <Header />
-     <ScrollToTop/>
+      <Header />
+      <ScrollToTop />
       <Routes>
-      <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/" element={<Home />} />
         <Route path="/what-we-do" element={<Whatwedo />} />
         <Route path="/who-we-are" element={<Whoweare />} />
         <Route path="/get-involved" element={<Getinvolved />} />
-        <Route path='/CleanWater' element ={<CleanWater />} />
-        <Route path='/agriculture' element = {<Agriculture />} />
-        <Route path='/solar' element = {<SolarEnergy />} />
-        <Route path='/sanititation' element = {<Sanitation />} />
-        <Route path='/socialint' element = {<SocialInit />} />
-        <Route path='/food' element = {<FoodProcessing />} /> 
-        <Route path = "/mission" element = {<Mission />} />
-        <Route path = "/demonstration" element = {<Centres />} />
-        <Route path='/incubation' element = {<Incubation />} />
-        <Route path='/rural' element = {<Rural />} />
-        <Route path='/whatsapp' element={<Whatsapp/>}/> 
-        <Route path='/donate' element={<Donate/>}/> 
-  <Route path='/partner' element = {<Partner />} />
-  <Route path='/volunter' element = {<Volunter />} />
+        <Route path='/CleanWater' element={<CleanWater />} />
+        <Route path='/agriculture' element={<Agriculture />} />
+        <Route path='/solar' element={<SolarEnergy />} />
+        <Route path='/sanititation' element={<Sanitation />} />
+        <Route path='/socialint' element={<SocialInit />} />
+        <Route path='/food' element={<FoodProcessing />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/demonstration" element={<Centres />} />
+        <Route path='/incubation' element={<Incubation />} />
+        <Route path='/rural' element={<Rural />} />
+        <Route path='/whatsapp' element={<Whatsapp />} />
+        <Route path='/donate' element={<Donate />} />
+        <Route path='/partner' element={<Partner />} />
+        <Route path='/volunter' element={<Volunter />} />
+        <Route path='/share' element={<SharePage />} />  {/* New route for SharePage */}
       </Routes>
       <About_us />
     </BrowserRouter>
