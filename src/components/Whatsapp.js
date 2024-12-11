@@ -6,21 +6,21 @@ const Whatsapp = () => {
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   return (
-    <div className="container1">
+    <div className="container2">
       {/* Heading Section */}
-      <div className="text-container">
+      <div className="text-container1">
         <h1>Reach Out to Us</h1>
         
       </div>
 
       {/* Content Section */}
-      <div className="grid1">
-        <div className="section1">
-          <h5 className="label1">Chat with Us on WhatsApp</h5>
-          <p className="description">
+      <div className="grid2">
+        <div className="section2">
+          <h5 className="label2">Chat with Us on WhatsApp</h5>
+          <p className="description1">
           We are here to assist you! Chat with us on WhatsApp for support, queries, or collaboration.
         </p>
-          <p className="description">
+          <p className="description1">
             Have questions or need assistance? Connect with us instantly on WhatsApp. We’re just a click away!
           </p>
           <a
