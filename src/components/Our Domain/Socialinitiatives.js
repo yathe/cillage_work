@@ -33,6 +33,7 @@ console.log(windowWidth);
       fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '20px' : '15px',
       color: '#6a4f4b',
       paddingBottom: '10px',
+      fontWieght:"400",
       textTransform: 'uppercase',
   };
 
@@ -75,8 +76,8 @@ console.log(windowWidth);
 
   return (
       <div style={containerStyle}>
-          <header style={headerStyle}>
-              <h1>Virtual Care & Smart Learning</h1>
+          <header>
+              <h1 style={headerStyle}>Virtual Care & Smart Learning</h1>
           </header>
           <div style={sectionStyle}>
               <img src={img1} alt="Technology Centre" style={imageStyle} />
