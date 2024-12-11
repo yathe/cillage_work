@@ -32,7 +32,7 @@ const Centres = () => {
         textAlign: 'center',
         fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '20px' : '15px',
         color: '#6a4f4b',
-        paddingBottom: '10px',
+        fontWeight:'bold',
         textTransform: 'uppercase',
     };
 
@@ -75,8 +75,8 @@ const Centres = () => {
 
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1>Technology Demonstration Centres</h1>
+            <header>
+                <h1 style={headerStyle}>Technology Demonstration Centres</h1>
             </header>
 
             <div style={sectionStyle}>
