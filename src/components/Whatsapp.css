@@ -1,5 +1,5 @@
 /* General Container */
-.container1 {
+.container2 {
     font-family: 'Arial', sans-serif;
     background-color: #e1b470;
     text-align: center;
@@ -8,7 +8,7 @@
 }
 
 /* Animated Heading */
-.text-container {
+.text-container1 {
     width: 100%;
     background-color: rgb(198, 153, 84);
     padding: 20px;
@@ -22,7 +22,7 @@
     animation-delay: 0.6s;
 }
 
-.text-container h1 {
+.text-container1 h1 {
     transform: translateY(50px);
     opacity: 0;
     animation: slideUps 0.5s forwards;
@@ -30,7 +30,7 @@
 }
 
 /* Grid Section for Content */
-.grid1 {
+.grid2 {
     display: flex;
     justify-content: center;
     align-items: center; /* Ensure content is centered vertically */
@@ -41,7 +41,7 @@
     flex-wrap: wrap; /* Ensure items wrap on smaller screens */
 }
 
-.section1 {
+.section2 {
     text-align: center;
     margin: 20px;
     border-radius: 8px;
@@ -55,14 +55,14 @@
 }
 
 /* Labels and Descriptions */
-.label1 {
+.label2 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 15px;
     color: #1d1d1d;
 }
 
-.description {
+.description1 {
     font-size: 1.4rem;
     color: #555;
     margin: 10px 0 20px;
@@ -132,7 +132,7 @@
 
 /* For Tablets and Small Desktops */
 @media (max-width: 850px) {
-    .grid1 {
+    .grid2 {
         flex-direction: column;
         padding: 0 30px;
     }
@@ -148,7 +148,7 @@
 
 /* For Mobile Devices */
 @media (max-width: 650px) {
-    .grid1 {
+    .grid2 {
         padding: 0 20px;
     }
 
@@ -169,11 +169,11 @@
         font-size: 1rem;
     }
 
-    .description {
+    .description1 {
         font-size: 1.2rem;
     }
 
-    .label1 {
+    .label2 {
         font-size: 1.6rem;
     }
 }
