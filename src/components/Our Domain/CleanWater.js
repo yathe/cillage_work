@@ -28,6 +28,7 @@ function CleanWater() {
         textAlign: 'center',
         fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
         color: '#6a4f4b',
+        fontWieght:"400",
         paddingBottom: '10px',
         textTransform: 'uppercase',
     };
@@ -71,8 +72,8 @@ function CleanWater() {
 
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1>Clean Water</h1>
+            <header>
+                <h1 style={headerStyle}>Clean Water</h1>
             </header>
 
             <div style={sectionStyle}>
