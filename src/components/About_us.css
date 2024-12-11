@@ -19,6 +19,7 @@
     opacity: 0;
     animation: slideUps 2.5s forwards;
     animation-delay: 3.5s; /* Delay after the container animation */
+    margin-top: 30px;
   }
   @keyframes slideUps {
     to {
