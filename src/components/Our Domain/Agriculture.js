@@ -43,6 +43,7 @@ const Agriculture = () => {
         textAlign: 'center',
         fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
         color: '#6a4f4b',
+        fontWieght:"400",
         paddingBottom: '10px',
         textTransform: 'uppercase',
     };
@@ -86,8 +87,8 @@ const Agriculture = () => {
 
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1> Agriculture</h1>
+            <header>
+                <h1 style={headerStyle}> Agriculture</h1>
             </header>
 
             <div style={sectionStyle}>
