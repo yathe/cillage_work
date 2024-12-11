@@ -30,6 +30,7 @@ function SolarEnergy() {
         fontSize: windowWidth > 768 ? "36px" : windowWidth > 480 ? "28px" : "24px",
         color: "#6a4f4b",
         paddingBottom: "10px",
+        fontWieght:"400",
         textTransform: "uppercase",
     };
 
@@ -72,8 +73,8 @@ function SolarEnergy() {
 
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1>Solar Energy</h1>
+            <header>
+                <h1 style={headerStyle}>Solar Energy</h1>
             </header>
 
             <div style={sectionStyle}>
