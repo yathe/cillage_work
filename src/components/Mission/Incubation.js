@@ -29,6 +29,7 @@ const Incubation = () => {
         textAlign: 'center',
         fontSize: windowWidth > 768 ? '28px' : windowWidth > 480 ? '20px' : '15px',
         color: '#6a4f4b',
+        fontWeight:'bold',
         paddingBottom: '10px',
         textTransform: 'uppercase',
     };
@@ -72,8 +73,8 @@ const Incubation = () => {
 
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1>Technology Incubation Centres</h1>
+            <header>
+                <h1 style={headerStyle}>Technology Incubation Centres</h1>
             </header>
 
             <div style={sectionStyle}>
