@@ -33,6 +33,7 @@ function Sanitation() {
         fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
         color: '#6a4f4b',
         paddingBottom: '10px',
+        fontWieght:"400",
         textTransform: 'uppercase',
     };
 
@@ -75,8 +76,8 @@ function Sanitation() {
 
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1> Sanitation
+            <header>
+                <h1 style={headerStyle}> Sanitation
                 </h1>
             </header>
 
