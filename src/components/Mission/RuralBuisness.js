@@ -28,6 +28,7 @@ function Rural() {
         textAlign: 'center',
         fontSize: windowWidth > 768 ? '36px' : windowWidth > 480 ? '28px' : '24px',
         color: '#6a4f4b',
+        fontWeight:'bold',
         paddingBottom: '10px',
         textTransform: 'uppercase',
     };
@@ -65,8 +66,8 @@ function Rural() {
     
     return (
         <div style={containerStyle}>
-            <header style={headerStyle}>
-                <h1>Rural Business Promotion Centres</h1>
+            <header>
+                <h1 style={headerStyle}>Rural Business Promotion Centres</h1>
             </header>
     
             <div style={sectionStyle}>
