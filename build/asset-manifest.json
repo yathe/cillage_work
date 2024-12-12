@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7d7824fc.css",
-    "main.js": "/static/js/main.34dfe41b.js",
+    "main.css": "/static/css/main.a6e144c8.css",
+    "main.js": "/static/js/main.3a1a6e54.js",
     "static/media/contact_page.jpg": "/static/media/contact_page.951489b9383922c1f82d.jpg",
     "static/media/Effective.jpg": "/static/media/Effective.c630dd1511f6c1065a16.jpg",
     "static/media/Devic-Earth.jpg": "/static/media/Devic-Earth.708513634a7360536769.jpg",
@@ -46,15 +46,15 @@
     "static/media/ag8.png": "/static/media/ag8.e450002b997f2c752c40.png",
     "static/media/sol2.png": "/static/media/sol2.d1ae01648303c6f48dd2.png",
     "static/media/partner.jpg": "/static/media/partner.cc73bdabac43e3541c88.jpg",
-    "static/media/fo.png": "/static/media/fo.fd1184788a16fdf76328.png",
-    "static/media/fo2.png": "/static/media/fo2.a8d2f13a7d481b6aea80.png",
-    "static/media/fo1.png": "/static/media/fo1.7821a6c3c1135d018305.png",
     "static/media/Smart.jpg": "/static/media/Smart.9b6d8b4ebb75a575149b.jpg",
     "static/media/san.jpg": "/static/media/san.431c5889826cd2075484.jpg",
     "static/media/loho.jpg": "/static/media/loho.4fce760f52d07adcb0fb.jpg",
     "static/media/sanitation.jpg": "/static/media/sanitation.ed532a66d79355a1d0a2.jpg",
     "static/media/OIP.jpg": "/static/media/OIP.74887a060cc0fd1d8416.jpg",
     "static/media/1.jpg": "/static/media/1.4ccd2707eb285b566a11.jpg",
+    "static/media/fo.png": "/static/media/fo.7a28f99c5e9b298e1f6d.png",
+    "static/media/fo1.png": "/static/media/fo1.d4db0b840d7529135997.png",
+    "static/media/fo2.png": "/static/media/fo2.798814a8af72b01d14d7.png",
     "static/media/2.jpg": "/static/media/2.96c6bfc44b33e429eccb.jpg",
     "static/media/agriculture.jpg": "/static/media/agriculture.fb2e64f57fce080e2c1e.jpg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -62,11 +62,11 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.7d7824fc.css.map": "/static/css/main.7d7824fc.css.map",
-    "main.34dfe41b.js.map": "/static/js/main.34dfe41b.js.map"
+    "main.a6e144c8.css.map": "/static/css/main.a6e144c8.css.map",
+    "main.3a1a6e54.js.map": "/static/js/main.3a1a6e54.js.map"
   },
   "entrypoints": [
-    "static/css/main.7d7824fc.css",
-    "static/js/main.34dfe41b.js"
+    "static/css/main.a6e144c8.css",
+    "static/js/main.3a1a6e54.js"
   ]
 }
