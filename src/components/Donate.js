@@ -35,7 +35,7 @@ const Donate = () => {
      console.log("Form Data Submitted:", formDatas); 
      // You can replace this with a database API call 
      setSubmitted(true); 
-     axios.post('https://api.sheetbest.com/sheets/58a45a34-b09c-4773-900f-f0ea9a467b68',formDatas).then((res)=>{
+     axios.post(`${process.env.REACT_APP_URL}`,formDatas).then((res)=>{
  console.log(res);
  setFormDatas('');
      }).catch((error)=>{
