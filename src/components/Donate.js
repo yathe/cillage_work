@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Donate.css";
-
+import axios from "axios";
 const Donate = () => {
   // State to store form data
-  const [formData, setFormData] = useState({
+  const [formDatas, setFormDatas] = useState({
     fullName: "",
-    dateOfBirth: "",
+    dateBirth: "",
     email: "",
     mobileNumber: "",
     address: "",
@@ -23,17 +23,28 @@ const Donate = () => {
   // Handle form field changes
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
+    setFormDatas({
+      ...formDatas,
       [name]: type === "checkbox" ? checked : value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { 
+    //excel implementation code are their 
     e.preventDefault();
-    console.log("Form Data Submitted:", formData); // You can replace this with a database API call
-    setSubmitted(true);
-  };
+     console.log("Form Data Submitted:", formDatas); 
+     // You can replace this with a database API call 
+     setSubmitted(true); 
+     axios.post('https://api.sheetbest.com/sheets/58a45a34-b09c-4773-900f-f0ea9a467b68',formDatas).then((res)=>{
+ console.log(res);
+ setFormDatas('');
+     }).catch((error)=>{
+      console.log("data are not store in excel-sheet",error)
+     })
+ 
+    
+                      } 
+  
 
   const handleCloseModal = () => {
     setSubmitted(false);
@@ -51,7 +62,7 @@ const Donate = () => {
             <input
               type="text"
               name="fullName"
-              value={formData.fullName}
+              value={formDatas.fullName}
               onChange={handleInputChange}
               placeholder="Enter your full name"
               required
@@ -61,8 +72,9 @@ const Donate = () => {
             <label>Date of Birth</label>
             <input
               type="date"
-              name="dateOfBirth"
-              value={formData.dateOfBirth}
+              id="date"
+              name="dateBirth"
+              value={formDatas.dateBirth}
               onChange={handleInputChange}
             />
           </div>
@@ -74,7 +86,7 @@ const Donate = () => {
             <input
               type="email"
               name="email"
-              value={formData.email}
+              value={formDatas.email}
               onChange={handleInputChange}
               placeholder="Enter your email"
               required
@@ -85,7 +97,7 @@ const Donate = () => {
             <input
               type="tel"
               name="mobileNumber"
-              value={formData.mobileNumber}
+              value={formDatas.mobileNumber}
               onChange={handleInputChange}
               placeholder="Enter your mobile number"
               required
@@ -97,7 +109,7 @@ const Donate = () => {
           <label>Address *</label>
           <textarea
             name="address"
-            value={formData.address}
+            value={formDatas.address}
             onChange={handleInputChange}
             placeholder="Enter your address"
             required
@@ -110,7 +122,7 @@ const Donate = () => {
             <input
               type="text"
               name="pincode"
-              value={formData.pincode}
+              value={formDatas.pincode}
               onChange={handleInputChange}
               placeholder="Enter pincode"
               required
@@ -121,7 +133,7 @@ const Donate = () => {
             <input
               type="text"
               name="city"
-              value={formData.city}
+              value={formDatas.city}
               onChange={handleInputChange}
               placeholder="Enter city"
             />
@@ -134,7 +146,7 @@ const Donate = () => {
             <input
               type="text"
               name="state"
-              value={formData.state}
+              value={formDatas.state}
               onChange={handleInputChange}
               placeholder="Enter state"
             />
@@ -144,7 +156,7 @@ const Donate = () => {
             <input
               type="text"
               name="panNumber"
-              value={formData.panNumber}
+              value={formDatas.panNumber}
               onChange={handleInputChange}
               placeholder="Enter PAN number"
             />
@@ -157,7 +169,7 @@ const Donate = () => {
           <input
             type="number"
             name="amount"
-            value={formData.amount}
+            value={formDatas.amount}
             onChange={handleInputChange}
             placeholder="Enter donation amount"
             required
@@ -168,7 +180,7 @@ const Donate = () => {
           <label>Foundation's Bank Account Detail</label>
           <textarea
             name="bankAccount"
-            value={formData.bankAccount}
+            value={formDatas.bankAccount}
             onChange={handleInputChange}
             placeholder=""
             required
@@ -185,7 +197,7 @@ const Donate = () => {
               type="checkbox"
               id="agree"
               name="agree"
-              checked={formData.agree}
+              checked={formDatas.agree}
               onChange={handleInputChange}
             />
             <label htmlFor="agree">
