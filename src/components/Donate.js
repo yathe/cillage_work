@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Donate.css";
 import axios from "axios";
-import emailjs from "emailjs-com";
 
 const Donate = () => {
   // State to store form data
@@ -43,8 +42,7 @@ const Donate = () => {
     // Show Thank You modal immediately after submission
     setSubmitted(true);
 
-    // Send email
-    sendEmail(formDatas);
+   
 
     // Save data to backend or Excel
     axios
