@@ -42,7 +42,7 @@ const Volunter = () => {
     try {
       // Send form data to backend
        axios.post(
-        `${process.env.REACT_APP_URL1}` || `${process.env.LOCALHOST_URL}`,
+        `${process.env.REACT_APP_URL1}`,
         formData,
        
         
@@ -62,7 +62,7 @@ const Volunter = () => {
       };
 
       // Send email using EmailJS
-       emailjs.send(
+       await emailjs.send(
         `${process.env.SERVICE_ID}`, // Your EmailJS Service ID
         `${process.env.TEMPELATE_ID}`, // Your EmailJS Template ID
         emailParams,
