@@ -82,8 +82,19 @@ const Donate = () => {
     sendEmail(formDatas);
 
     // Save data to backend or Excel
-    axios
-      .post(`${process.env.REACT_APP_URL}`, formDatas)
+   axios
+  .post(
+    'https://api.sheetbest.com/sheets/58a45a34-b09c-4773-900f-f0ea9a467b68',
+    formDatas,
+    { timeout: 10000 } // 10 seconds
+  )
+  .then((res) => {
+    console.log('Data saved to backend:', res);
+  })
+  .catch((error) => {
+    console.error('Failed to save data:', error.message || error);
+  });
+
       .then((res) => {
         console.log("Data saved to backend:", res);
         // Reset the form data after successful submission
