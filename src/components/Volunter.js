@@ -41,14 +41,11 @@ const Volunter = () => {
 
     try {
       // Send form data to backend
-      await axios.post(
+       axios.post(
         `${process.env.REACT_APP_URL1}` || `${process.env.LOCALHOST_URL}`,
         formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+       
+        
       );
 
       // Prepare data for EmailJS
@@ -65,7 +62,7 @@ const Volunter = () => {
       };
 
       // Send email using EmailJS
-      await emailjs.send(
+       emailjs.send(
         `${process.env.SERVICE_ID}`, // Your EmailJS Service ID
         `${process.env.TEMPELATE_ID}`, // Your EmailJS Template ID
         emailParams,
@@ -87,7 +84,7 @@ const Volunter = () => {
         cv: null,
       });
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.log("Error submitting form:", error);
       alert("There was an error submitting the form. Please try again.");
     }
   };
