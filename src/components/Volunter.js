@@ -42,7 +42,7 @@ const Volunter = () => {
     try {
       // Send form data to backend
       await axios.post(
-        process.env.REACT_APP_URL1 || "http://localhost:5000/volunteer",
+        `${process.env.REACT_APP_URL1}` || `${process.env.LOCALHOST_URL}`,
         formData,
         {
           headers: {
@@ -66,10 +66,10 @@ const Volunter = () => {
 
       // Send email using EmailJS
       await emailjs.send(
-        "service_5xjd2xe", // Your EmailJS Service ID
-        "template_kt0qq7t", // Your EmailJS Template ID
+        `${process.env.SERVICE_ID}`, // Your EmailJS Service ID
+        `${process.env.TEMPELATE_ID}`, // Your EmailJS Template ID
         emailParams,
-        "07Wv_B-CAg8KQtOS7" // Your EmailJS Public Key
+        `${process.env.EMAIL_PUBLIC_KEY}` // Your EmailJS Public Key
       );
 
       alert("Form submitted successfully! Our team will contact you shortly.");
