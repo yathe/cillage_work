@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.a6e144c8.css",
-    "main.js": "/static/js/main.d84318b2.js",
+    "main.js": "/static/js/main.8a149d37.js",
     "static/media/contact_page.jpg": "/static/media/contact_page.951489b9383922c1f82d.jpg",
     "static/media/Effective.jpg": "/static/media/Effective.c630dd1511f6c1065a16.jpg",
     "static/media/Devic-Earth.jpg": "/static/media/Devic-Earth.708513634a7360536769.jpg",
@@ -63,10 +63,10 @@
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
     "main.a6e144c8.css.map": "/static/css/main.a6e144c8.css.map",
-    "main.d84318b2.js.map": "/static/js/main.d84318b2.js.map"
+    "main.8a149d37.js.map": "/static/js/main.8a149d37.js.map"
   },
   "entrypoints": [
     "static/css/main.a6e144c8.css",
-    "static/js/main.d84318b2.js"
+    "static/js/main.8a149d37.js"
   ]
 }
