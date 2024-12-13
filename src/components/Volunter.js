@@ -41,12 +41,9 @@ const Volunter = () => {
 
     try {
       // Send form data to backend
-       axios.post(
+       await axios.post(
         `${process.env.REACT_APP_URL1}`,
-        formData,
-       
-        
-      );
+        formData);
 
       // Prepare data for EmailJS
       const emailParams = {
