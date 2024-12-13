@@ -42,8 +42,11 @@ const Volunter = () => {
     try {
       // Send form data to backend
        await axios.post(
-        `${process.env.REACT_APP_URL1}`,
-        formData);
+        process.env.REACT_APP_URL1,
+        formData,
+        {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
 
       // Prepare data for EmailJS
       const emailParams = {
@@ -60,10 +63,10 @@ const Volunter = () => {
 
       // Send email using EmailJS
        await emailjs.send(
-        `${process.env.SERVICE_ID}`, // Your EmailJS Service ID
-        `${process.env.TEMPELATE_ID}`, // Your EmailJS Template ID
+        process.env.SERVICE_ID, // Your EmailJS Service ID
+        process.env.TEMPELATE_ID, // Your EmailJS Template ID
         emailParams,
-        `${process.env.EMAIL_PUBLIC_KEY}` // Your EmailJS Public Key
+        process.env.EMAIL_PUBLIC_KEY // Your EmailJS Public Key
       );
 
       alert("Form submitted successfully! Our team will contact you shortly.");
