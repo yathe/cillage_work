@@ -38,15 +38,15 @@ const Volunter = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    axios.post(`${process.env.REACT_APP_URL1}`,formDatas).then((res)=>{
+     alert("your data are submitted");
+     }).catch((error)=>{
+      console.log("data are not store in excel-sheet",error)
+     })
 
     try {
-      // Send form data to backend
-       await axios.post(
-        process.env.REACT_APP_URL1,
-        formData,
-        {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+     
+    
 
       // Prepare data for EmailJS
       const emailParams = {
