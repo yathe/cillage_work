@@ -31,40 +31,7 @@ const Donate = () => {
     });
   };
 
-  const sendEmail = (formData) => {
-    const templateParams = {
-      fullName: formData.fullName,
-      email: formData.email,
-      mobileNumber: formData.mobileNumber,
-      address: formData.address,
-      pincode: formData.pincode,
-      city: formData.city,
-      state: formData.state,
-      panNumber: formData.panNumber,
-      dateBirth: formData.dateBirth,
-      amount: formData.amount,
-      bankAccount: formData.bankAccount,
-      declaration: formData.agree
-        ? "I hereby declare that I am a citizen of India and making this donation out of my own funds."
-        : "The declaration was not accepted by the donor.",
-    };
   
-    emailjs
-      .send(
-        'service_5xjd2xe',
-        'template_4zkgo4s',
-        templateParams,
-        '07Wv_B-CAg8KQtOS7' // Replace with your EmailJS user ID
-      )
-      .then(
-        (response) => {
-          console.log("Email successfully sent!", response.status, response.text);
-        },
-        (error) => {
-          console.log("Email sending failed:", error);
-        }
-      );
-  };
   
 
   const handleSubmit = (e) => {
