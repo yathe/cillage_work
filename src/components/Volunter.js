@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import './Volunter.css';
-import axios from 'axios';
 import emailjs from '@emailjs/browser';
 
 const Volunter = () => {
   const [formVisible, setFormVisible] = useState(false);
-
   const [formData, setFormData] = useState({
     name: '',
     dob: '',
@@ -18,10 +16,13 @@ const Volunter = () => {
     valueAddition: '',
     skills: [],
     cv: null,
+    cvBase64: '', // For Base64 conversion
   });
 
+  // Handle changes in the form fields
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     if (type === 'checkbox') {
       setFormData({
         ...formData,
@@ -30,7 +31,20 @@ const Volunter = () => {
           : formData.skills.filter((skill) => skill !== value),
       });
     } else if (type === 'file') {
-      setFormData({ ...formData, cv: e.target.files[0] });
+      const file = e.target.files[0];
+      if (file && file.size <= 50 * 1024) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setFormData({
+            ...formData,
+            cv: file,
+            cvBase64: reader.result.split(',')[1], // Base64 encoding
+          });
+        };
+        reader.readAsDataURL(file);
+      } else {
+        alert('File size exceeds 50KB limit. Please upload a smaller file.');
+      }
     } else {
       setFormData({ ...formData, [name]: value });
     }
@@ -38,59 +52,46 @@ const Volunter = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_URL1}`,formDatas).then((res)=>{
-     alert("your data are submitted");
-     }).catch((error)=>{
-      console.log("data are not store in excel-sheet",error)
-     })
+
+    const emailParams = {
+      to_name: 'Volunteer Coordinator',
+      from_name: formData.name,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      dob: formData.dob,
+      gender: formData.gender,
+      occupation: formData.occupation,
+      skills: formData.skills.join(', '),
+      pastExperience: formData.pastExperience,
+      valueAddition: formData.valueAddition,
+      message: 'Please find the attached CV and details.',
+      attachments: [
+        {
+          content: formData.cvBase64, // Base64 string without the prefix
+          filename: 'Volunteer_CV.pdf',
+          type: formData.cv?.type || 'application/pdf',
+        },
+      ],
+    };
 
     try {
-     
-    
-
-      // Prepare data for EmailJS
-      const emailParams = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        skills: formData.skills.join(", "),
-        dob: formData.dob,
-        gender: formData.gender,
-        occupation: formData.occupation,
-        pastExperience: formData.pastExperience,
-        valueAddition: formData.valueAddition,
-      };
-
-      // Send email using EmailJS
-       await emailjs.send(
-        process.env.SERVICE_ID, // Your EmailJS Service ID
-        process.env.TEMPELATE_ID, // Your EmailJS Template ID
+      await emailjs.send(
+        'service_5xjd2xe',
+        'template_kt0qq7t',
         emailParams,
-        process.env.EMAIL_PUBLIC_KEY // Your EmailJS Public Key
+        '07Wv_B-CAg8KQtOS7'
       );
 
-      alert("Form submitted successfully! Our team will contact you shortly.");
-      setFormData({
-        name: "",
-        dob: "",
-        gender: "",
-        email: "",
-        phone: "",
-        city: "",
-        occupation: "",
-        pastExperience: "",
-        valueAddition: "",
-        skills: [],
-        cv: null,
-      });
+      alert('Form submitted and email sent successfully!');
     } catch (error) {
-      console.log("Error submitting form:", error);
-      alert("There was an error submitting the form. Please try again.");
+      console.error('Error sending email:', error);
+      alert('There was an error submitting the form.');
     }
   };
 
   return (
-    <div  className={`page-container ${formVisible ? 'form-visible' : 'form-hidden'}`}>
+    <div className="page-container">
       <div className="form-container">
         <h1 className="form-header">Volunteer with Us</h1>
         <p className="form-description">
@@ -108,19 +109,14 @@ const Volunter = () => {
           </ul>
         </div>
         <div className="button-container">
-          <button
-            className="submit-button"
-            onClick={() => setFormVisible(true)}
-          >
+          <button className="submit-button" onClick={() => setFormVisible(true)}>
             Apply for Internship
           </button>
-          <button
-            className="submit-button"
-            onClick={() => setFormVisible(true)}
-          >
+          <button className="submit-button" onClick={() => setFormVisible(true)}>
             Apply for Volunteership
           </button>
         </div>
+
         {formVisible && (
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -206,9 +202,6 @@ const Volunter = () => {
                 required
               />
             </div>
-            <p className="form-description">
-              In internships, we expect a minimum of 4 hours of work daily through a period of four weeks.
-            </p>
             <div className="form-group">
               <label htmlFor="pastExperience">Mention past volunteering and internships you may have done:</label>
               <textarea
@@ -230,7 +223,7 @@ const Volunter = () => {
               ></textarea>
             </div>
             <div className="form-group">
-              <label htmlFor="cv">Please post your CV here:</label>
+              <label>Please post your CV here:</label>
               <input type="file" id="cv" name="cv" onChange={handleChange} />
             </div>
             <div className="form-group">
@@ -239,71 +232,73 @@ const Volunter = () => {
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
                     value="Designing Posters"
+                    checked={formData.skills.includes('Designing Posters')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Designing Posters
                 </label>
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
                     value="Video Making"
+                    checked={formData.skills.includes('Video Making')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Video Making
                 </label>
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
                     value="Video Editing"
+                    checked={formData.skills.includes('Video Editing')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Video Editing
                 </label>
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
-                    value="Research & Documentation"
+                    value="Research and Documentation"
+                    checked={formData.skills.includes('Research & Documentation')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Research & Documentation
                 </label>
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
                     value="Event Organizing"
+                    checked={formData.skills.includes('Event Organizing')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Event Organizing
                 </label>
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
                     value="Fund Raising"
+                    checked={formData.skills.includes('Fund Raising')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Fund Raising
                 </label>
                 <label>
                   <input
                     type="checkbox"
-                    name="skills"
                     value="Working with Villagers"
+                    checked={formData.skills.includes('Working with Villagers')}
                     onChange={handleChange}
-                  />{' '}
+                  />
                   Working with Villagers
                 </label>
               </div>
             </div>
-            <button type="submit" className="submit-button">
-              Submit
-            </button>
+            <div className="button-container">
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </div>
           </form>
         )}
       </div>
