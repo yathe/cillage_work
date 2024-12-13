@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Volunter.css';
 import axios from 'axios';
+import emailjs from '@emailjs/browser';
+
 const Volunter = () => {
   const [formVisible, setFormVisible] = useState(false);
 
@@ -34,16 +36,60 @@ const Volunter = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_URL1}`,formData).then((res)=>{
 
-    
-    alert('Thank you for your interest! Our team will contact you shortly.');
-  }).catch((err)=>{
-    console.log("something error",err);
-  })
-    console.log('Form Submitted:', formData);
+    try {
+      // Send form data to backend
+      await axios.post(
+        process.env.REACT_APP_URL1 || "http://localhost:5000/volunteer",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      // Prepare data for EmailJS
+      const emailParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        skills: formData.skills.join(", "),
+        dob: formData.dob,
+        gender: formData.gender,
+        occupation: formData.occupation,
+        pastExperience: formData.pastExperience,
+        valueAddition: formData.valueAddition,
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        "service_5xjd2xe", // Your EmailJS Service ID
+        "template_kt0qq7t", // Your EmailJS Template ID
+        emailParams,
+        "07Wv_B-CAg8KQtOS7" // Your EmailJS Public Key
+      );
+
+      alert("Form submitted successfully! Our team will contact you shortly.");
+      setFormData({
+        name: "",
+        dob: "",
+        gender: "",
+        email: "",
+        phone: "",
+        city: "",
+        occupation: "",
+        pastExperience: "",
+        valueAddition: "",
+        skills: [],
+        cv: null,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
 
   return (
