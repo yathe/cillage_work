@@ -31,46 +31,48 @@ const Donate = () => {
     });
   };
 
+  // Send email using EmailJS
   const sendEmail = (formData) => {
     const templateParams = {
-      fullName: formData.fullName,
-      email: formData.email,
-      mobileNumber: formData.mobileNumber,
-      address: formData.address,
-      pincode: formData.pincode,
-      city: formData.city,
-      state: formData.state,
-      panNumber: formData.panNumber,
-      dateBirth: formData.dateBirth,
-      amount: formData.amount,
-      bankAccount: formData.bankAccount,
+      fullName: formData.fullName || "N/A",
+      email: formData.email || "N/A",
+      mobileNumber: formData.mobileNumber || "N/A",
+      address: formData.address || "N/A",
+      pincode: formData.pincode || "N/A",
+      city: formData.city || "N/A",
+      state: formData.state || "N/A",
+      panNumber: formData.panNumber || "N/A",
+      dateBirth: formData.dateBirth || "N/A",
+      amount: formData.amount || "N/A",
+      bankAccount: formData.bankAccount || "N/A",
       declaration: formData.agree
         ? "I hereby declare that I am a citizen of India and making this donation out of my own funds."
         : "The declaration was not accepted by the donor.",
     };
-  
+
+    console.log("Sending email with params:", templateParams);
+
     emailjs
       .send(
-        'service_5xjd2xe',
-        'template_4zkgo4s',
+        "service_5xjd2xe", // Replace with your EmailJS service ID
+        "template_4zkgo4s", // Replace with your EmailJS template ID
         templateParams,
-        '07Wv_B-CAg8KQtOS7' // Replace with your EmailJS user ID
+        "07Wv_B-CAg8KQtOS7" // Replace with your EmailJS user ID
       )
       .then(
         (response) => {
           console.log("Email successfully sent!", response.status, response.text);
         },
         (error) => {
-          console.log("Email sending failed:", error);
+          console.error("Email sending failed:", error);
         }
       );
   };
-  
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ensure the form is correctly submitting all values
     console.log("Form Data Submitted:", formDatas);
 
     // Show Thank You modal immediately after submission
@@ -115,7 +117,6 @@ const Donate = () => {
         <h1 className="donate-title">Donation Form</h1>
 
         <form onSubmit={handleSubmit} className="donate-form">
-          {/* Form Fields */}
           <div className="donate-form-row">
             <div className="donate-form-group">
               <label>Full Name *</label>
@@ -175,7 +176,6 @@ const Donate = () => {
             ></textarea>
           </div>
 
-          {/* Additional Fields */}
           <div className="donate-form-row">
             <div className="donate-form-group">
               <label>Pincode *</label>
