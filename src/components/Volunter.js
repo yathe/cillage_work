@@ -53,41 +53,15 @@ const Volunter = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const emailParams = {
-      to_name: 'Volunteer Coordinator',
-      from_name: formData.name,
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      dob: formData.dob,
-      gender: formData.gender,
-      occupation: formData.occupation,
-      skills: formData.skills.join(', '),
-      pastExperience: formData.pastExperience,
-      valueAddition: formData.valueAddition,
-      message: 'Please find the attached CV and details.',
-      attachments: [
-        {
-          content: formData.cvBase64, // Base64 string without the prefix
-          filename: 'Volunteer_CV.pdf',
-          type: formData.cv?.type || 'application/pdf',
-        },
-      ],
-    };
+   
 
-    try {
-      await emailjs.send(
-        'service_5xjd2xe',
-        'template_kt0qq7t',
-        emailParams,
-        '07Wv_B-CAg8KQtOS7'
-      );
-
-      alert('Form submitted and email sent successfully!');
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('There was an error submitting the form.');
-    }
+   
+    axios.post(`${process.env.REACT_APP_URL1}`,formData).
+      then((res)=>{
+        alert("Your data are successfully send");
+      }).catch((error)=>{
+        console.log("something error",error);
+      })
   };
 
   return (
