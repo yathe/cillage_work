@@ -2,25 +2,57 @@ import React, { useState } from "react";
 import "./Partner.css";
 
 const Partner = () => {
-  const [formData, setFormData] = useState({
-    organization: "",
-    contactPerson: "",
-    email: "",
-    phone: "",
-    address: "",
-    interestArea: "",
-    message: "",
-  });
+  const [organization, setOrganization] = useState("");
+  const [contactPerson, setContactPerson] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [interestArea, setInterestArea] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you for your interest! Our team will contact you shortly.");
-    console.log("Form Submitted:", formData);
+
+    const formData = {
+      organization,
+      contactPerson,
+      email,
+      phone,
+      address,
+      interestArea,
+      message,
+    };
+
+    try {
+      const response = await fetch("https://formspree.io/f/xovvkzrl", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Form submitted successfully!");
+        alert("Thank you for your interest! Our team will contact you shortly.");
+        console.log("Form Submitted:");
+
+        // Reset form fields
+        setOrganization("");
+        setContactPerson("");
+        setEmail("");
+        setPhone("");
+        setAddress("");
+        setInterestArea("");
+        setMessage("");
+      } else {
+        setStatus("Error submitting the form. Please try again.");
+      }
+    } catch (error) {
+      setStatus("Error submitting the form. Please check your connection.");
+      console.error("Form submission error:", error);
+    }
   };
 
   return (
@@ -46,8 +78,8 @@ const Partner = () => {
             <input
               type="text"
               name="organization"
-              value={formData.organization}
-              onChange={handleChange}
+              value={organization}
+              onChange={(e) => setOrganization(e.target.value)}
               placeholder="Enter your organization's name"
               required
             />
@@ -57,8 +89,8 @@ const Partner = () => {
             <input
               type="text"
               name="contactPerson"
-              value={formData.contactPerson}
-              onChange={handleChange}
+              value={contactPerson}
+              onChange={(e) => setContactPerson(e.target.value)}
               placeholder="Enter the contact person's name"
               required
             />
@@ -68,8 +100,8 @@ const Partner = () => {
             <input
               type="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
               required
             />
@@ -79,8 +111,8 @@ const Partner = () => {
             <input
               type="tel"
               name="phone"
-              value={formData.phone}
-              onChange={handleChange}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               placeholder="Enter your phone number"
             />
           </div>
@@ -88,8 +120,8 @@ const Partner = () => {
             <label>Your Address:</label>
             <textarea
               name="address"
-              value={formData.address}
-              onChange={handleChange}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               placeholder="Enter your address"
             ></textarea>
           </div>
@@ -98,8 +130,8 @@ const Partner = () => {
             <input
               type="text"
               name="interestArea"
-              value={formData.interestArea}
-              onChange={handleChange}
+              value={interestArea}
+              onChange={(e) => setInterestArea(e.target.value)}
               placeholder="Enter your area of interest"
             />
           </div>
@@ -107,18 +139,21 @@ const Partner = () => {
             <label>Your Message to Us:</label>
             <textarea
               name="message"
-              value={formData.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Enter your message"
             ></textarea>
           </div>
-          <button type="submit" className="submit-button">Submit</button>
+          <button type="submit" className="submit-button">
+            Submit
+          </button>
         </form>
+        {status && <p className="status-message">{status}</p>}
         <div className="contact-info1">
           <h3>Our Contact Details</h3>
-          <p><strong>Email:</strong>contact@cillage.org</p>
-          <p><strong>Phone No.:</strong>9869432338</p>
-          <p><strong>WhatsApp No.:</strong>9869432338</p>
+          <p><strong>Email:</strong> contact@cillage.org</p>
+          <p><strong>Phone No.:</strong> 9869432338</p>
+          <p><strong>WhatsApp No.:</strong> 9869432338</p>
         </div>
       </div>
     </div>
