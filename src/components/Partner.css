@@ -1,186 +1,212 @@
 /* Page Container */
 .page-container {
-    background-color: #e1b470; /* Replace with desired color */
-    padding: 30px 0; /* Add padding to the top and bottom of the page */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ensure full-page height */
-  }
-  
-  /* Form Container */
-  .form-container {
-    max-width: 800px;
-    width: 90%;
-    padding: 30px;
-    background: #f3c67b; /* Light peach color */
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-  }
-.info-section {
-    margin-top: 19px;
-    padding: 20px;
+  background-color: #e1b470; /* Replace with desired color */
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure full-page height */
 }
-  
-  /* Header and Description */
-  .form-header {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 10px;
+
+/* Form Container */
+.form-container {
+  max-width: 800px;
+  width: 90%;
+  padding: 30px;
+  background: #f3c67b; /* Light peach color */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+/* Header and Description */
+.form-header {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.form-description {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+/* Info Section */
+.info-section {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.info-section h3 {
+  color: #007bff;
+  margin-top: 15px;
+  font-size: 1.3rem;
+}
+
+.info-section p {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background: #218838;
+}
+
+/* Status Message */
+.status-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  background: #f8f9fa;
+  border: 2px solid transparent;
+}
+
+.status-message.success {
+  color: #155724;
+  background: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.status-message.error {
+  color: #721c24;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+/* Contact Info Section */
+.contact-info1 {
+  margin-top: 30px;
+  background: #e1b470;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-info1 h3 {
+  margin-bottom: 15px;
+}
+
+.contact-info1 p {
+  margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-container {
+    padding: 20px;
   }
-  
-  .form-description {
-    text-align: center;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  
+
   .info-section h3 {
-    color: #007bff;
-    margin-top: 15px;
+    font-size: 1.2rem;
   }
-  
+
   .info-section p {
-    color: #555;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
   }
-  
-  /* Form Group */
-  .form-group {
-    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 15px;
   }
-  
+
+  .form-header {
+    font-size: 1.5rem;
+  }
+
+  .info-section h3 {
+    font-size: 1rem;
+  }
+
+  .info-section p {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px;
+    box-shadow: none;
+  }
+
+  .form-header {
+    font-size: 1.2rem;
+  }
+
+  .info-section h3 {
+    font-size: 0.9rem;
+  }
+
+  .info-section p {
+    font-size: 0.85rem;
+  }
+
   label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #2c3e50;
+    font-size: 0.9rem;
   }
-  
+
   input,
   textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
+    font-size: 12px;
+    padding: 8px;
   }
-  
-  textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-  
-  /* Submit Button */
+
   .submit-button {
-    width: 100%;
-    padding: 12px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    font-size: 12px;
+    padding: 8px;
   }
-  
-  .submit-button:hover {
-    background: #218838;
-  }
-  
-  /* Contact Info Section */
+
   .contact-info1 {
-    margin-top: 30px;
-    background: #e1b470;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
+    font-size: 0.85rem;
   }
-  
-  .contact-info1 h3 {
-    margin-bottom: 15px;
-  }
-  
-  .contact-info1 p {
-    margin: 5px 0;
-  }
-  
-  /* Media Queries for Responsive Design */
-  @media (max-width: 1024px) {
-    /* Adjust padding for medium screens */
-    .form-container {
-      padding: 20px;
-    }
-  
-    .info-section h3 {
-      font-size: 1.2rem;
-    }
-  
-    .info-section p {
-      font-size: 0.95rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    /* Stack elements for smaller tablets */
-    .form-container {
-      padding: 15px;
-    }
-  
-    .form-header {
-      font-size: 1.5rem;
-    }
-  
-    .info-section h3 {
-      font-size: 1rem;
-    }
-  
-    .info-section p {
-      font-size: 0.9rem;
-    }
-  
-    .submit-button {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    /* Compact design for mobile devices */
-    .form-container {
-      padding: 10px;
-      box-shadow: none; /* Remove shadow for simpler design */
-    }
-  
-    .form-header {
-      font-size: 1.2rem;
-    }
-  
-    .info-section h3 {
-      font-size: 0.9rem;
-    }
-  
-    .info-section p {
-      font-size: 0.85rem;
-    }
-  
-    label {
-      font-size: 0.9rem;
-    }
-  
-    input,
-    textarea {
-      font-size: 12px;
-      padding: 8px;
-    }
-  
-    .submit-button {
-      font-size: 12px;
-      padding: 8px;
-    }
-  
-    .contact-info1 {
-      font-size: 0.85rem;
-    }
-  }
-  
+}
