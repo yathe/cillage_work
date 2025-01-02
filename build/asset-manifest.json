@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a3a48cce.css",
-    "main.js": "/static/js/main.879bff25.js",
+    "main.css": "/static/css/main.a6e144c8.css",
+    "main.js": "/static/js/main.0e9053f1.js",
     "static/media/contact_page.jpg": "/static/media/contact_page.951489b9383922c1f82d.jpg",
     "static/media/Effective.jpg": "/static/media/Effective.c630dd1511f6c1065a16.jpg",
     "static/media/Devic-Earth.jpg": "/static/media/Devic-Earth.708513634a7360536769.jpg",
@@ -57,17 +57,16 @@
     "static/media/fo2.png": "/static/media/fo2.798814a8af72b01d14d7.png",
     "static/media/2.jpg": "/static/media/2.96c6bfc44b33e429eccb.jpg",
     "static/media/agriculture.jpg": "/static/media/agriculture.fb2e64f57fce080e2c1e.jpg",
-    "static/media/shubhankar.jpg": "/static/media/shubhankar.ff1b83e0dfde85291de8.jpg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.a3a48cce.css.map": "/static/css/main.a3a48cce.css.map",
-    "main.879bff25.js.map": "/static/js/main.879bff25.js.map"
+    "main.a6e144c8.css.map": "/static/css/main.a6e144c8.css.map",
+    "main.0e9053f1.js.map": "/static/js/main.0e9053f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3a48cce.css",
-    "static/js/main.879bff25.js"
+    "static/css/main.a6e144c8.css",
+    "static/js/main.0e9053f1.js"
   ]
 }
