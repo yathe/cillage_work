@@ -25,7 +25,7 @@ const Partner = () => {
     };
 
     try {
-      const response = await fetch("https://formspree.io/f/xovvkzrl", {
+      const response = await fetch(`${process.env.FORM}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
