@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Partner.css";
 
 const Partner = () => {
+  // State hooks for storing form input values
   const [organization, setOrganization] = useState("");
   const [contactPerson, setContactPerson] = useState("");
   const [email, setEmail] = useState("");
@@ -9,9 +10,35 @@ const Partner = () => {
   const [address, setAddress] = useState("");
   const [interestArea, setInterestArea] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState("");
 
- 
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Construct the email subject and body with the form data
+    const subject = encodeURIComponent("Partnership Inquiry");
+    const body = encodeURIComponent(
+      Organization/Company: ${organization}\n +
+      Contact Person: ${contactPerson}\n +
+      Email: ${email}\n +
+      Phone: ${phone}\n +
+      Address: ${address}\n +
+      Area of Interest: ${interestArea}\n +
+      Message: ${message}
+    );
+
+    // Redirect directly to the email client with pre-filled details
+    window.location.href = mailto:contact@cillage.org?subject=${subject}&body=${body};
+
+    // Reset the form fields after submission
+    setOrganization("");
+    setContactPerson("");
+    setEmail("");
+    setPhone("");
+    setAddress("");
+    setInterestArea("");
+    setMessage("");
+  };
 
   return (
     <div className="page-container">
@@ -30,83 +57,79 @@ const Partner = () => {
             Your organization can donate towards specific projects or causes, including clean water, agriculture, sanitation, food processing, health care, and energy. CIF will ensure your contributions support impactful programs aligned with your preferences.
           </p>
         </div>
-        <form>
+
+        {/* Contact Form */}
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Organisation/Company:</label>
+            <label htmlFor="organization">Organization/Company:</label>
             <input
               type="text"
-              name="organization"
+              id="organization"
               value={organization}
               onChange={(e) => setOrganization(e.target.value)}
-              placeholder="Enter your organization's name"
               required
             />
           </div>
           <div className="form-group">
-            <label>Contact Person:</label>
+            <label htmlFor="contactPerson">Contact Person:</label>
             <input
               type="text"
-              name="contactPerson"
+              id="contactPerson"
               value={contactPerson}
               onChange={(e) => setContactPerson(e.target.value)}
-              placeholder="Enter the contact person's name"
               required
             />
           </div>
           <div className="form-group">
-            <label>E-mail:</label>
+            <label htmlFor="email">Email:</label>
             <input
               type="email"
-              name="email"
+              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
               required
             />
           </div>
           <div className="form-group">
-            <label>Phone:</label>
+            <label htmlFor="phone">Phone:</label>
             <input
               type="tel"
-              name="phone"
+              id="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="Enter your phone number"
             />
           </div>
           <div className="form-group">
-            <label>Your Address:</label>
+            <label htmlFor="address">Address:</label>
             <textarea
-              name="address"
+              id="address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              placeholder="Enter your address"
             ></textarea>
           </div>
           <div className="form-group">
-            <label>Area of Interest:</label>
+            <label htmlFor="interestArea">Area of Interest:</label>
             <input
               type="text"
-              name="interestArea"
+              id="interestArea"
               value={interestArea}
               onChange={(e) => setInterestArea(e.target.value)}
-              placeholder="Enter your area of interest"
             />
           </div>
           <div className="form-group">
-            <label>Your Message to Us:</label>
+            <label htmlFor="message">Message:</label>
             <textarea
-              name="message"
+              id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Enter your message"
             ></textarea>
           </div>
           <button type="submit" className="submit-button">
             Submit
           </button>
         </form>
-        {status && <p className="status-message">{status}</p>}
+
+        {/* Contact Information */}
         <div className="contact-info1">
           <h3>Our Contact Details</h3>
           <p><strong>Email:</strong> contact@cillage.org</p>
