@@ -11,49 +11,7 @@ const Partner = () => {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = {
-      organization,
-      contactPerson,
-      email,
-      phone,
-      address,
-      interestArea,
-      message,
-    };
-
-    try {
-      const response = await fetch(`${process.env.FORM}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus("Form submitted successfully!");
-        alert("Thank you for your interest! Our team will contact you shortly.");
-        console.log("Form Submitted:");
-
-        // Reset form fields
-        setOrganization("");
-        setContactPerson("");
-        setEmail("");
-        setPhone("");
-        setAddress("");
-        setInterestArea("");
-        setMessage("");
-      } else {
-        setStatus("Error submitting the form. Please try again.");
-      }
-    } catch (error) {
-      setStatus("Error submitting the form. Please check your connection.");
-      console.error("Form submission error:", error);
-    }
-  };
+ 
 
   return (
     <div className="page-container">
@@ -72,7 +30,7 @@ const Partner = () => {
             Your organization can donate towards specific projects or causes, including clean water, agriculture, sanitation, food processing, health care, and energy. CIF will ensure your contributions support impactful programs aligned with your preferences.
           </p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="form-group">
             <label>Organisation/Company:</label>
             <input
