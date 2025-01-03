@@ -28,7 +28,7 @@ const Partner = () => {
   `);
 
   // Redirect directly to the email client with pre-filled details
-  window.location.href = `mailto:contact@cillage.org?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:cillageorg@gmail.com?subject=${subject}&body=${body}`;
 
   // Reset the form fields after submission
   setOrganization("");
