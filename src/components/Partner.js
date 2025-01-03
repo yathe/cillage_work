@@ -17,7 +17,7 @@ const Partner = () => {
 
     // Construct the email subject and body with the form data
     const subject = encodeURIComponent("Partnership Inquiry");
-    const body = encodeURIComponent(
+    const body = encodeURIComponent(`
       Organization/Company: ${organization}\n +
       Contact Person: ${contactPerson}\n +
       Email: ${email}\n +
@@ -25,7 +25,7 @@ const Partner = () => {
       Address: ${address}\n +
       Area of Interest: ${interestArea}\n +
       Message: ${message}
-    );
+    `);
 
     // Redirect directly to the email client with pre-filled details
     window.location.href = mailto:contact@cillage.org?subject=${subject}&body=${body};
