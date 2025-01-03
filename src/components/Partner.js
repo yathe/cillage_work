@@ -12,33 +12,34 @@ const Partner = () => {
   const [message, setMessage] = useState("");
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    // Construct the email subject and body with the form data
-    const subject = encodeURIComponent("Partnership Inquiry");
-    const body = encodeURIComponent(`
-      Organization/Company: ${organization}\n +
-      Contact Person: ${contactPerson}\n +
-      Email: ${email}\n +
-      Phone: ${phone}\n +
-      Address: ${address}\n +
-      Area of Interest: ${interestArea}\n +
-      Message: ${message}
-    `);
+  // Construct the email subject and body with the form data
+  const subject = encodeURIComponent("Partnership Inquiry");
+  const body = encodeURIComponent(`
+    Organization/Company: ${organization}
+    Contact Person: ${contactPerson}
+    Email: ${email}
+    Phone: ${phone}
+    Address: ${address}
+    Area of Interest: ${interestArea}
+    Message: ${message}
+  `);
 
-    // Redirect directly to the email client with pre-filled details
-    window.location.href = mailto:contact@cillage.org?subject=${subject}&body=${body};
+  // Redirect directly to the email client with pre-filled details
+  window.location.href = `mailto:contact@cillage.org?subject=${subject}&body=${body}`;
 
-    // Reset the form fields after submission
-    setOrganization("");
-    setContactPerson("");
-    setEmail("");
-    setPhone("");
-    setAddress("");
-    setInterestArea("");
-    setMessage("");
-  };
+  // Reset the form fields after submission
+  setOrganization("");
+  setContactPerson("");
+  setEmail("");
+  setPhone("");
+  setAddress("");
+  setInterestArea("");
+  setMessage("");
+};
+
 
   return (
     <div className="page-container">
