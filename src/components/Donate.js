@@ -30,43 +30,68 @@ const Donate = () => {
     });
   };
 
-  
-  
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ensure the form is correctly submitting all values
-    console.log("Form Data Submitted:", formDatas);
-
-    // Show Thank You modal immediately after submission
-    setSubmitted(true);
-
-   
-
-    // Save data to backend or Excel
-    axios
-      .post(`${process.env.REACT_APP_URL}`, formDatas)
-      .then((res) => {
-        console.log("Data saved to backend:", res);
-        // Reset the form data after successful submission
-        setFormDatas({
-          fullName: "",
-          dateBirth: "",
-          email: "",
-          mobileNumber: "",
-          address: "",
-          pincode: "",
-          city: "",
-          state: "",
-          panNumber: "",
-          amount: "",
-          bankAccount: "",
-          agree: false,
-        });
+    // Submit to Web3Forms
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c",
+        name: formDatas.fullName,
+        dateOfBirth: formDatas.dateBirth,
+        email: formDatas.email,
+        mobileNumber: formDatas.mobileNumber,
+        address: formDatas.address,
+        pincode: formDatas.pincode,
+        city: formDatas.city,
+        state: formDatas.state,
+        panNumber: formDatas.panNumber,
+        amount: formDatas.amount,
+        bankAccount: formDatas.bankAccount,
+        agree: formDatas.agree ? "Agreed" : "Not Agreed",
+        autorespond: "true",
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          setSubmitted(true);
+          // Also save to your backend
+          axios
+            .post(`${process.env.REACT_APP_URL}`, formDatas)
+            .then((res) => {
+              console.log("Data saved to backend:", res);
+            })
+            .catch((error) => {
+              console.error("Failed to save data to backend:", error);
+            });
+          
+          // Reset form
+          setFormDatas({
+            fullName: "",
+            dateBirth: "",
+            email: "",
+            mobileNumber: "",
+            address: "",
+            pincode: "",
+            city: "",
+            state: "",
+            panNumber: "",
+            amount: "",
+            bankAccount: "",
+            agree: false,
+          });
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
       })
       .catch((error) => {
-        console.error("Failed to save data:", error);
+        console.error(error);
+        alert("Something went wrong. Please try again.");
       });
   };
 
@@ -80,6 +105,8 @@ const Donate = () => {
         <h1 className="donate-title">Donation Form</h1>
 
         <form onSubmit={handleSubmit} className="donate-form">
+          <input type="hidden" name="access_key" value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" />
+          
           {/* Form Fields */}
           <div className="donate-form-row">
             <div className="donate-form-group">
@@ -238,8 +265,7 @@ const Donate = () => {
             <div className="donate-modal-content">
               <h2>Thank You!</h2>
               <p>
-                Thanks for your interest in supporting the foundation. Our team
-                will reach you shortly.
+                Thanks for your interest in supporting the foundation. A confirmation email has been sent to your email address!
               </p>
               <button onClick={handleCloseModal}>Close</button>
             </div>
