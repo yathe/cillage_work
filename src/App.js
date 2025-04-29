@@ -23,6 +23,7 @@ import Whatsapp from './components/Whatsapp';
 import Donate from './components/Donate';
 import Partner from './components/Partner';
 import Volunter from './components/Volunter';
+import Membership from './components/Membership';
 import SharePage from './components/SharePage';  // Import SharePage
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path='/donate' element={<Donate />} />
         <Route path='/partner' element={<Partner />} />
         <Route path='/volunter' element={<Volunter />} />
+        <Route path='/membership' element={<Membership />} />
         <Route path='/share' element={<SharePage />} />  {/* New route for SharePage */}
       </Routes>
       <About_us />
