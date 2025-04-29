@@ -19,7 +19,7 @@ const Header = () => {
             <div className="header-top">
                 <img src={loho} alt="Cillage Logo" className="logo" />
                 <div className="header-text">
-                   <Link to="/"><h1>CILLAGE INDIA FOUNDATION</h1></Link>
+                    <Link to="/"><h1>CILLAGE INDIA FOUNDATION</h1></Link>
                     <p>Technology to Transform Village Life</p>
                 </div>
             </div>
@@ -38,6 +38,7 @@ const Header = () => {
                     <Link to="/what-we-do" className="nav-link">What We Do</Link>
                     <Link to="/who-we-are" className="nav-link">Who We Are</Link>
                     <Link to="/get-involved" className="nav-link">Get Involved</Link>
+                    <Link to="/membership" className="nav-link">Get Membership</Link>
                 </div>
             </nav>
 
@@ -47,6 +48,7 @@ const Header = () => {
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/what-we-do" className="nav-link">What We Do</Link>
         <Link to="/who-we-are" className="nav-link">Who We Are</Link>
+        <Link to="/membership" className="nav-link">Get Membership</Link>
         <Link to="/get-involved" className="nav-link">Get Involved</Link>
         <Link to="/whatsapp" className="nav-link">
             <FaWhatsapp className="whatsapp-icon" />
