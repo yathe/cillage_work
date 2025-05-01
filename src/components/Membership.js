@@ -66,7 +66,8 @@ const Membership = () => {
       pastExperience: form.pastExperience.value,
       valueAddition: form.valueAddition.value,
       skills: Array.from(form.querySelectorAll('input[name="skills"]:checked')).map(el => el.value).join(', '),
-      cv: form.cv.files[0]?.name || 'No file uploaded'
+      cv: form.cv.files[0]?.name || 'No file uploaded',
+      form_type: "Membership Form Submission" // Added form type identifier
     };
     
     setFormData(data);
@@ -130,6 +131,7 @@ const Membership = () => {
         
         <form onSubmit={handleSubmit}>
           <input type="hidden" name="access_key" value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" />
+          <input type="hidden" name="form_type" value="Membership Form" /> {/* Added hidden field */}
           
           <div className="form-group">
             <label htmlFor="name">Name:</label>
