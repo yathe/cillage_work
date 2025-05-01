@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Donate.css";
 import axios from "axios";
+import scanner from "../photos/scanner.png";
 
 const Donate = () => {
   // State to store form data
@@ -20,6 +21,7 @@ const Donate = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [showUPIModal, setShowUPIModal] = useState(false);
 
   // Handle form field changes
   const handleInputChange = (e) => {
@@ -32,8 +34,11 @@ const Donate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setShowUPIModal(true);
+  };
 
-    // Submit to Web3Forms
+  const handlePaymentContinue = () => {
+    // Submit to Web3Forms after payment confirmation
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
@@ -41,6 +46,7 @@ const Donate = () => {
       },
       body: JSON.stringify({
         access_key: "528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c",
+        form_type: "Donation Form Submission", // Added form type identifier
         name: formDatas.fullName,
         dateOfBirth: formDatas.dateBirth,
         email: formDatas.email,
@@ -53,6 +59,7 @@ const Donate = () => {
         amount: formDatas.amount,
         bankAccount: formDatas.bankAccount,
         agree: formDatas.agree ? "Agreed" : "Not Agreed",
+        payment_status: "initiated",
         autorespond: "true",
       }),
     })
@@ -60,9 +67,13 @@ const Donate = () => {
       .then((data) => {
         if (data.success) {
           setSubmitted(true);
+          setShowUPIModal(false);
           // Also save to your backend
           axios
-            .post(`${process.env.REACT_APP_URL}`, formDatas)
+            .post(`${process.env.REACT_APP_URL}`, {
+              ...formDatas,
+              form_type: "Donation Form" // Include form type in backend
+            })
             .then((res) => {
               console.log("Data saved to backend:", res);
             })
@@ -97,6 +108,7 @@ const Donate = () => {
 
   const handleCloseModal = () => {
     setSubmitted(false);
+    setShowUPIModal(false);
   };
 
   return (
@@ -105,7 +117,16 @@ const Donate = () => {
         <h1 className="donate-title">Donation Form</h1>
 
         <form onSubmit={handleSubmit} className="donate-form">
-          <input type="hidden" name="access_key" value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" />
+          <input 
+            type="hidden" 
+            name="access_key" 
+            value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" 
+          />
+          <input 
+            type="hidden" 
+            name="form_type" 
+            value="Donation Form" 
+          />
           
           {/* Form Fields */}
           <div className="donate-form-row">
@@ -248,6 +269,7 @@ const Donate = () => {
                 name="agree"
                 checked={formDatas.agree}
                 onChange={handleInputChange}
+                required
               />
               <label>
                 I hereby declare that I am a citizen of India and making this donation out of my own funds.
@@ -260,6 +282,53 @@ const Donate = () => {
           </button>
         </form>
 
+        {/* UPI Payment Modal */}
+        {showUPIModal && (
+          <div className="donate-modal">
+            <div className="donate-modal-content">
+              <h2>Complete Your Payment</h2>
+              <div className="upi-payment-container">
+                <p>Please scan the QR code or use the UPI ID below to complete your payment:</p>
+                
+                <div className="upi-details">
+                  <div className="qr-code-placeholder">
+                    <img src={scanner} alt="UPI QR Code" />
+                  </div>
+                  <div className="upi-id">
+                    <p>UPI ID:</p>
+                    <p className="upi-id-value">UPID9873382338@kotak</p>
+                    <button 
+                      className="copy-button"
+                      onClick={() => {
+                        navigator.clipboard.writeText('UPID9873382338@kotak');
+                        alert('UPI ID copied to clipboard!');
+                      }}
+                    >
+                      Copy UPI ID
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="payment-buttons">
+                  <button 
+                    className="payment-continue-button"
+                    onClick={handlePaymentContinue}
+                  >
+                    I've Completed Payment
+                  </button>
+                  <button 
+                    className="payment-cancel-button"
+                    onClick={() => setShowUPIModal(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Submission Success Modal */}
         {submitted && (
           <div className="donate-modal">
             <div className="donate-modal-content">
