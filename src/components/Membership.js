@@ -1,108 +1,157 @@
-import React, { useState, useEffect } from 'react';
-import './Membership.css';
-import scanner from "../photos/scanner.png";
-
+import React, { useEffect, useState } from "react";
+import "./Membership.css";
+import { toast, Toaster } from "react-hot-toast";
+import scanner from "../photos/scanner.png"
 const Membership = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    dob: "",
+    gender: "",
+    email: "",
+    phone: "",
+    city: "",
+    occupation: "",
+    pastExperience: "",
+    valueAddition: "",
+    skills: [],
+    cv: null
+  });
+
   const [submitted, setSubmitted] = useState(false);
   const [showUPIModal, setShowUPIModal] = useState(false);
-  const [formData, setFormData] = useState(null);
   const [formValid, setFormValid] = useState(false);
 
-  // Check if all required fields are filled
-  useEffect(() => {
-    const checkFormValidity = () => {
-      const form = document.querySelector('form');
-      if (!form) return false;
-      
-      const requiredFields = form.querySelectorAll('[required]');
-      const allFilled = Array.from(requiredFields).every(field => {
-        if (field.type === 'checkbox') {
-          return field.checked;
-        }
-        return field.value.trim() !== '';
-      });
-      
-      setFormValid(allFilled);
-    };
+  const handleInputChange = (e) => {
+    const { name, value, type, files, checked } = e.target;
 
-    // Add event listeners to all form fields
-    const form = document.querySelector('form');
-    if (form) {
-      const inputs = form.querySelectorAll('input, textarea');
-      inputs.forEach(input => {
-        input.addEventListener('input', checkFormValidity);
-        input.addEventListener('change', checkFormValidity);
+    if (type === "file") {
+      setFormData({
+        ...formData,
+        [name]: files[0]
+      });
+    } else if (type === "checkbox") {
+      const skillValue = value;
+      setFormData(prev => {
+        const skills = checked
+          ? [...prev.skills, skillValue]
+          : prev.skills.filter(skill => skill !== skillValue);
+        return { ...prev, skills };
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
       });
     }
+  };
 
-    // Initial check
-    checkFormValidity();
+  useEffect(() => {
+    const isValid =
+      formData.name &&
+      formData.dob &&
+      formData.gender &&
+      formData.email &&
+      formData.phone &&
+      formData.city &&
+      formData.occupation &&
+      formData.pastExperience &&
+      formData.valueAddition &&
+      formData.skills.length > 0;
 
-    // Cleanup
-    return () => {
-      if (form) {
-        const inputs = form.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-          input.removeEventListener('input', checkFormValidity);
-          input.removeEventListener('change', checkFormValidity);
-        });
-      }
-    };
-  }, []);
+    setFormValid(isValid);
+  }, [formData]);
+
+  const saveToGoogleSheet = async () => {
+    const scriptUrl = "https://sheetdb.io/api/v1/alvj213tvn7jj";
+  
+    try {
+    
+                  const params = new URLSearchParams();
+                  params.append('email', formData.email);
+                  params.append('name', formData.name);
+                  params.append('dob', formData.dob);
+                  params.append('gender', formData.gender);
+                  params.append('phone', formData.phone);
+                  params.append('city', formData.city);
+                  params.append('occupation', formData.occupation);
+                  params.append('pastExperience', formData.pastExperience);
+                  params.append('valueAddition', formData.valueAddition);
+                  params.append('cv', formData.cv);
+                  params.append('skills', formData.skills);
+                 
+              
+                  const response = await fetch(`${scriptUrl}?${params.toString()}`, {
+                    method: 'POST',
+                    mode: 'no-cors', // Important for bypassing CORS
+                  });
+              
+                  // Note: With 'no-cors' you can't read the response
+                  console.log('Data sent to Google Sheet',response);
+                } catch (error) {
+                  console.error('Error saving to Google Sheet:', error);
+                }
+  };
+  
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    
-    // Store form data before submission
-    const data = {
-      name: form.name.value,
-      dob: form.dob.value,
-      gender: form.gender.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      city: form.city.value,
-      occupation: form.occupation.value,
-      pastExperience: form.pastExperience.value,
-      valueAddition: form.valueAddition.value,
-      skills: Array.from(form.querySelectorAll('input[name="skills"]:checked')).map(el => el.value).join(', '),
-      cv: form.cv.files[0]?.name || 'No file uploaded',
-      form_type: "Membership Form Submission" // Added form type identifier
-    };
-    
-    setFormData(data);
+    e.preventDefault(); // ✅ Prevent default page reload
     setShowUPIModal(true);
   };
 
-  const handlePaymentContinue = () => {
-    // Submit to Web3Forms after payment confirmation
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c",
-        ...formData,
-        payment_status: "initiated",
-        autorespond: "true",
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setSubmitted(true);
-          setShowUPIModal(false);
-          document.querySelector('form').reset();
-          setFormValid(false); // Reset form validity after submission
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Something went wrong. Please try again.");
+  const handlePaymentContinue = async () => {
+    try {
+      await saveToGoogleSheet();
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c",
+          name: formData.name,
+          dob: formData.dob,
+          gender: formData.gender,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          occupation: formData.occupation,
+          pastExperience: formData.pastExperience,
+          valueAddition: formData.valueAddition,
+          skills: formData.skills.join(", "),
+          cv: formData.cv ? formData.cv.name : "Not provided",
+          payment_status: "initiated",
+          autorespond: "true"
+        })
       });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        setShowUPIModal(false);
+        setFormData({
+          name: "",
+          dob: "",
+          gender: "",
+          email: "",
+          phone: "",
+          city: "",
+          occupation: "",
+          pastExperience: "",
+          valueAddition: "",
+          skills: [],
+          cv: null
+        });
+        toast.success("Data saved and email sent successfully!");
+      } else {
+        throw new Error(data.message || "Email sending failed");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error("Submission failed: " + error.message);
+    }
   };
 
   const handleCloseModal = () => {
@@ -113,214 +162,104 @@ const Membership = () => {
   return (
     <div className="page-container">
       <div className="form-container">
-        <h1 className="form-header">Member with Us</h1>
-        <p className="form-description">
-          Volunteering for a cause is a highly rewarding experience. Your work, whether on the field or behind the scenes, will help us make Indian Villages a better place to live.
-        </p>
-        <p className="form-description">
-          At Cillage India Foundation, we believe that all of us can make a difference in our own way. This is why we will customize the volunteering programs depending on our strengths and our needs.
-        </p>
-        <div className="info-section">
-          <h3>Current Intern Positions:</h3>
-          <ul>
-            <li>Technology Research and Report Preparation</li>
-            <li>Video making on various rural technologies and editing</li>
-            <li>Designing Posters on various technologies being promoted by CIF</li>
-          </ul>
-        </div>
-        
+        <Toaster toastOptions={{ duration: 4000 }} />
+        <h1 className="form-header">Become a Member</h1>
+
         <form onSubmit={handleSubmit}>
           <input type="hidden" name="access_key" value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" />
-          <input type="hidden" name="form_type" value="Membership Form" /> {/* Added hidden field */}
-          
+
+          {/* All other input fields remain the same */}
+
           <div className="form-group">
-            <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-              required
-            />
+            <label>Email *</label>
+            <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="dob">Date of Birth:</label>
-            <input
-              type="date"
-              id="dob"
-              name="dob"
-              required
-            />
+            <label>Name *</label>
+            <input name="name" value={formData.name} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="gender">Gender:</label>
-            <input
-              type="text"
-              id="gender"
-              name="gender"
-              placeholder="Enter your gender"
-              required
-            />
+            <label>DOB *</label>
+            <input type="date" name="dob" value={formData.dob} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="email">E-Mail:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email address"
-              required
-            />
+            <label>Gender *</label>
+            <select name="gender" value={formData.gender} onChange={handleInputChange} required>
+              <option value="">Select</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
-          
           <div className="form-group">
-            <label htmlFor="phone">Phone Number:</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="Enter your phone number"
-              required
-            />
+            <label>Phone *</label>
+            <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="city">City:</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              placeholder="Enter your city"
-              required
-            />
+            <label>City *</label>
+            <input name="city" value={formData.city} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="occupation">Occupation:</label>
-            <input
-              type="text"
-              id="occupation"
-              name="occupation"
-              placeholder="Enter your occupation"
-              required
-            />
+            <label>Occupation *</label>
+            <input name="occupation" value={formData.occupation} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="pastExperience">Mention past volunteering and internships you may have done:</label>
-            <textarea
-              id="pastExperience"
-              name="pastExperience"
-              placeholder="Enter your experiences"
-            ></textarea>
+            <label>Past Experience *</label>
+            <textarea name="pastExperience" value={formData.pastExperience} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label htmlFor="valueAddition">What value addition you may bring to CIF's overall program, if chosen for internship:</label>
-            <textarea
-              id="valueAddition"
-              name="valueAddition"
-              placeholder="Enter your response"
-            ></textarea>
+            <label>Value You Can Add *</label>
+            <textarea name="valueAddition" value={formData.valueAddition} onChange={handleInputChange} required />
           </div>
-          
           <div className="form-group">
-            <label>Please post your CV here:</label>
-            <input type="file" id="cv" name="cv" />
+            <label>Upload CV</label>
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" onChange={handleInputChange} />
+            <small>(Optional)</small>
           </div>
-          
           <div className="form-group">
-            <label>Skill Sets you possess:</label>
+            <label>Skills *</label>
             <div className="skills-checkboxes">
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Designing Posters"
-                />
-                Designing Posters
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Video Making"
-                />
-                Video Making
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Video Editing"
-                />
-                Video Editing
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Research & Documentation"
-                />
-                Research & Documentation
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Event Organizing"
-                />
-                Event Organizing
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Fund Raising"
-                />
-                Fund Raising
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="skills"
-                  value="Working with Villagers"
-                />
-                Working with Villagers
-              </label>
+              {["Leadership", "Marketing", "Programming", "Design"].map(skill => (
+                <label key={skill}>
+                  <input
+                    type="checkbox"
+                    name="skills"
+                    value={skill}
+                    checked={formData.skills.includes(skill)}
+                    onChange={handleInputChange}
+                  />{" "}
+                  {skill}
+                </label>
+              ))}
             </div>
+            <small>(Select at least one)</small>
           </div>
-          
-          <div className="button-container">
-            <button 
-              type="submit" 
-              className="submit-button"
-              disabled={!formValid}
-            >
-              {formValid ? "Submit and Proceed to Payment" : "Submit"}
-            </button>
-          </div>
+
+          <button
+            type="submit"
+            className="form-submit-button"
+            disabled={!formValid}
+          >
+            Submit and Proceed to Payment
+          </button>
         </form>
 
-        {/* UPI Payment Modal */}
+        {/* Payment Modal */}
         {showUPIModal && (
           <div className="donate-modal">
             <div className="donate-modal-content">
               <h2>Complete Your Payment</h2>
               <div className="upi-payment-container">
                 <p>Please scan the QR code or use the UPI ID below to complete your payment:</p>
-                
+
                 <div className="upi-details">
                   <div className="qr-code-placeholder">
                     <img src={scanner} alt="UPI QR Code" />
                   </div>
-                  <div className="upi-id">
+                  {/* <div className="upi-id">
                     <p>UPI ID:</p>
                     <p className="upi-id-value">UPID9873382338@kotak</p>
-                    <button 
+                    <button
                       className="copy-button"
                       onClick={() => {
                         navigator.clipboard.writeText('UPID9873382338@kotak');
@@ -329,37 +268,66 @@ const Membership = () => {
                     >
                       Copy UPI ID
                     </button>
-                  </div>
+                  </div> */}
                 </div>
-                
-                <div className="payment-buttons">
-                  <button 
+
+                {/* <div className="payment-buttons">
+                  <button
                     className="payment-continue-button"
                     onClick={handlePaymentContinue}
                   >
                     I've Completed Payment
                   </button>
-                  <button 
+                  <button
                     className="payment-cancel-button"
                     onClick={() => setShowUPIModal(false)}
                   >
                     Cancel
                   </button>
-                </div>
+                </div> */}
+              </div>
+              <p>UPI ID: <strong>UPID9873382338@kotak</strong></p>
+              <div className="modal-button-group">
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText("UPID9873382338@kotak");
+                    toast.success("UPI ID copied to clipboard!");
+                  }}
+                  className="modal-button modal-button-primary"
+                >
+                  Copy UPI ID
+                </button>
+                <button
+                  type="button"
+                  onClick={handlePaymentContinue}
+                  className="modal-button modal-button-secondary"
+                >
+                  I've Completed Payment
+                </button>
+                <button
+                  onClick={() => setShowUPIModal(false)}
+                  className="modal-button modal-button-danger"
+                >
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
         )}
 
-        {/* Submission Success Modal */}
+        {/* Success Modal */}
         {submitted && (
           <div className="donate-modal">
             <div className="donate-modal-content">
               <h2>Thank You!</h2>
-              <p>
-                Thanks for your interest in supporting the foundation. A confirmation email has been sent to your email address!
-              </p>
-              <button onClick={handleCloseModal}>Close</button>
+              <p>Your membership application has been submitted successfully.</p>
+              <p>We'll review your application and get back to you soon.</p>
+              <button
+                onClick={handleCloseModal}
+                className="modal-button modal-button-primary"
+              >
+                Close
+              </button>
             </div>
           </div>
         )}
