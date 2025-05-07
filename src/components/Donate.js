@@ -37,6 +37,36 @@ const Donate = () => {
     setShowUPIModal(true);
   };
 
+  const saveToGoogleSheet = async () => {
+    const scriptUrl = "https://sheetdb.io/api/v1/7ingbhhqxw4ho";
+    
+    try {
+      const params = new URLSearchParams();
+      params.append('fullName', formDatas.fullName);
+      params.append('dateBirth', formDatas.dateBirth);
+      params.append('email', formDatas.email);
+      params.append('mobileNumber', formDatas.mobileNumber);
+      params.append('address', formDatas.address);
+      params.append('pincode', formDatas.pincode);
+      params.append('city', formDatas.city);
+      params.append('state', formDatas.state);
+      params.append('panNumber', formDatas.panNumber);
+      params.append('amount', formDatas.amount);
+      params.append('bankAccount', formDatas.bankAccount);
+      params.append('agree', formDatas.agree ? "Agreed" : "Not Agreed");
+  
+      const response = await fetch(`${scriptUrl}?${params.toString()}`, {
+        method: 'POST',
+        mode: 'no-cors', // Important for bypassing CORS
+      });
+  
+      // Note: With 'no-cors' you can't read the response
+      console.log('Data sent to Google Sheet');
+    } catch (error) {
+      console.error('Error saving to Google Sheet:', error);
+    }
+  };
+
   const handlePaymentContinue = () => {
     // Submit to Web3Forms after payment confirmation
     fetch("https://api.web3forms.com/submit", {
@@ -46,7 +76,6 @@ const Donate = () => {
       },
       body: JSON.stringify({
         access_key: "528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c",
-        form_type: "Donation Form Submission", // Added form type identifier
         name: formDatas.fullName,
         dateOfBirth: formDatas.dateBirth,
         email: formDatas.email,
@@ -66,21 +95,24 @@ const Donate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          // Save to Google Sheet
+          saveToGoogleSheet();
+          
           setSubmitted(true);
           setShowUPIModal(false);
-          // Also save to your backend
-          axios
-            .post(`${process.env.REACT_APP_URL}`, {
-              ...formDatas,
-              form_type: "Donation Form" // Include form type in backend
-            })
-            .then((res) => {
-              console.log("Data saved to backend:", res);
-            })
-            .catch((error) => {
-              console.error("Failed to save data to backend:", error);
-            });
           
+          // Also save to your backend if needed
+          if (process.env.REACT_APP_URL) {
+            axios
+              .post(`${process.env.REACT_APP_URL}`, formDatas)
+              .then((res) => {
+                console.log("Data saved to backend:", res);
+              })
+              .catch((error) => {
+                console.error("Failed to save data to backend:", error);
+              });
+          }
+
           // Reset form
           setFormDatas({
             fullName: "",
@@ -116,18 +148,9 @@ const Donate = () => {
       <div className="donate-container">
         <h1 className="donate-title">Donation Form</h1>
 
-        <form onSubmit={handleSubmit} className="donate-form">
-          <input 
-            type="hidden" 
-            name="access_key" 
-            value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" 
-          />
-          <input 
-            type="hidden" 
-            name="form_type" 
-            value="Donation Form" 
-          />
-          
+   <form onSubmit={handleSubmit} className="donate-form">
+          <input type="hidden" name="access_key" value="528f1f6b-74ad-4fd4-8d86-3782f1d3ea5c" />
+
           {/* Form Fields */}
           <div className="donate-form-row">
             <div className="donate-form-group">
@@ -284,12 +307,12 @@ const Donate = () => {
 
         {/* UPI Payment Modal */}
         {showUPIModal && (
-          <div className="donate-modal">
+           <div className="donate-modal">
             <div className="donate-modal-content">
               <h2>Complete Your Payment</h2>
               <div className="upi-payment-container">
                 <p>Please scan the QR code or use the UPI ID below to complete your payment:</p>
-                
+
                 <div className="upi-details">
                   <div className="qr-code-placeholder">
                     <img src={scanner} alt="UPI QR Code" />
@@ -297,7 +320,7 @@ const Donate = () => {
                   <div className="upi-id">
                     <p>UPI ID:</p>
                     <p className="upi-id-value">UPID9873382338@kotak</p>
-                    <button 
+                    <button
                       className="copy-button"
                       onClick={() => {
                         navigator.clipboard.writeText('UPID9873382338@kotak');
@@ -308,15 +331,15 @@ const Donate = () => {
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="payment-buttons">
-                  <button 
+                  <button
                     className="payment-continue-button"
                     onClick={handlePaymentContinue}
                   >
                     I've Completed Payment
                   </button>
-                  <button 
+                  <button
                     className="payment-cancel-button"
                     onClick={() => setShowUPIModal(false)}
                   >
